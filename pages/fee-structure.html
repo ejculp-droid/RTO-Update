@@ -1,0 +1,2820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fee Structure | RTO Advisory</title>
+  <meta name="description" content="Transparent fee-based pricing for strategic advisory engagements." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why should I pay upfront fees instead of just a success fee?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Upfront retainers ensure our advice is objective and in your best interests, not influenced by the desire to close a transaction. Success fees alone create pressure to sell quickly rather than optimize timing and value."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I decide not to sell after the engagement?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "That is perfectly fine. Our goal is to provide objective, independent advice. If the analysis shows selling is not optimal, we will tell you and help you build value for a stronger exit when the timing is right."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What size companies do you work with?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We advise owners of established small businesses and middle-market companies with $2M-$100M in annual revenue and $1M-$20M in EBITDA. Whether the engagement involves a valuation, merger, or transaction, RTO Advisory is built to maximize your Return To Owner."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=block" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/variables.css" />
+  <link rel="stylesheet" href="../assets/css/reset.css" />
+  <link rel="stylesheet" href="../assets/css/typography.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
+  <style>
+    /* =========================================================
+       FEE STRUCTURE PAGE - FOURFOLD-STYLE INNER PAGE SKELETON
+       Light, editorial, airy, minimal, row-based
+       ========================================================= */
+
+    .fee-page {
+      background: var(--color-paper);
+      color: var(--color-ink-800);
+    }
+
+    .fee-page .site-header {
+      background: var(--color-header-bg);
+      border-bottom: 1px solid var(--color-header-line);
+      box-shadow: none;
+    }
+
+    .fee-page .site-header.is-scrolled {
+      box-shadow: 0 6px 18px var(--color-header-shadow);
+      border-bottom-color: var(--color-header-line-scrolled);
+    }
+
+    .fee-page .site-logo__wordmark,
+    .fee-page .main-nav-list a,
+    .fee-page .nav-dropdown-toggle {
+      color: var(--color-header-ink);
+    }
+
+    .fee-page .main-nav-list a.active,
+    .fee-page .main-nav-list a:hover {
+      background: rgba(var(--color-brand-rgb), 0.08);
+    }
+
+    /* Shared */
+    .fee-page .fee-section {
+      padding: 48px 0;
+    }
+
+    .fee-page .fee-hero + .fee-section {
+      padding-top: 12px;
+    }
+
+    .fee-page .fee-section--alt {
+      background: var(--color-paper);
+      padding-top: 12px;
+      padding-bottom: 48px;
+    }
+
+    .fee-page .section-heading {
+      margin-bottom: 2rem;
+    }
+
+    .fee-page .section-heading--tight {
+      grid-template-columns: 1fr;
+      max-width: 680px;
+    }
+
+    .fee-page .section-heading--tight h2 {
+      white-space: nowrap;
+    }
+
+    .fee-page .section-heading h2,
+    .fee-page .closing-block h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      line-height: 1.1;
+      color: var(--color-brand);
+      margin: 0;
+      max-width: 22ch;
+    }
+
+    .fee-page .contact-panel h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2vw, 1.75rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin: 0 0 0.45rem;
+      color: var(--color-brand);
+    }
+
+    .fee-page .contact-panel__content > p:not(.eyebrow) {
+      margin: 0;
+      max-width: 54ch;
+      white-space: normal;
+    }
+
+    .fee-page .contact-panel__content .eyebrow {
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.975rem;
+      color: #7a746c;
+      font-weight: 600;
+      margin: 0 0 1.25rem;
+    }
+
+    .fee-page .section-heading p,
+    .fee-page .contact-panel__content > p:not(.eyebrow),
+    .fee-page .editorial-intro p,
+    .fee-page .fee-item__left p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .section-heading p.section-heading__lead--lg {
+      font-size: 1.217rem;
+    }
+
+    .fee-page .retainer-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+      align-items: stretch;
+      margin-top: 2rem;
+    }
+
+    .fee-page .retainer-left {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .fee-page .fee-section--retainer {
+      padding-bottom: 88px;
+    }
+
+    .fee-page .fee-section--project {
+      padding-top: 20px;
+    }
+
+    .fee-page .retainer-left__image {
+      flex: 1 1 auto;
+      width: 100%;
+      min-height: 0;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 16px;
+      border: 1px solid rgba(31, 29, 26, 0.14);
+      background: #efe8dd;
+    }
+
+    .fee-page .retainer-right__eyebrow {
+      display: inline-block;
+      margin: 0 0 1rem;
+      font-size: 0.975rem;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a746c;
+    }
+
+    .fee-page .retainer-left__lead,
+    .fee-page .project-left__lead {
+      margin: 0 0 var(--space-5);
+      max-width: 56ch;
+    }
+
+    .fee-page .retainer-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-4);
+    }
+
+    .fee-page .retainer-card {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      user-select: none;
+      background: #fff;
+    }
+
+    .fee-page .retainer-card:focus {
+      outline: 2px solid var(--color-brand);
+      outline-offset: 2px;
+    }
+
+    .fee-page .retainer-card p {
+      font-family: var(--font-body);
+      font-size: 1.03rem;
+      line-height: 1.75;
+      font-weight: 400;
+      color: var(--color-ink-700);
+      letter-spacing: 0;
+      margin: 0 0 auto;
+    }
+
+    .fee-page .retainer-card__link {
+      font-family: var(--font-body);
+      font-size: var(--text-lg);
+      line-height: 1.6;
+      font-weight: 400;
+      color: var(--color-brand);
+      text-decoration: none;
+      border-bottom: none;
+      display: inline-block;
+      margin-top: var(--space-3);
+    }
+
+    .fee-page .retainer-card__link:hover {
+      text-decoration: none;
+    }
+
+    .fee-page .retainer-modal-scrim {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(18, 43, 45, 0.45);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-out;
+      z-index: 999;
+    }
+
+    .fee-page .retainer-modal-scrim.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .fee-page .retainer-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: min(680px, 92vw);
+      max-width: 92vw;
+      z-index: 1000;
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(0.95);
+      transition: all 0.2s ease-out;
+      overflow: auto;
+      max-height: 90vh;
+    }
+
+    .fee-page .retainer-modal[aria-hidden="false"] {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .fee-page .retainer-modal__content {
+      padding: var(--space-6);
+      position: relative;
+    }
+
+    .fee-page .retainer-modal__close {
+      position: absolute;
+      top: var(--space-4);
+      right: var(--space-4);
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 0;
+      color: var(--color-ink-500);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .fee-page .retainer-modal h3 {
+      margin: 0 0 var(--space-3);
+      color: var(--color-brand);
+    }
+
+    .fee-page .retainer-modal__meta {
+      margin: 0 0 var(--space-4);
+      font-size: var(--text-sm);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-ink-500);
+      font-weight: 600;
+    }
+
+    .fee-page .retainer-modal__divider {
+      border: 0;
+      border-top: 1px solid var(--color-line);
+      margin: var(--space-4) 0;
+    }
+
+    .fee-page .retainer-modal__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: var(--space-2);
+    }
+
+    .fee-page .retainer-modal__list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .retainer-modal__list li::before {
+      content: "✓";
+      color: var(--color-brand);
+      font-weight: 600;
+      line-height: 1.2;
+      transform: translateY(0.08em);
+    }
+
+    .fee-page .project-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+      align-items: stretch;
+      margin-top: 2rem;
+    }
+
+    .fee-page .project-left {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .fee-page .project-left__image {
+      flex: 1 1 auto;
+      width: 100%;
+      min-height: 0;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 16px;
+      border: 1px solid rgba(31, 29, 26, 0.14);
+      background: #efe8dd;
+    }
+
+    .fee-page .project-right__eyebrow {
+      display: none;
+    }
+
+    .fee-page .project-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-4);
+    }
+
+    .fee-page .project-card {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      user-select: none;
+      background: #fff;
+    }
+
+    .fee-page .project-card:focus {
+      outline: 2px solid var(--color-brand);
+      outline-offset: 2px;
+    }
+
+    .fee-page .project-card p {
+      font-family: var(--font-body);
+      font-size: 1.03rem;
+      line-height: 1.75;
+      font-weight: 400;
+      color: var(--color-ink-700);
+      letter-spacing: 0;
+      margin: 0 0 auto;
+    }
+
+    .fee-page .project-card__link {
+      font-family: var(--font-body);
+      font-size: var(--text-lg);
+      line-height: 1.6;
+      font-weight: 400;
+      color: var(--color-brand);
+      text-decoration: none;
+      border-bottom: none;
+      display: inline-block;
+      margin-top: var(--space-3);
+    }
+
+    .fee-page .retainer-cards p > a,
+    .fee-page .retainer-cards p > a:visited,
+    .fee-page .retainer-cards p > a:hover,
+    .fee-page .project-cards p > a,
+    .fee-page .project-cards p > a:visited,
+    .fee-page .project-cards p > a:hover {
+      color: var(--color-brand);
+    }
+
+    .fee-page .project-card__link:hover {
+      text-decoration: none;
+    }
+
+    .fee-page .project-modal-scrim {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(18, 43, 45, 0.45);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-out;
+      z-index: 999;
+    }
+
+    .fee-page .project-modal-scrim.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .fee-page .project-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: min(680px, 92vw);
+      max-width: 92vw;
+      z-index: 1000;
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(0.95);
+      transition: all 0.2s ease-out;
+      overflow: auto;
+      max-height: 90vh;
+    }
+
+    .fee-page .project-modal[aria-hidden="false"] {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .fee-page .project-modal__content {
+      padding: var(--space-6);
+      position: relative;
+    }
+
+    .fee-page .project-modal__close {
+      position: absolute;
+      top: var(--space-4);
+      right: var(--space-4);
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 0;
+      color: var(--color-ink-500);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .fee-page .project-modal h3 {
+      margin: 0 0 var(--space-3);
+      color: var(--color-brand);
+    }
+
+    .fee-page .project-modal__meta {
+      margin: 0 0 var(--space-4);
+      font-size: var(--text-sm);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-ink-500);
+      font-weight: 600;
+    }
+
+    .fee-page .project-modal__divider {
+      border: 0;
+      border-top: 1px solid var(--color-line);
+      margin: var(--space-4) 0;
+    }
+
+    .fee-page .project-modal__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: var(--space-2);
+    }
+
+    .fee-page .project-modal__list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .project-modal__list li::before {
+      content: "✓";
+      color: var(--color-brand);
+      font-weight: 600;
+      line-height: 1.2;
+      transform: translateY(0.08em);
+    }
+
+    .fee-page .fee-hero__eyebrow,
+    .fee-page .closing-block__eyebrow,
+    .fee-page .contact-panel__eyebrow {
+      display: inline-block;
+      margin-bottom: 1.25rem;
+      font-size: 0.975rem;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a746c;
+    }
+
+    /* Hero */
+    .fee-page .fee-hero {
+      padding: 36px 0 24px;
+      background: var(--color-paper);
+    }
+
+    .fee-page .fee-hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .fee-page .fee-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 4.6vw, 4.6rem);
+      line-height: 0.96;
+      letter-spacing: -0.02em;
+      max-width: 14ch;
+      margin: 0 0 1rem;
+      color: var(--color-brand);
+    }
+
+    .fee-page .fee-hero__lead {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .fee-hero__visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 560px;
+      height: 540px;
+      margin: 0 auto;
+      padding: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      overflow: hidden;
+    }
+    .fee-page .fee-hero__image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      background: transparent;
+      border-radius: 0;
+      mix-blend-mode: multiply;
+    }
+
+    /* Intro */
+    .fee-page .fee-section--intro {
+      padding: 60px 0;
+    }
+
+    .fee-page .editorial-intro {
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-line);
+    }
+
+    .fee-page .editorial-intro p {
+      margin: 0;
+      font-size: 1.15rem;
+      color: var(--color-ink-700);
+    }
+
+    /* Fee schedule */
+    .fee-page .fee-schedule {
+      border-top: 1px solid var(--color-line);
+    }
+
+    .fee-page .fee-item {
+      border-bottom: 1px solid var(--color-line);
+    }
+
+    .fee-page .fee-item__toggle {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: start;
+      padding: 1.8rem 0;
+      background: transparent;
+      border: 0;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .fee-page .fee-item__summary {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 220px;
+      gap: 2rem;
+      width: 100%;
+      align-items: start;
+    }
+
+    .fee-page .fee-item__left h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2vw, 1.75rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 500;
+      color: var(--color-brand);
+      margin: 0 0 0.45rem;
+    }
+
+    .fee-page .fee-item__left p {
+      margin: 0;
+      max-width: 54ch;
+    }
+
+    .fee-page .fee-item__right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.3rem;
+      padding-top: 0.15rem;
+    }
+
+    .fee-page .fee-item__label {
+      font-size: 0.78rem;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      color: var(--color-ink-500);
+    }
+
+    .fee-page .fee-item__amount {
+      font-size: 1rem;
+      line-height: 1.35;
+      font-weight: 500;
+      color: var(--color-ink-800);
+    }
+
+    .fee-page .fee-item__icon,
+    .fee-page .faq-item__icon {
+      position: relative;
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-top: 0.35rem;
+      flex-shrink: 0;
+    }
+
+    .fee-page .fee-item__icon::before,
+    .fee-page .fee-item__icon::after,
+    .fee-page .faq-item__icon::before,
+    .fee-page .faq-item__icon::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      background: var(--color-ink-700);
+      transform: translate(-50%, -50%);
+      transition: transform 220ms ease, opacity 220ms ease;
+    }
+
+    .fee-page .fee-item__icon::before,
+    .fee-page .faq-item__icon::before {
+      width: 14px;
+      height: 1.5px;
+    }
+
+    .fee-page .fee-item__icon::after,
+    .fee-page .faq-item__icon::after {
+      width: 1.5px;
+      height: 14px;
+    }
+
+    .fee-page .fee-item.is-open .fee-item__icon::after {
+      opacity: 0;
+      transform: translate(-50%, -50%) scaleY(0.25);
+    }
+
+    .fee-page .faq-item__icon {
+      transition: transform 220ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fee-page .faq-item.is-open .faq-item__icon {
+      transform: rotate(45deg);
+    }
+
+    .fee-page .fee-item__details {
+      display: none;
+      padding: 0 0 1.8rem;
+    }
+
+    .fee-page .fee-item.is-open .fee-item__details {
+      display: block;
+    }
+
+    .fee-page .fee-item__details ul,
+    .fee-page .closing-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .fee-page .fee-item__details li,
+    .fee-page .closing-list li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 56px;
+      padding: 0.9rem 1rem;
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: var(--color-ink-700);
+      background: var(--color-surface);
+      border: 1px solid var(--color-line);
+      border-radius: 10px;
+      box-shadow: inset 0 1px 0 var(--color-paper);
+    }
+
+    .fee-page .fee-item__details li::before,
+    .fee-page .closing-list li::before {
+      display: none;
+      content: none;
+    }
+
+    .fee-page .closing-list {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .fee-page .fee-item__details ul.detail-grid--1 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.7rem;
+      max-width: 720px;
+      width: min(100%, 720px);
+      margin-inline: auto;
+    }
+
+    .fee-page .fee-item__details ul.detail-grid--2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem 0.85rem;
+      max-width: 760px;
+      width: min(100%, 760px);
+      margin-inline: auto;
+    }
+
+    .fee-page .fee-item__details ul.detail-grid--3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem 0.85rem;
+      max-width: 980px;
+      width: min(100%, 980px);
+      margin-inline: auto;
+    }
+
+    /* ── Comparison Preview ── */
+
+
+    .fee-page .cmp-preview__col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .fee-page .cmp-preview__cta {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .fee-page .cmp-preview__btn {
+      min-height: 56px;
+      min-width: 240px;
+      padding-inline: 1.75rem;
+      border-radius: 16px;
+      border: 1px solid rgba(15, 46, 42, 0.34);
+      background: #e2e6e5;
+      color: var(--color-brand);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      box-shadow: none;
+      cursor: pointer;
+      transition: background-color 180ms ease, color 180ms ease;
+      transform: none;
+    }
+
+    .fee-page .cmp-preview__btn:hover {
+      background: #cdd3d2;
+      color: var(--color-brand);
+      transform: none;
+    }
+
+    .fee-page .compare-modal-scrim {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(18, 43, 45, 0.45);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-out;
+      z-index: 999;
+    }
+
+    .fee-page .compare-modal-scrim.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .fee-page .compare-modal {
+      position: fixed;
+      z-index: 1000;
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid var(--color-line);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.95);
+      transition: all 0.2s ease-out;
+      overflow: auto;
+      max-height: 90vh;
+    }
+
+    .fee-page .compare-modal[aria-hidden="false"] {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+
+    @media (min-width: 1024px) {
+      .fee-page .compare-modal {
+        top: 52%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.95);
+        width: min(96vw, 1320px);
+        height: min(78vh, 760px);
+      }
+
+      .fee-page .compare-modal[aria-hidden="false"] {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    @media (min-width: 641px) and (max-width: 1023px) {
+      .fee-page .compare-modal {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.95);
+        width: 92vw;
+        height: min(82vh, 760px);
+        max-width: 92vw;
+      }
+
+      .fee-page .compare-modal[aria-hidden="false"] {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .fee-page .compare-modal {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        height: min(88vh, 760px);
+        border-radius: 12px 12px 0 0;
+        transform: translateY(100%);
+      }
+
+      .fee-page .compare-modal[aria-hidden="false"] {
+        transform: translateY(0);
+      }
+    }
+
+    .fee-page .compare-modal__content {
+      padding: var(--space-6);
+      position: relative;
+      min-height: 100%;
+    }
+
+    .fee-page .compare-modal__title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      line-height: 1.1;
+      color: var(--color-brand);
+      margin: 0 0 1rem;
+      padding-right: 2.5rem;
+    }
+
+    .fee-page .compare-modal__close {
+      position: absolute;
+      top: var(--space-4);
+      right: var(--space-4);
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 0;
+      color: var(--color-ink-500);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .fee-page .compare-modal__grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 0.2rem;
+      height: 100%;
+    }
+
+    .fee-page .compare-modal__panel {
+      border: 1px solid rgba(31, 29, 26, 0.18);
+      border-radius: 22px;
+      background: #fff;
+      padding: 1.2rem 1.35rem 1.3rem;
+    }
+
+    .fee-page .compare-modal__panel .fee-hero__eyebrow {
+      display: block;
+      margin: 0 0 1.45rem;
+      white-space: nowrap;
+      font-size: 0.9rem;
+      letter-spacing: 0.11em;
+    }
+
+    .fee-page .compare-modal__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.88rem;
+    }
+
+    .fee-page .compare-modal__row {
+      display: grid;
+      grid-template-columns: minmax(200px, 260px) minmax(0, 1fr);
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .fee-page .compare-modal__row--spaced {
+      margin-top: 0.7rem;
+    }
+
+    .fee-page .compare-modal__term {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2vw, 1.75rem);
+      line-height: 1.08;
+      color: var(--color-brand);
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .fee-page .compare-modal__value {
+      margin: 0;
+      color: var(--color-ink-700);
+      line-height: 1.6;
+      padding-top: 0.15rem;
+    }
+
+    @media (max-width: 1200px) {
+      .fee-page .compare-modal__row {
+        grid-template-columns: minmax(180px, 230px) minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .fee-page .compare-modal__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fee-page .compare-modal__term {
+        white-space: normal;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .fee-page .compare-modal__row {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+      }
+    }
+
+    .fee-page .cmp-preview__col img {
+      width: 100%;
+      display: block;
+      transition: opacity 200ms ease;
+    }
+
+    .fee-page .cmp-preview__image-wrap {
+      position: relative;
+      width: 100%;
+    }
+
+    .fee-page .cmp-preview__hover-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid rgba(31, 29, 26, 0.18);
+      border-radius: 16px;
+      padding: 1.2rem 1.35rem 1.3rem;
+      opacity: 0;
+      transform: translateY(6px);
+      pointer-events: none;
+      transition: opacity 200ms ease, transform 200ms ease;
+      z-index: 2;
+    }
+
+    @media (hover: hover) {
+      .fee-page .cmp-preview__col:hover .cmp-preview__hover-card,
+      .fee-page .cmp-preview__col:focus-within .cmp-preview__hover-card {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+    }
+
+    .fee-page .cmp-preview__hover-card .fee-hero__eyebrow {
+      display: block;
+      margin: 0 0 1.45rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.09em;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .fee-page .cmp-preview__hover-card .compare-modal__list {
+      gap: 0.88rem;
+    }
+
+    .fee-page .cmp-preview__hover-card .compare-modal__row {
+      grid-template-columns: minmax(140px, 180px) minmax(0, 1fr);
+      gap: 1rem;
+    }
+
+    .fee-page .cmp-preview__hover-card .compare-modal__term {
+      font-size: clamp(1.1rem, 1.4vw, 1.45rem);
+      line-height: 1.08;
+      white-space: normal;
+    }
+
+    .fee-page .cmp-preview__hover-card .compare-modal__value {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      padding-top: 0.1rem;
+    }
+
+    .fee-page .cmp-preview__images {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .fee-page .cmp-preview__images .cmp-preview__col {
+      width: 42%;
+    }
+
+    /* ── Comparison Section (rebuilt) ── */
+    .fee-page .fee-section--comparison {
+      padding: 80px 0;
+      display: none;
+    }
+
+    .fee-page .fee-section--comparison.visible {
+      display: block;
+    }
+
+    .fee-page .cmp-heading {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      line-height: 1.1;
+      color: var(--color-brand);
+      margin: 0 0 2.5rem;
+      background: none;
+    }
+
+    /* Two comparison cards */
+    .fee-page .cmp-cols {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .fee-page .comparison-row {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .fee-page .comparison-image {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: var(--radius-lg, 16px);
+    }
+
+    .fee-page .comparison-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Panel card */
+    .fee-page .comparison-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--color-line);
+      border-radius: 20px;
+      background: var(--color-surface);
+      padding: calc(var(--space-5) * 0.85);
+      box-shadow: var(--shadow-sm);
+      min-width: 0;
+    }
+
+    .fee-page .comparison-card .cmp-col__header {
+      position: static;
+      text-align: left;
+      margin: 0 0 0.94rem;
+      padding: 0;
+      background: none;
+    }
+
+    .fee-page .cmp-col__eyebrow {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a746c;
+      background: none;
+      margin: 0 0 0.35rem;
+    }
+
+    .fee-page .cmp-col__subhead {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--color-ink-700);
+      background: none;
+      margin: 0;
+    }
+
+    /* Label/description grid */
+    .fee-page .comparison-card .cmp-col__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      row-gap: 0.8rem;
+    }
+
+    .fee-page .comparison-card .cmp-col__list li {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      column-gap: 1.5rem;
+      align-items: start;
+      padding-block: 0.08rem;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .comparison-card .cmp-col__list li::before {
+      content: none;
+      display: none;
+    }
+
+    .fee-page .comparison-card .cmp-col__list strong {
+      display: block;
+      width: auto;
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 1.1;
+      color: var(--color-brand);
+      font-weight: 600;
+      letter-spacing: 0;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .fee-page .comparison-card .cmp-col__label--display {
+      display: block;
+      width: auto;
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 1.1;
+      color: var(--color-brand);
+      font-weight: 600;
+      letter-spacing: 0;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .fee-page .comparison-card .cmp-col__list li .rto_med {
+      display: block;
+      font-size: 1.03rem;
+      line-height: 1.75;
+    }
+
+    .fee-page .closing-block__header-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 0.45rem;
+      margin: 0 0 0.75rem;
+      flex-wrap: nowrap;
+    }
+
+    .fee-page .closing-block__header-line .closing-block__eyebrow {
+      margin: 0;
+      display: inline;
+      white-space: nowrap;
+    }
+
+    .fee-page .closing-block__eyebrow--xl {
+      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+      font-size: clamp(1.3rem, 2vw, 1.75rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 500;
+      color: var(--color-ink-700);
+      text-transform: none;
+    }
+
+    .fee-page .closing-block__divider {
+      display: inline;
+      color: var(--color-ink-500);
+      font-size: 0.78rem;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+    }
+
+    .fee-page .comparison-panel__divider {
+      display: none;
+    }
+
+    /* FAQ */
+    .fee-page .faq-section__eyebrow {
+      font-size: 0.975rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+      color: #7a746c;
+      margin: 0 0 0.95rem;
+    }
+
+    .fee-page .faq-list {
+      border-top: 1px solid var(--color-line);
+    }
+
+    .fee-page .faq-item {
+      border-bottom: 1px solid var(--color-line);
+    }
+
+    .fee-page .faq-item__question {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      padding: 1.4rem 0;
+      background: transparent;
+      border: 0;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .fee-page .faq-item__question:focus-visible {
+      outline: 2px solid var(--color-brand);
+      outline-offset: 4px;
+    }
+
+    .fee-page .faq-item__question-text {
+      font-size: 1.1rem;
+      line-height: 1.45;
+      font-weight: 500;
+      color: var(--color-brand);
+      transition: color 180ms ease;
+    }
+
+    .fee-page .faq-item.is-open .faq-item__question-text {
+      color: var(--color-ink-800);
+    }
+
+    /* FAQ answer */
+    .fee-page .faq-item__answer {
+      overflow: hidden;
+      height: 0;
+      opacity: 0;
+      padding: 0;
+      transition:
+        height 280ms cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 180ms ease-out 50ms;
+    }
+
+    .fee-page .faq-item.is-open .faq-item__answer {
+      opacity: 1;
+    }
+
+    .fee-page .faq-item__answer-panel {
+      display: block;
+      min-height: 0;
+      padding: 0 0 1.2rem;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+    }
+
+    .fee-page .faq-item__answer-panel p {
+      margin: 0;
+      text-align: left;
+      max-width: 62ch;
+      line-height: 1.65;
+      color: var(--color-ink-700);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fee-page .faq-item__answer,
+      .fee-page .faq-item__icon,
+      .fee-page .faq-item__question-text {
+        transition: none;
+      }
+    }
+
+    .fee-item__details li,
+    .detail-grid li {
+      display: grid !important;
+      place-items: center !important;
+      text-align: center !important;
+      min-height: 56px !important;
+      width: 100%;
+      padding: 0.9rem 1rem !important;
+    }
+
+    .fee-item__details li,
+    .detail-grid li {
+      white-space: normal;
+      word-break: normal;
+      overflow-wrap: break-word;
+      max-width: 100%;
+      text-transform: capitalize;
+    }
+
+    /* Closing */
+    .fee-page .fee-section--faq {
+      padding: 12px 0 48px;
+    }
+
+    .fee-page .fee-section--closing {
+      padding: 12px 0 48px;
+    }
+
+    .fee-page .closing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 420px));
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .fee-page .closing-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-line);
+    }
+
+    .fee-page .closing-list {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .fee-page .closing-item__toggle {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0 0 0.95rem;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .fee-page .closing-item__toggle-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      text-align: center;
+    }
+
+    .fee-page .closing-item__subhead {
+      font-size: 0.78rem;
+      line-height: 1;
+      font-weight: 600;
+      color: var(--color-ink-500);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .fee-page .closing-item__icon {
+      position: relative;
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
+    }
+
+    .fee-page .closing-item__icon::before,
+    .fee-page .closing-item__icon::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      background: var(--color-ink-700);
+      transform: translate(-50%, -50%);
+      transition: transform 220ms ease, opacity 220ms ease;
+    }
+
+    .fee-page .closing-item__icon::before {
+      width: 12px;
+      height: 1.5px;
+    }
+
+    .fee-page .closing-item__icon::after {
+      width: 1.5px;
+      height: 12px;
+    }
+
+    .fee-page .closing-item__details {
+      display: none;
+      width: 100%;
+    }
+
+    .fee-page .closing-item--start .closing-item__details {
+      background: var(--color-surface);
+      border: 1px solid var(--color-line);
+      border-radius: 12px;
+      padding: 0.9rem 0.85rem;
+    }
+
+    .fee-page .closing-item--process .closing-item__details {
+      background: var(--color-surface);
+      border: 1px solid var(--color-line);
+      border-radius: 12px;
+      padding: 0.9rem 0.85rem;
+    }
+
+    .fee-page .closing-item.is-open .closing-item__details {
+      display: block;
+    }
+
+    .fee-page .closing-item.is-open .closing-item__icon::after {
+      opacity: 0;
+      transform: translate(-50%, -50%) scaleY(0.25);
+    }
+
+    .fee-page .closing-list.closing-list--plain {
+      display: grid;
+      gap: 0.5rem;
+      margin: 0 auto;
+      max-width: 520px;
+    }
+
+    .fee-page .closing-list.closing-list--plain li {
+      display: block !important;
+      min-height: 0 !important;
+      padding: 0 !important;
+      margin: 0;
+      background: transparent !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      text-align: center !important;
+      color: var(--color-ink-700);
+      line-height: 1.5;
+    }
+
+    .fee-page .closing-list-with-side-label {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.75rem;
+      align-items: stretch;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .fee-page .closing-side-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--color-ink-500);
+      white-space: nowrap;
+    }
+
+    .fee-page .closing-list-with-side-label .closing-list {
+      max-width: 100%;
+    }
+
+    .fee-page .closing-list-with-side-label--right {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .fee-page .closing-list-with-side-label--right .closing-side-label {
+      transform: none;
+    }
+
+    .fee-page .contact-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 2rem;
+      align-items: center;
+      padding: 2rem;
+      border: 1px solid var(--color-line);
+      border-radius: 20px;
+      background: var(--color-surface);
+    }
+
+    .fee-page .contact-panel__content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .fee-page .contact-panel__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.5rem;
+      justify-self: end;
+    }
+
+    .fee-page .contact-link {
+      color: var(--color-brand);
+      text-decoration: none;
+      font-size: 1.05rem;
+      line-height: 1.4;
+      font-weight: 500;
+      border-bottom: 1px solid var(--color-line);
+      padding-bottom: 0.15rem;
+      transition: opacity 180ms ease, border-color 180ms ease;
+    }
+
+    .fee-page .contact-link:hover {
+      opacity: 0.68;
+      border-color: var(--color-ink-500);
+    }
+
+    .fee-page .start-intake-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.72rem 1.1rem;
+      border-radius: 12px;
+      border: 1px solid var(--color-brand);
+      background: var(--color-brand);
+      color: var(--color-paper);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: opacity 180ms ease, background-color 180ms ease;
+    }
+
+    .fee-page .start-intake-btn:hover {
+      opacity: 0.9;
+      background: var(--color-brand-strong);
+    }
+
+    /* Hover / interaction restraint */
+    .fee-page .fee-item__toggle:hover h3,
+    .fee-page .faq-item__question:hover span:first-child {
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .fee-item__toggle,
+    .fee-page .faq-item__question,
+    .fee-page .contact-link {
+      transition: opacity 180ms ease, color 180ms ease;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .fee-page .retainer-layout {
+        grid-template-columns: 1fr;
+        row-gap: var(--space-6);
+        column-gap: 0;
+      }
+
+      .fee-page .project-layout {
+        grid-template-columns: 1fr;
+        row-gap: var(--space-6);
+        column-gap: 0;
+      }
+
+      .fee-page .retainer-left__image {
+        height: auto;
+      }
+
+      .fee-page .project-left__image {
+        height: auto;
+      }
+
+      .fee-page .retainer-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .fee-page .project-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .fee-page .fee-hero__grid,
+      .fee-page .section-heading,
+      .fee-page .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .fee-page .closing-grid {
+        grid-template-columns: 1fr;
+        justify-content: stretch;
+      }
+
+      .fee-page .closing-block {
+        align-items: stretch;
+        text-align: center;
+      }
+
+      .fee-page .closing-list {
+        max-width: 100%;
+      }
+
+      .fee-page .closing-list-with-side-label {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+
+      .fee-page .closing-side-label {
+        writing-mode: horizontal-tb;
+        transform: none;
+        justify-content: center;
+        margin-bottom: 0.2rem;
+      }
+
+      .fee-page .fee-item__summary {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+
+      .fee-page .fee-item__toggle {
+        grid-template-columns: 1fr auto;
+        align-items: start;
+      }
+
+      .fee-page .fee-hero__visual {
+        width: 100%;
+        max-width: 100%;
+        min-height: 459px;
+        margin-top: 1.5rem;
+      }
+
+      .fee-page .contact-panel__content > p {
+        white-space: normal;
+      }
+
+      .fee-page .retainer-modal {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.95);
+        width: 92vw;
+        max-width: 92vw;
+      }
+
+      .fee-page .retainer-modal[aria-hidden="false"] {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .fee-page .project-modal {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.95);
+        width: 92vw;
+        max-width: 92vw;
+      }
+
+      .fee-page .project-modal[aria-hidden="false"] {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .fee-page .comparison-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .fee-page .comparison-image {
+        width: 100%;
+        height: auto;
+        max-width: none;
+        aspect-ratio: 4 / 3;
+      }
+
+      .fee-page .comparison-card .cmp-col__content {
+        padding: 0;
+      }
+
+      .fee-page .comparison-card .cmp-col__header {
+        margin-bottom: 1rem;
+      }
+
+      .fee-page .comparison-card .cmp-col__list li {
+        grid-template-columns: 1fr;
+        row-gap: 0.2rem;
+      }
+
+      .fee-page .comparison-card .cmp-col__list strong {
+        width: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .fee-page .fee-hero {
+        padding: 32px 0 24px;
+      }
+
+      .fee-page .fee-section {
+        padding: 48px 0;
+      }
+
+      .fee-page .fee-item__toggle,
+      .fee-page .faq-item__question {
+        padding: 1.2rem 0;
+      }
+
+      .fee-page .fee-item__details ul {
+        grid-template-columns: 1fr;
+      }
+
+      .fee-page .fee-item__details ul.detail-grid--1,
+      .fee-page .fee-item__details ul.detail-grid--2,
+      .fee-page .fee-item__details ul.detail-grid--3 {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+
+      .fee-page .closing-list {
+        max-width: 100%;
+      }
+
+      .fee-page .contact-panel {
+        padding: 1.4rem;
+      }
+
+      .fee-page .contact-panel__actions {
+        transform: none;
+      }
+
+      .fee-page .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fee-page .footer-bottom {
+        flex-direction: column;
+      }
+
+      .fee-page .retainer-modal {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 12px 12px 0 0;
+        transform: translateY(100%);
+      }
+
+      .fee-page .retainer-modal[aria-hidden="false"] {
+        transform: translateY(0);
+      }
+
+      .fee-page .project-modal {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 12px 12px 0 0;
+        transform: translateY(100%);
+      }
+
+      .fee-page .project-modal[aria-hidden="false"] {
+        transform: translateY(0);
+      }
+
+      .fee-page .sources-modal {
+        width: min(100vw, calc(100vw - 20px));
+      }
+
+      .fee-page .sources-modal__header,
+      .fee-page .sources-modal__body {
+        padding-inline: 1.15rem;
+      }
+    }
+
+    .fee-page .sources-modal {
+      width: min(780px, calc(100vw - 48px));
+      max-width: 100vw;
+      max-height: min(86vh, 920px);
+      border: 0;
+      padding: 0;
+      background: transparent;
+    }
+
+    .fee-page .sources-modal::backdrop {
+      background: rgba(15, 46, 42, 0.52);
+    }
+
+    .fee-page .sources-modal__panel {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+      max-height: min(86vh, 920px);
+      border: 1px solid rgba(15, 46, 42, 0.12);
+      border-radius: 24px;
+      background: #f8f3ea;
+      box-shadow: 0 28px 48px rgba(15, 46, 42, 0.18);
+    }
+
+    .fee-page .sources-modal__header {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.6rem 1.75rem 1.1rem;
+      border-bottom: 1px solid rgba(15, 46, 42, 0.1);
+    }
+
+    .fee-page .sources-modal__header h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.35rem);
+      line-height: 1.05;
+      color: var(--color-brand);
+    }
+
+    .fee-page .sources-modal__close {
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(15, 46, 42, 0.08);
+      color: var(--color-brand);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .fee-page .sources-modal__body {
+      overflow: auto;
+      padding: 1.35rem 1.75rem 1.7rem;
+    }
+
+    .fee-page .sources-modal__list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0;
+    }
+
+    .fee-page .sources-modal__list li {
+      padding: 1rem 0;
+      border-top: 1px solid rgba(15, 46, 42, 0.1);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .sources-modal__list li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+  </style>
+</head>
+<body class="fee-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="../index.html"><img src="../assets/images/favicon.png" alt="RTO" /><span class="site-logo__wordmark">RTO Advisory</span></a>
+      <button class="mobile-toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+      <nav class="main-nav" aria-label="Primary">
+        <ul class="main-nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="why-rto.html">Why RTO?</a></li>
+          <li class="has-dropdown">
+            <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+              Services <span class="nav-caret" aria-hidden="true">▾</span>
+            </button>
+            <ul class="nav-dropdown-menu" role="menu">
+              <li><a role="menuitem" href="services/exit-readiness.html">Exit Readiness Assessment</a></li>
+              <li><a role="menuitem" href="services/value-optimization.html">Strategic Value Optimization</a></li>
+              <li><a role="menuitem" href="services/transaction-advisory.html">Transaction Advisory &amp; Management</a></li>
+              <li><a role="menuitem" href="services/succession-planning.html">Succession Planning</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a class="active" href="fee-structure.html">Fee Structure</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="fee-hero">
+      <div class="container fee-hero__grid">
+        <div class="fee-hero__copy">
+          <p class="fee-hero__eyebrow">Return To Owner Advisory - Fee Structure</p>
+            <h1 class="fee-hero__title">Transparent, Fee-Based Pricing</h1>
+            <p class="fee-hero__lead rto_body">
+              Unlike traditional commission-based business brokers, <br> Return To Owner Advisory
+              operates on a transparent <br>fee-based model that eliminates conflicts of interest
+              and <br>ensures all recommendations are purely in your best interests.
+            </p>
+          </div>
+          <div class="fee-hero__visual">
+            <img src="../assets/images/Feebased_topright.png" alt="RTO Advisory editorial illustration" class="fee-hero__image" loading="eager" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fee-section fee-section--retainer">
+      <div class="container">
+         <p class="fee-hero__eyebrow">How We Support</p>
+        <div class="section-heading">
+          <h2>Retainer-Based Engagements</h2>
+        </div>
+
+        <div class="retainer-layout">
+          <div class="retainer-left">
+            <p class="retainer-left__lead rto_body_medium">Long-range and transaction-specific advisory engagements structured around scope,
+              complexity, and the level of strategic involvement required.
+            </p>
+            <img src="../assets/images/Feebased_Retainer.png" alt="Retainer engagement overview illustration" class="retainer-left__image" loading="lazy" decoding="async" />
+          </div>
+
+          <div class="retainer-right">
+
+            <div class="retainer-cards">
+              <article class="retainer-card card" data-retainer="1" tabindex="0" role="button" aria-expanded="false" aria-label="RTO Exit Readiness Index™ Assessment">
+                <h3>RTO Exit Readiness Index™ Assessment</h3>
+                <p class="rto_body_medium">A six-domain readiness diagnostic that establishes your baseline score, key gaps, and the roadmap to close them.</p>
+                <p><a href="pages/services/succession-planning.html">Explore Service &#8594;</a></p>
+              </article>
+
+              <article class="retainer-card card" data-retainer="2" tabindex="0" role="button" aria-expanded="false" aria-label="Strategic Exit Planning (Multi-Year)">
+                <h3>Strategic Exit Planning</h3>
+                <p class="rto_body_medium"><br>Long-horizon advisory for owners targeting stronger valuation outcomes over time.</p>
+                <p aria-hidden="true">&nbsp;</p>
+                <p><a href="pages/services/strategic-exit-planning.html">Explore Service &#8594;</a></p>
+              </article>
+
+              <article class="retainer-card card" data-retainer="3" tabindex="0" role="button" aria-expanded="false" aria-label="M&amp;A Transaction Advisory">
+                <h3>M&amp;A Transaction Advisory</h3>
+                <p class="rto_body_medium">Execution-focused guidance for active transaction processes and diligence phases.</p>
+                <p><a href="pages/services/ma-transaction-advisory.html">Explore Service &#8594;</a></p>
+              </article>
+
+              <article class="retainer-card card" data-retainer="4" tabindex="0" role="button" aria-expanded="false" aria-label="Monthly Advisory Retainers">
+                <h3>Monthly Advisory Retainers</h3>
+                <p class="rto_body_medium">Ongoing strategic support for owners requiring regular advisory cadence.</p>
+                <p><a href="pages/services/monthly-advisory-retainers.html">Explore Service &#8594;</a></p>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="retainer-modal-scrim" id="retainer-modal-scrim"></div>
+        <div class="retainer-modal" data-retainer="1" role="dialog" aria-hidden="true" aria-labelledby="retainer-modal-title-1">
+          <div class="retainer-modal__content">
+            <button class="retainer-modal__close" aria-label="Close">×</button>
+            <h3 id="retainer-modal-title-1">RTO Exit Readiness Index™ Assessment</h3>
+            <p class="retainer-modal__meta">Retainer Fee • Provided Upon Request</p>
+            <hr class="retainer-modal__divider" />
+            <ul class="retainer-modal__list">
+              <li>Six-domain readiness diagnostic with weighted scoring</li>
+              <li>Overall Index score and buyer-style heat map</li>
+              <li>Priority actions and a 3-5 year improvement roadmap</li>
+              <li>Timeline: 4-6 weeks</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="retainer-modal" data-retainer="2" role="dialog" aria-hidden="true" aria-labelledby="retainer-modal-title-2">
+          <div class="retainer-modal__content">
+            <button class="retainer-modal__close" aria-label="Close">×</button>
+            <h3 id="retainer-modal-title-2">Strategic Exit Planning (Multi-Year)</h3>
+            <p class="retainer-modal__meta">Retainer Fee • Provided Upon Request</p>
+            <hr class="retainer-modal__divider" />
+            <ul class="retainer-modal__list">
+              <li>Multi-year value optimization program</li>
+              <li>Quarterly strategic reviews</li>
+              <li>Transaction readiness preparation</li>
+              <li>Timeline: 2-4 years</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="retainer-modal" data-retainer="3" role="dialog" aria-hidden="true" aria-labelledby="retainer-modal-title-3">
+          <div class="retainer-modal__content">
+            <button class="retainer-modal__close" aria-label="Close">×</button>
+            <h3 id="retainer-modal-title-3">M&amp;A Transaction Advisory</h3>
+            <p class="retainer-modal__meta">Retainer Fee • Provided Upon Request</p>
+            <hr class="retainer-modal__divider" />
+            <ul class="retainer-modal__list">
+              <li>Full transaction process management</li>
+              <li>Due diligence coordination</li>
+              <li>Deal structuring and negotiation support</li>
+              <li>Timeline: 6-18 months</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="retainer-modal" data-retainer="4" role="dialog" aria-hidden="true" aria-labelledby="retainer-modal-title-4">
+          <div class="retainer-modal__content">
+            <button class="retainer-modal__close" aria-label="Close">×</button>
+            <h3 id="retainer-modal-title-4">Monthly Advisory Retainers</h3>
+            <p class="retainer-modal__meta">Monthly Retainer • Provided Upon Request</p>
+            <hr class="retainer-modal__divider" />
+            <ul class="retainer-modal__list">
+              <li>Ongoing strategic advisory</li>
+              <li>Financial performance optimization</li>
+              <li>Growth strategy development</li>
+              <li>Management advisory services</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fee-section fee-section--alt fee-section--project">
+      <div class="container">
+        <p class="fee-hero__eyebrow">How We Support</p>
+        <div class="section-heading">
+          <h2>Project-Based<br />Fixed Fees</h2>
+        </div>
+
+        <div class="project-layout">
+          <div class="project-left">
+            <p class="project-left__lead rto_body_medium">
+              Focused engagements for owners who need a defined work product, a single analytical scope,
+              or targeted transaction support.
+            </p>
+            <img src="../assets/images/Feebased_Project.png" alt="Project engagement overview illustration" class="project-left__image" loading="lazy" decoding="async" />
+          </div>
+
+          <div class="project-right">
+            <p class="project-right__eyebrow">How We Support</p>
+            <div class="project-cards">
+              <article class="project-card card" data-project="1" tabindex="0" role="button" aria-expanded="false" aria-label="Business Valuation Only">
+                <h3>Business Valuation Only</h3>
+                <p class="rto_body_medium">Single-scope valuation engagement for tax, transaction, or strategic planning contexts.</p>
+                <p><a href="pages/services/strategic-exit-planning.html">Explore Service &#8594;</a></p>
+              </article>
+
+              <article class="project-card card" data-project="2" tabindex="0" role="button" aria-expanded="false" aria-label="Due Diligence Support">
+                <h3>Due Diligence Support</h3>
+                <p class="rto_body_medium">Targeted analytical support for buyers, sellers, and transaction teams.</p>
+                <p><a href="pages/services/due-diligence-support.html">Explore Service &#8594;</a></p>
+              </article>
+
+              <article class="project-card card" data-project="3" tabindex="0" role="button" aria-expanded="false" aria-label="Market Analysis &amp; Positioning">
+                <h3>Market Analysis &amp; Positioning</h3>
+                <p class="rto_body_medium">Strategic market context and positioning guidance for stronger buyer narratives.</p>
+                <p><a href="pages/services/market-analysis-positioning.html">Explore Service &#8594;</a></p>
+              </article>
+
+              <article class="project-card card" data-project="4" tabindex="0" role="button" aria-expanded="false" aria-label="Hourly Consulting">
+                <h3>Hourly Consulting</h3>
+                <p aria-hidden="true">&nbsp;</p>
+                <p class="rto_body_medium">Flexible advisory support for focused strategic or transaction workstreams.</p>
+                <p><a href="pages/services/hourly-consulting.html">Explore Service &#8594;</a></p>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-modal-scrim" id="project-modal-scrim"></div>
+        <div class="project-modal" data-project="1" role="dialog" aria-hidden="true" aria-labelledby="project-modal-title-1">
+          <div class="project-modal__content">
+            <button class="project-modal__close" aria-label="Close">×</button>
+            <h3 id="project-modal-title-1">Business Valuation Only</h3>
+            <p class="project-modal__meta">Fixed Fee • Provided Upon Request</p>
+            <hr class="project-modal__divider" />
+            <ul class="project-modal__list">
+              <li>Comprehensive valuation report</li>
+              <li>Industry-standard methodologies (DCF, market multiples, asset-based)</li>
+              <li>Defensible for tax, transaction, or litigation purposes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-modal" data-project="2" role="dialog" aria-hidden="true" aria-labelledby="project-modal-title-2">
+          <div class="project-modal__content">
+            <button class="project-modal__close" aria-label="Close">×</button>
+            <h3 id="project-modal-title-2">Due Diligence Support</h3>
+            <p class="project-modal__meta">Fixed Fee • Provided Upon Request</p>
+            <hr class="project-modal__divider" />
+            <ul class="project-modal__list">
+              <li>Financial analysis and verification</li>
+              <li>Quality of earnings assessment</li>
+              <li>Documentation preparation</li>
+              <li>Risk identification</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-modal" data-project="3" role="dialog" aria-hidden="true" aria-labelledby="project-modal-title-3">
+          <div class="project-modal__content">
+            <button class="project-modal__close" aria-label="Close">×</button>
+            <h3 id="project-modal-title-3">Market Analysis &amp; Positioning</h3>
+            <p class="project-modal__meta">Fixed Fee • Provided Upon Request</p>
+            <hr class="project-modal__divider" />
+            <ul class="project-modal__list">
+              <li>Competitive landscape evaluation</li>
+              <li>Strategic positioning recommendations</li>
+              <li>Market presentation materials</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-modal" data-project="4" role="dialog" aria-hidden="true" aria-labelledby="project-modal-title-4">
+          <div class="project-modal__content">
+            <button class="project-modal__close" aria-label="Close">×</button>
+            <h3 id="project-modal-title-4">Hourly Consulting</h3>
+            <p class="project-modal__meta">Hourly Rate • Provided Upon Request</p>
+            <hr class="project-modal__divider" />
+            <ul class="project-modal__list">
+              <li>Financial analysis</li>
+              <li>Transaction support</li>
+              <li>Management advisory</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fee-section cmp-preview">
+      <div class="container">
+        <h2 class="cmp-heading">Why Fee-Based vs. <br>Commission-Based?</h2>
+        <div class="cmp-preview__images">
+          <div class="cmp-preview__col cmp-preview__col--left">
+            <p class="fee-hero__eyebrow">Commission-Based Brokers</p>
+            <div class="cmp-preview__image-wrap">
+              <img src="../assets/images/LMAN.png" alt="Person pushing a large pink cube" loading="lazy" decoding="async" />
+              <div class="cmp-preview__hover-card" aria-hidden="true">
+                <p class="fee-hero__eyebrow">Commission-Based Brokers | 8–12% of Sale Price</p>
+                <ul class="compare-modal__list">
+                  <li class="compare-modal__row"><h3 class="compare-modal__term">Conflicts of Interest:</h3><p class="compare-modal__value rto_med">Incentivized to push for a quick sale</p></li>
+                  <li class="compare-modal__row"><h3 class="compare-modal__term">Timing Pressure:</h3><p class="compare-modal__value rto_med">Motivation to sell now versus when timing is optimal</p></li>
+                  <li class="compare-modal__row"><h3 class="compare-modal__term">Lower Valuations:</h3><p class="compare-modal__value rto_med">Can still be acceptable because any sale creates commission</p></li>
+                  <li class="compare-modal__row"><h3 class="compare-modal__term">Limited Incentive:</h3><p class="compare-modal__value rto_med">To improve business value before a transaction</p></li>
+                  <li class="compare-modal__row"><h3 class="compare-modal__term">Fees Scale:</h3><p class="compare-modal__value rto_med">With transaction size whether or not the added cost is justified</p></li>
+                  <li class="compare-modal__row"><h3 class="compare-modal__term">No True Objectivity:</h3><p class="compare-modal__value rto_med">Advice is shaped by the incentive to close, not by what is best for the owner</p></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="cmp-preview__col cmp-preview__col--right">
+            <p class="fee-hero__eyebrow">Fee-Based Advisory</p>
+            <div class="cmp-preview__image-wrap">
+              <img src="../assets/images/RMAN.png" alt="Person pushing a large teal sphere" loading="lazy" decoding="async" />
+              <div class="cmp-preview__hover-card" aria-hidden="true">
+                <p class="fee-hero__eyebrow">Fee-Based Advisory | RTO Advisory Model</p>
+                <ul class="compare-modal__list">
+                  <li class="compare-modal__row"><h3 class="compare-modal__term">Aligned Interests:</h3><p class="compare-modal__value rto_med">Paid for advice, not for forcing a sale</p></li>
+                  <li class="compare-modal__row"><h3 class="compare-modal__term">Optimal Timing:</h3><p class="compare-modal__value rto_med">Recommend selling only when the timing is truly right</p></li>
+                  <li class="compare-modal__row"><h3 class="compare-modal__term">Value Maximization:</h3><p class="compare-modal__value rto_med">Focus on the best possible owner outcome</p></li>
+                  <li class="compare-modal__row"><h3 class="compare-modal__term">Strategic Preparation:</h3><p class="compare-modal__value rto_med">Multi-year value enhancement support</p></li>
+                  <li class="compare-modal__row"><h3 class="compare-modal__term">Transparent Costs:</h3><p class="compare-modal__value rto_med">Fee expectations known up front</p></li>
+                  <li class="compare-modal__row"><h3 class="compare-modal__term">No Pressure:</h3><p class="compare-modal__value rto_med">Guidance based solely on your best interests</p></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cmp-preview__cta">
+          <button class="btn btn-primary cmp-preview__btn" type="button" id="compare-open-btn" aria-haspopup="dialog" aria-controls="compare-modal" aria-expanded="false">Compare</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="compare-modal-scrim" id="compare-modal-scrim"></div>
+    <div class="compare-modal" id="compare-modal" role="dialog" aria-hidden="true" aria-labelledby="compare-modal-title">
+      <div class="compare-modal__content">
+        <button class="compare-modal__close" type="button" aria-label="Close">×</button>
+        <h2 class="compare-modal__title" id="compare-modal-title">Fee-Based vs Commission-Based Comparison</h2>
+        <div class="compare-modal__grid">
+          <section class="compare-modal__panel" aria-label="Commission-Based Brokers">
+            <p class="fee-hero__eyebrow">Commission-Based Brokers | Typical 8-12% of Sale Price</p>
+            <ul class="compare-modal__list">
+              <li class="compare-modal__row"><h3 class="compare-modal__term">Conflicts of Interest:</h3><p class="compare-modal__value rto_med">Incentivized to push for a quick sale</p></li>
+              <li class="compare-modal__row compare-modal__row--spaced"><h3 class="compare-modal__term">Timing Pressure:</h3><p class="compare-modal__value rto_med">Motivation to sell now versus when timing is optimal</p></li>
+              <li class="compare-modal__row"><h3 class="compare-modal__term">Lower Valuations:</h3><p class="compare-modal__value rto_med">Can still be acceptable because any sale creates commission</p></li>
+              <li class="compare-modal__row"><h3 class="compare-modal__term">Limited Incentive:</h3><p class="compare-modal__value rto_med">To improve business value before a transaction</p></li>
+              <li class="compare-modal__row"><h3 class="compare-modal__term">Fees Scale:</h3><p class="compare-modal__value rto_med">With transaction size whether or not the added cost is justified</p></li>
+              <li class="compare-modal__row"><h3 class="compare-modal__term">No True Objectivity:</h3><p class="compare-modal__value rto_med">Advice is shaped by the incentive to close, not by what is best for the owner</p></li>
+            </ul>
+          </section>
+          <section class="compare-modal__panel" aria-label="Fee-Based Advisory">
+            <p class="fee-hero__eyebrow">Fee-Based Advisory | RTO Advisory Model</p>
+            <ul class="compare-modal__list">
+              <li class="compare-modal__row"><h3 class="compare-modal__term">Aligned Interests:</h3><p class="compare-modal__value rto_med">Paid for advice, not for forcing a sale</p></li>
+              <li class="compare-modal__row compare-modal__row--spaced"><h3 class="compare-modal__term">Optimal Timing:</h3><p class="compare-modal__value rto_med">Recommend selling only when the timing is truly right</p></li>
+              <li class="compare-modal__row"><h3 class="compare-modal__term">Value Maximization:</h3><p class="compare-modal__value rto_med">Focus on the best possible owner outcome</p></li>
+              <li class="compare-modal__row"><h3 class="compare-modal__term">Strategic Preparation:</h3><p class="compare-modal__value rto_med">Multi-year value enhancement support</p></li>
+              <li class="compare-modal__row"><h3 class="compare-modal__term">Transparent Costs:</h3><p class="compare-modal__value rto_med">Fee expectations known up front</p></li>
+              <li class="compare-modal__row compare-modal__row--spaced"><h3 class="compare-modal__term">No Pressure:</h3><p class="compare-modal__value rto_med">Guidance based solely on your best interests</p></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <section class="fee-section fee-section--comparison">
+      <div class="container">
+        <h2 class="cmp-heading">Why Fee-Based vs. <br>Commission-Based?</h2>
+        <div class="cmp-cols">
+
+          <div class="comparison-row">
+            <div class="comparison-image">
+              <img src="../assets/images/LMAN.png" alt="Person pushing a large pink cube" loading="lazy" decoding="async" />
+            </div>
+            <div class="cmp-col cmp-col--left comparison-card">
+              <div class="cmp-col__content">
+                <div class="cmp-col__header">
+                  <span class="fee-hero__eyebrow">Commission-Based Brokers | Typical 8&#8211;12% of Sale Price</span>
+                </div>
+                <ul class="cmp-col__list">
+                  <li class="cmp-col__item--display"><span class="cmp-col__label--display">Conflicts of Interest:</span><span class="rto_med">Incentivized to push for a quick sale</span></li>
+                  <li><span class="cmp-col__label--display">Timing Pressure:</span><span class="rto_med">Motivation to sell now versus when timing is optimal</span></li>
+                  <li><span class="cmp-col__label--display">Lower Valuations:</span><span class="rto_med">Can still be acceptable because any sale creates commission</span></li>
+                  <li><span class="cmp-col__label--display">Limited Incentive:</span><span class="rto_med">To improve business value before a transaction</span></li>
+                  <li><span class="cmp-col__label--display">Fees Scale:</span><span class="rto_med">With transaction size whether or not the added cost is justified</span></li>
+                  <li><span class="cmp-col__label--display">No True Objectivity:</span><span class="rto_med">Advice is shaped by the incentive to close, not by what is best for the owner</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="comparison-image">
+              <img src="../assets/images/RMAN.png" alt="Person pushing a large teal sphere" loading="lazy" decoding="async" />
+            </div>
+            <div class="cmp-col cmp-col--right comparison-card">
+              <div class="cmp-col__content">
+                <div class="cmp-col__header">
+                   <span class="fee-hero__eyebrow">Fee-Based Advisory | RTO Advisory Model</span>
+                </div>
+                <ul class="cmp-col__list">
+                  <li><span class="cmp-col__label--display">Aligned Interests:</span><span class="rto_med">Paid for advice, not for forcing a sale</span></li>
+                  <li><span class="cmp-col__label--display">Optimal Timing:</span><span class="rto_med">Recommend selling only when the timing is truly right</span></li>
+                  <li><span class="cmp-col__label--display">Value Maximization:</span><span class="rto_med">Focus on the best possible owner outcome</span></li>
+                  <li><span class="cmp-col__label--display">Strategic Preparation:</span><span class="rto_med">Multi-year value enhancement support</span></li>
+                  <li><span class="cmp-col__label--display">Transparent Costs:</span><span class="rto_med">Fee expectations known up front</span></li>
+                  <li><span class="cmp-col__label--display">No Pressure:</span><span class="rto_med">Guidance based solely on your best interests</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="fee-section fee-section--faq">
+      <div class="container container-narrow">
+        <div class="section-heading section-heading--tight">
+          <p class="faq-section__eyebrow">FAQ</p>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-list">
+          <article class="faq-item">
+            <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-1-answer" id="faq-1-question">
+              <span class="faq-item__question-text">Why should I pay upfront fees instead of just a success fee?</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__answer" id="faq-1-answer" aria-labelledby="faq-1-question">
+              <div class="faq-item__answer-panel">
+                <p>
+                  Upfront retainers ensure our advice is objective and in your best interests,
+                  not influenced by the desire to close a transaction. Success fees alone create
+                  pressure to sell quickly rather than optimize timing and value.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-2-answer" id="faq-2-question">
+              <span class="faq-item__question-text">What if I decide not to sell after the engagement?</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__answer" id="faq-2-answer" aria-labelledby="faq-2-question">
+              <div class="faq-item__answer-panel">
+                <p>
+                  That is perfectly fine. Our goal is to provide objective, independent advice.
+                  If the analysis shows selling is not optimal, we will tell you and help you build value
+                  for a stronger exit when the timing is right.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-3-answer" id="faq-3-question">
+              <span class="faq-item__question-text">What size companies do you work with?</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__answer" id="faq-3-answer" aria-labelledby="faq-3-question">
+              <div class="faq-item__answer-panel">
+                <p>
+                  We advise owners of established small businesses and middle-market companies with
+                  $2M-$100M in annual revenue and $1M-$20M in EBITDA. Whether the engagement involves
+                  a valuation, merger, or transaction, RTO Advisory is built to maximize your Return To Owner.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fee-section fee-section--closing">
+      <div class="container">
+        <div class="contact-panel">
+          <div class="contact-panel__content">
+            <p class="eyebrow">Plan Now</p>
+            <h2>Discuss Your Situation</h2>
+            <p>
+              Ready to discuss how our fee-based advisory model can help you maximize your business value?
+            </p>
+          </div>
+          <div class="contact-panel__actions">
+            <a href="contact.html" class="start-intake-btn">Start Intake</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="sources-modal" data-sources-modal aria-labelledby="sources-modal-title">
+    <div class="sources-modal__panel">
+      <div class="sources-modal__header">
+        <h2 id="sources-modal-title">Sources</h2>
+        <button class="sources-modal__close" type="button" data-close-sources aria-label="Close sources">&times;</button>
+      </div>
+      <div class="sources-modal__body">
+        <ul class="sources-modal__list">
+          <li>BizBuySell — <em>To Pay or Not to Pay: Business Broker Fees</em></li>
+          <li>BizBuySell — <em>How Much Does It Cost to Sell a Business?</em></li>
+          <li>Business Brokers Guide — <em>Business Broker Commission Rates: What You’ll Actually Pay</em></li>
+          <li>Windsor Drake — <em>EBITDA Multiples by Industry 2026</em></li>
+          <li>Windsor Drake — <em>Lower Mid-Market Valuation EBITDA Multiples 2025</em></li>
+        </ul>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="fee-footer-dark">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="site-footer__brand">
+            <h3>Return To Owner Advisory</h3>
+            <p>
+              Fee-based business advisory helping middle-market companies maximize value and achieve
+              successful exits through transparent, conflict-free guidance.
+            </p>
+            <div class="site-footer__contact">
+              <a href="tel:+18447296393">844-R-2-OWNER</a>
+              <a href="mailto:info@rtoadvisory.com">info@rtoadvisory.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Services</h3>
+          <ul class="site-footer__nav">
+            <li><a href="services/exit-readiness.html">Exit Readiness Assessment</a></li>
+            <li><a href="services/value-optimization.html">Strategic Value Optimization</a></li>
+            <li><a href="services/transaction-advisory.html">Transaction Advisory &amp; Management</a></li>
+            <li><a href="services/succession-planning.html">Succession Planning</a></li>
+          </ul>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Resources</h3>
+          <ul class="site-footer__nav">
+            <li><a href="why-rto.html">Why RTO?</a></li>
+            <li><a href="fee-structure.html">Fee Structure</a></li>
+          </ul>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Company</h3>
+          <ul class="site-footer__nav">
+            <li><a href="about.html">About RTO Advisory</a></li>
+            <li><a href="fee-structure.html">Why Fee-Based?</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Return To Owner Advisory. All rights reserved.</p>
+        <p class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="cookies.html">Cookie Policy</a>
+          <a href="#" data-sources-trigger>Sources</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/navigation.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.querySelectorAll('.fee-item__toggle').forEach((button) => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.fee-item');
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!expanded));
+        if (item) {
+          item.classList.toggle('is-open');
+        }
+      });
+    });
+
+    const faqItems = Array.from(document.querySelectorAll('.faq-item'));
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const closeFaqItem = (item, immediate = false) => {
+      const button = item.querySelector('.faq-item__question');
+      const answer = item.querySelector('.faq-item__answer');
+      if (!button || !answer) return;
+
+      button.setAttribute('aria-expanded', 'false');
+      item.classList.remove('is-open');
+
+      if (prefersReducedMotion || immediate) {
+        answer.style.transition = 'none';
+        answer.style.height = '0px';
+        answer.style.opacity = '0';
+        return;
+      }
+
+      const currentHeight = answer.scrollHeight;
+      answer.style.height = `${currentHeight}px`;
+      answer.style.opacity = '1';
+      answer.offsetHeight;
+      answer.style.transition = 'height 220ms ease-in, opacity 140ms ease-in';
+      answer.style.height = '0px';
+      answer.style.opacity = '0';
+    };
+
+    const openFaqItem = (item) => {
+      const button = item.querySelector('.faq-item__question');
+      const answer = item.querySelector('.faq-item__answer');
+      if (!button || !answer) return;
+
+      button.setAttribute('aria-expanded', 'true');
+      item.classList.add('is-open');
+
+      if (prefersReducedMotion) {
+        answer.style.transition = 'none';
+        answer.style.height = 'auto';
+        answer.style.opacity = '1';
+        return;
+      }
+
+      answer.style.transition = 'none';
+      answer.style.height = '0px';
+      answer.style.opacity = '0';
+      answer.offsetHeight;
+
+      const targetHeight = answer.scrollHeight;
+      answer.style.transition = 'height 280ms cubic-bezier(0.4, 0, 0.2, 1), opacity 180ms ease-out 50ms';
+      answer.style.height = `${targetHeight}px`;
+      answer.style.opacity = '1';
+
+      const handleTransitionEnd = (event) => {
+        if (event.propertyName !== 'height') return;
+        if (item.classList.contains('is-open')) {
+          answer.style.height = 'auto';
+        }
+        answer.removeEventListener('transitionend', handleTransitionEnd);
+      };
+
+      answer.addEventListener('transitionend', handleTransitionEnd);
+    };
+
+    faqItems.forEach((item) => {
+      const button = item.querySelector('.faq-item__question');
+      const answer = item.querySelector('.faq-item__answer');
+      if (!button || !answer) return;
+
+      button.setAttribute('aria-expanded', 'false');
+      answer.style.height = '0px';
+      answer.style.opacity = '0';
+
+      button.addEventListener('click', () => {
+        const isOpen = item.classList.contains('is-open');
+
+        faqItems.forEach((otherItem) => {
+          if (otherItem !== item) {
+            closeFaqItem(otherItem);
+          }
+        });
+
+        if (isOpen) {
+          closeFaqItem(item);
+        } else {
+          openFaqItem(item);
+        }
+      });
+    });
+
+    document.querySelectorAll('.closing-item__toggle').forEach((button) => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.closing-item');
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!expanded));
+        if (item) {
+          item.classList.toggle('is-open');
+        }
+      });
+    });
+
+    const retainerCards = document.querySelectorAll('.retainer-card');
+    const retainerModals = document.querySelectorAll('.retainer-modal');
+    const retainerScrim = document.getElementById('retainer-modal-scrim');
+    let activeRetainerModal = null;
+    let activeRetainerCard = null;
+
+    const closeRetainerModal = () => {
+      if (!activeRetainerModal) return;
+      activeRetainerModal.setAttribute('aria-hidden', 'true');
+      if (activeRetainerCard) {
+        activeRetainerCard.setAttribute('aria-expanded', 'false');
+        activeRetainerCard.focus();
+      }
+      if (retainerScrim) retainerScrim.classList.remove('is-open');
+      document.body.style.overflow = '';
+      activeRetainerModal = null;
+      activeRetainerCard = null;
+    };
+
+    const openRetainerModal = (card) => {
+      closeRetainerModal();
+      const modal = document.querySelector(`.retainer-modal[data-retainer="${card.dataset.retainer}"]`);
+      if (!modal) return;
+      activeRetainerModal = modal;
+      activeRetainerCard = card;
+      modal.setAttribute('aria-hidden', 'false');
+      card.setAttribute('aria-expanded', 'true');
+      if (retainerScrim) retainerScrim.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      const closeButton = modal.querySelector('.retainer-modal__close');
+      if (closeButton) setTimeout(() => closeButton.focus(), 100);
+    };
+
+    retainerCards.forEach((card) => {
+      card.addEventListener('click', (event) => {
+        event.preventDefault();
+        openRetainerModal(card);
+      });
+
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openRetainerModal(card);
+        }
+      });
+
+      const cardLink = card.querySelector('.retainer-card__link');
+      if (cardLink) {
+        cardLink.addEventListener('click', (event) => {
+          event.preventDefault();
+          openRetainerModal(card);
+        });
+      }
+    });
+
+    if (retainerScrim) {
+      retainerScrim.addEventListener('click', closeRetainerModal);
+    }
+
+    retainerModals.forEach((modal) => {
+      const closeButton = modal.querySelector('.retainer-modal__close');
+      if (closeButton) closeButton.addEventListener('click', closeRetainerModal);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && activeRetainerModal) {
+        closeRetainerModal();
+      }
+    });
+
+    const projectCards = document.querySelectorAll('.project-card');
+    const projectModals = document.querySelectorAll('.project-modal');
+    const projectScrim = document.getElementById('project-modal-scrim');
+    let activeProjectModal = null;
+    let activeProjectCard = null;
+
+    const closeProjectModal = () => {
+      if (!activeProjectModal) return;
+      activeProjectModal.setAttribute('aria-hidden', 'true');
+      if (activeProjectCard) {
+        activeProjectCard.setAttribute('aria-expanded', 'false');
+        activeProjectCard.focus();
+      }
+      if (projectScrim) projectScrim.classList.remove('is-open');
+      document.body.style.overflow = '';
+      activeProjectModal = null;
+      activeProjectCard = null;
+    };
+
+    const openProjectModal = (card) => {
+      closeProjectModal();
+      const modal = document.querySelector(`.project-modal[data-project="${card.dataset.project}"]`);
+      if (!modal) return;
+      activeProjectModal = modal;
+      activeProjectCard = card;
+      modal.setAttribute('aria-hidden', 'false');
+      card.setAttribute('aria-expanded', 'true');
+      if (projectScrim) projectScrim.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      const closeButton = modal.querySelector('.project-modal__close');
+      if (closeButton) setTimeout(() => closeButton.focus(), 100);
+    };
+
+    projectCards.forEach((card) => {
+      card.addEventListener('click', (event) => {
+        event.preventDefault();
+        openProjectModal(card);
+      });
+
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openProjectModal(card);
+        }
+      });
+
+      const cardLink = card.querySelector('.project-card__link');
+      if (cardLink) {
+        cardLink.addEventListener('click', (event) => {
+          event.preventDefault();
+          openProjectModal(card);
+        });
+      }
+    });
+
+    if (projectScrim) {
+      projectScrim.addEventListener('click', closeProjectModal);
+    }
+
+    projectModals.forEach((modal) => {
+      const closeButton = modal.querySelector('.project-modal__close');
+      if (closeButton) closeButton.addEventListener('click', closeProjectModal);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && activeProjectModal) {
+        closeProjectModal();
+      }
+    });
+
+    const compareButton = document.getElementById('compare-open-btn');
+    const compareModal = document.getElementById('compare-modal');
+    const compareScrim = document.getElementById('compare-modal-scrim');
+    const compareCloseButton = compareModal ? compareModal.querySelector('.compare-modal__close') : null;
+
+    const closeCompareModal = () => {
+      if (!compareModal || !compareButton) return;
+      compareModal.setAttribute('aria-hidden', 'true');
+      compareButton.setAttribute('aria-expanded', 'false');
+      if (compareScrim) compareScrim.classList.remove('is-open');
+      document.body.style.overflow = '';
+      compareButton.focus();
+    };
+
+    const openCompareModal = () => {
+      if (!compareModal || !compareButton) return;
+      compareModal.setAttribute('aria-hidden', 'false');
+      compareButton.setAttribute('aria-expanded', 'true');
+      if (compareScrim) compareScrim.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      if (compareCloseButton) setTimeout(() => compareCloseButton.focus(), 100);
+    };
+
+    if (compareButton) {
+      compareButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        openCompareModal();
+      });
+    }
+
+    if (compareCloseButton) {
+      compareCloseButton.addEventListener('click', closeCompareModal);
+    }
+
+    if (compareScrim) {
+      compareScrim.addEventListener('click', closeCompareModal);
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && compareModal && compareModal.getAttribute('aria-hidden') === 'false') {
+        closeCompareModal();
+      }
+    });
+  </script>
+</body>
+</html>

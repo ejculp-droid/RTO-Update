@@ -1,0 +1,860 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why RTO | RTO Advisory</title>
+  <meta name="description" content="Why owners choose RTO Advisory's fee-based strategic approach." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=block" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/variables.css" />
+  <link rel="stylesheet" href="../assets/css/reset.css" />
+  <link rel="stylesheet" href="../assets/css/typography.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+  <style>
+    .home-page {
+      background: var(--color-paper);
+      color: #1f1d1a;
+    }
+
+    .home-page .site-header {
+      background: var(--color-header-bg);
+      border-bottom: 1px solid var(--color-header-line);
+      box-shadow: none;
+    }
+
+    .home-page .site-header.is-scrolled {
+      box-shadow: 0 6px 18px var(--color-header-shadow);
+      border-bottom-color: var(--color-header-line-scrolled);
+    }
+
+    .home-page .site-logo__wordmark,
+    .home-page .main-nav-list a,
+    .home-page .nav-dropdown-toggle {
+      color: var(--color-header-ink);
+    }
+
+    .home-page .main-nav-list a.active,
+    .home-page .main-nav-list a:hover {
+      background: rgba(var(--color-brand-rgb), 0.08);
+    }
+
+    .home-page .hero h1 .hero-title-line {
+      display: block;
+      white-space: normal;
+    }
+
+    .home-page .hero h1 .hero-title-line + .hero-title-line {
+      margin-top: 0.12em;
+    }
+
+    .home-page .hero {
+      padding: 60px 0 40px;
+      background: var(--color-paper);
+    }
+
+    .home-page .eyebrow {
+      display: inline-block;
+      margin: 0 0 1rem;
+      font-size: 0.975rem;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a746c;
+    }
+
+    .home-page .hero-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(391px, 476px);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .home-page .hero-copy {
+      max-width: 62ch;
+    }
+
+    .home-page .hero h1 {
+      font-size: clamp(2.65rem, 5vw, 4.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+      max-width: 14ch;
+      margin: 0 0 0.9rem;
+    }
+
+    .home-page .hero .hero-copy > p.rto_body {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 1.12rem;
+      line-height: 1.75;
+      font-weight: 400;
+      letter-spacing: 0;
+      color: var(--color-ink-700);
+    }
+
+    .home-page .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 476px;
+      height: 459px;
+      margin: 0 auto;
+      padding: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      overflow: hidden;
+    }
+
+    .home-page .hero-visual__image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      background: transparent;
+      border-radius: 0;
+    }
+
+    @media (max-width: 640px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .home-page .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .home-page .hero-visual {
+        width: 100%;
+        max-width: 100%;
+        min-height: 459px;
+        margin-top: 1.5rem;
+      }
+    }
+
+    .challenge-section { padding: 88px 0 78px; background: var(--color-paper); }
+      .challenge-heading {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      line-height: 1.1;
+      color: var(--color-brand);
+      margin: 0;
+      max-width: 22ch;
+    }
+
+    .home-page .challenge-section > .container > .challenge-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 5rem;
+      align-items: stretch;
+      margin-top: 2rem;
+    }
+    .challenge-left p {
+      font-size: 1.125rem; line-height: 1.6; color: #414141;
+      font-family: var(--font-body);
+      margin: 0 0 2rem;
+    }
+    .challenge-left__image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-lg);
+    }
+
+    .challenge-col__eyebrow {
+      font-size: 0.975rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: #7a746c; font-weight: 600; margin: 0 0 1.25rem;
+    }
+    .challenge-col--odds {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .challenge-item {
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(31,29,26,0.08);
+    }
+    .challenge-col--odds .challenge-item:first-child { padding-top: 0.25rem; }
+    .challenge-item:last-child { border-bottom: 0; }
+    .challenge-col--odds .challenge-item:last-child { padding-bottom: 0.25rem; }
+    .challenge-item__text {
+      margin: 0;
+      font-size: 1.03rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+      font-weight: 400;
+    }
+    .challenge-item strong { color: #0f4a4b; font-weight: 600; letter-spacing: 0.005em; }
+    .challenges-grid .challenge-item__text strong { color: var(--color-brand); }
+
+    /* Challenge Grid Styles */
+    .challenges-solution-section { position: relative; }
+    .home-page main > .section > .container > .challenges-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 1fr;
+      gap: var(--space-4);
+      margin-top: 2rem;
+    }
+    .challenge-tile {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      user-select: none;
+      background: #fff;
+    }
+    .challenge-tile:focus { outline: 2px solid #0f2f2e; outline-offset: 2px; }
+    .challenge-tile h3 { font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1.1; color: var(--color-brand); margin: 0 0 var(--space-3); }
+    .challenge-tile p { font-family: var(--font-body); font-size: var(--text-lg); line-height: 1.6; font-weight: 400; color: var(--color-ink-700); letter-spacing: 0; margin: 0 0 auto; }
+    .tile-cta {
+      font-family: var(--font-body);
+      font-size: var(--text-lg);
+      line-height: 1.6;
+      font-weight: 400;
+      color: var(--color-ink-700);
+      letter-spacing: 0;
+      text-decoration: none;
+      border-bottom: none;
+      display: inline-block;
+      margin-top: var(--space-3);
+    }
+    .tile-cta:hover { text-decoration: none; }
+    .challenge-tile a { color: var(--color-brand); }
+
+    /* CTA Tile */
+    .challenge-tile--cta {
+      background: #e2e6e5;
+      cursor: default;
+    }
+    .challenge-tile--cta:hover {
+      background: #e2e6e5;
+      transform: none;
+      box-shadow: var(--shadow-sm);
+      border-color: var(--color-line);
+    }
+    .challenge-tile--cta h3 { color: #0f2f2e; margin-bottom: var(--space-2); }
+    .challenge-tile--cta .eyebrow { margin: 0 0 var(--space-2); font-size: 0.7875rem; }
+    .challenge-tile--cta .btn {
+      margin-top: var(--space-4);
+      align-self: center;
+      min-height: 56px;
+      padding-inline: 1.75rem;
+      border-radius: 16px;
+      border: 1px solid rgba(15, 46, 42, 0.34);
+      background: #fff;
+      color: var(--color-brand);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      box-shadow: none;
+      cursor: pointer;
+      transition: background-color 180ms ease, color 180ms ease;
+    }
+    .challenge-tile--cta .btn:hover {
+      background: rgba(15, 46, 42, 0.06);
+      color: var(--color-brand);
+      transform: none;
+    }
+
+    /* Modal Panel */
+    .challenge-panel-scrim {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(18,43,45,0.45);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-out;
+      z-index: 999;
+    }
+    .challenge-panel-scrim.is-open { opacity: 1; pointer-events: auto; }
+
+    .challenge-panel {
+      position: fixed;
+      z-index: 1000;
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.95);
+      transition: all 0.2s ease-out;
+      overflow: auto;
+      max-height: 90vh;
+    }
+    .challenge-panel[aria-hidden="false"] { opacity: 1; pointer-events: auto; transform: scale(1); }
+
+    @media (min-width: 1024px) {
+      .challenge-panel {
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%) scale(0.95);
+        width: 90%;
+        max-width: 660px;
+      }
+      .challenge-panel[aria-hidden="false"] { transform: translate(-50%, -50%) scale(1); }
+    }
+
+    @media (min-width: 641px) and (max-width: 1023px) {
+      .challenge-panel {
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%) scale(0.95);
+        width: 92vw;
+        max-width: 92vw;
+      }
+      .challenge-panel[aria-hidden="false"] { transform: translate(-50%, -50%) scale(1); }
+    }
+
+    @media (max-width: 640px) {
+      .challenge-panel {
+        bottom: 0; left: 0; right: 0;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 12px 12px 0 0;
+        transform: translateY(100%);
+      }
+      .challenge-panel[aria-hidden="false"] { transform: translateY(0); }
+    }
+
+    .challenge-panel__content {
+      padding: var(--space-6);
+      position: relative;
+    }
+    .challenge-panel__close {
+      position: absolute;
+      top: var(--space-4);
+      right: var(--space-4);
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #7a746c;
+      padding: 0;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .challenge-panel h3 { font-family: var(--font-display); font-size: var(--text-3xl); line-height: 1.1; color: #0f2f2e; margin: 0 0 var(--space-3); }
+    .challenge-panel__hook { font-size: 1rem; line-height: 1.6; color: var(--color-ink-700); margin: 0 0 var(--space-4); }
+    .challenge-panel__divider { border: none; border-top: 1px solid var(--color-line); margin: var(--space-4) 0; }
+    .challenge-panel__label { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: #7a746c; font-weight: 600; margin: var(--space-4) 0 var(--space-3); }
+    .challenge-panel p { font-size: 1rem; line-height: 1.65; color: var(--color-ink-800); margin: 0 0 var(--space-4); }
+    .challenge-panel__list { margin: 0 0 var(--space-4); padding-left: 1.5rem; list-style: none; }
+    .challenge-panel__list li { margin: var(--space-2) 0; color: var(--color-ink-800); line-height: 1.7; }
+
+    @media (max-width: 1024px) {
+      .challenges-grid { grid-template-columns: repeat(2, 1fr); }
+      .challenge-tile--cta { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 640px) {
+      .challenges-grid { grid-template-columns: 1fr; }
+      .challenge-tile--cta { grid-column: auto; }
+    }
+    .wondering-section {
+      padding: 50px 0 88px;
+      background: transparent;
+    }
+    .home-page .wondering-section > .container > .wondering-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 5rem;
+      align-items: stretch;
+      margin-top: 2rem;
+    }
+    .wondering-left p {
+      font-size: 1.125rem; line-height: 1.6; color: #414141;
+      font-family: var(--font-body);
+      margin: 0 0 2rem;
+    }
+    .wondering-left__image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-lg);
+    }
+    .wondering-col--questions {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .home-page .sources-modal {
+      width: min(780px, calc(100vw - 48px));
+      max-width: 100vw;
+      max-height: min(86vh, 920px);
+      border: 0;
+      padding: 0;
+      background: transparent;
+    }
+
+    .home-page .sources-modal::backdrop {
+      background: rgba(15, 46, 42, 0.52);
+    }
+
+    .home-page .sources-modal__panel {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+      max-height: min(86vh, 920px);
+      border: 1px solid rgba(15, 46, 42, 0.12);
+      border-radius: 24px;
+      background: #f8f3ea;
+      box-shadow: 0 28px 48px rgba(15, 46, 42, 0.18);
+    }
+
+    .home-page .sources-modal__header {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.6rem 1.75rem 1.1rem;
+      border-bottom: 1px solid rgba(15, 46, 42, 0.1);
+    }
+
+    .home-page .sources-modal__header h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.35rem);
+      line-height: 1.05;
+      color: var(--color-brand);
+    }
+
+    .home-page .sources-modal__close {
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(15, 46, 42, 0.08);
+      color: var(--color-brand);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .home-page .sources-modal__body {
+      overflow: auto;
+      padding: 1.35rem 1.75rem 1.7rem;
+    }
+
+    .home-page .sources-modal__list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0;
+    }
+
+    .home-page .sources-modal__list li {
+      padding: 1rem 0;
+      border-top: 1px solid rgba(15, 46, 42, 0.1);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--color-ink-700);
+    }
+
+    .home-page .sources-modal__list li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    @media (max-width: 900px) {
+      .challenge-grid { grid-template-columns: 1fr; row-gap: 2rem; column-gap: 0; align-items: start; }
+      .challenge-col--odds { justify-content: flex-start; padding: 0.5rem 0 0; }
+      .challenge-section .challenge-col__eyebrow { margin-top: 0.5rem; }
+      .challenge-section .challenge-item { padding: 1rem 0; }
+      .wondering-grid { grid-template-columns: 1fr; row-gap: 2rem; column-gap: 0; align-items: start; }
+      .wondering-col--questions { justify-content: flex-start; padding: 0.5rem 0 0; }
+      .wondering-section .challenge-col__eyebrow { margin-top: 0.5rem; }
+      .wondering-section .challenge-item { padding: 1rem 0; }
+
+      .home-page .sources-modal {
+        width: min(100vw, calc(100vw - 20px));
+      }
+
+      .home-page .sources-modal__header,
+      .home-page .sources-modal__body {
+        padding-inline: 1.15rem;
+      }
+    }
+  </style>
+</head>
+<body class="home-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="../index.html"><img src="../assets/images/favicon.png" alt="RTO" /><span class="site-logo__wordmark">RTO Advisory</span></a>
+      <button class="mobile-toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+      <nav class="main-nav" aria-label="Primary">
+        <ul class="main-nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a class="active" href="why-rto.html">Why RTO?</a></li>
+          <li class="has-dropdown">
+            <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+              Services <span class="nav-caret" aria-hidden="true">▾</span>
+            </button>
+            <ul class="nav-dropdown-menu" role="menu">
+              <li><a role="menuitem" href="services/exit-readiness.html">Exit Readiness Assessment</a></li>
+              <li><a role="menuitem" href="services/value-optimization.html">Strategic Value Optimization</a></li>
+              <li><a role="menuitem" href="services/transaction-advisory.html">Transaction Advisory &amp; Management</a></li>
+              <li><a role="menuitem" href="services/succession-planning.html">Succession Planning</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="fee-structure.html">Fee Structure</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+ </main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Differentiation</p>
+        <h1>
+          <span class="hero-title-line">Why Business Owners Choose RTO Advisory</span>
+        </h1>
+        <p class="rto_body">Unlike brokers and success fee advisory firms who focus primarily on getting a deal done, RTO Advisory works alongside you as a strategic partner. We help you clarify your goals, assess your preparedness, provide strategic and actionable recommendations, serve as a single point of coordination for your professional advisors, and help you navigate the entire process with clarity and discipline.</p>
+      </div>
+      <div class="hero-visual">
+        <img src="../assets/images/Why-RTO-TOP%20RIGHT.png" alt="Why RTO advisory visual" class="hero-visual__image" loading="eager" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="challenge-section">
+      <div class="container">
+        <h2 class="challenge-heading">The Challenges You<br> Are Facing</h2>
+
+        <div class="challenge-grid">
+          <div class="challenge-left">
+            <p class=".rto_med">You've spent decades building a business that represents far more than financial statements — it's your reputation, your employees' security, and the legacy you'll leave behind. Yet as you contemplate your exit, you face sobering realities.</p>
+            <img src="../assets/images/WHY-RTO_Challenges.png" alt="The challenges business owners face" class="challenge-left__image" loading="lazy" decoding="async">
+          </div>
+
+          <div class="challenge-col--odds">
+            <p class="challenge-col__eyebrow">The Odds Are Stacked Against You</p>
+
+            <div class="challenge-item">
+              <p class="challenge-item__text">Nearly <strong>75%</strong> of business owners lack formal exit plans, even though many expect to exit within the next decade.</p>
+            </div>
+
+            <div class="challenge-item">
+              <p class="challenge-item__text"><strong>58%</strong> of business owners have no plan at all, and only about <strong>42%</strong> have a formal business transition plan in place.</p>
+            </div>
+
+            <div class="challenge-item">
+              <p class="challenge-item__text">Only <strong>20–30%</strong> of businesses listed for sale actually complete a transaction.</p>
+            </div>
+
+            <div class="challenge-item">
+              <p class="challenge-item__text">Less than <strong>15–20%</strong> of family businesses successfully transition to the next generation.</p>
+            </div>
+
+            <div class="challenge-item">
+              <p class="challenge-item__text">Traditional brokers charge <strong>8–12%</strong> commissions (<strong>$300,000+</strong> on a <strong>$5M</strong> sale) while prioritizing quick deals over optimal outcomes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wondering-section">
+      <div class="container">
+        <h2 class="challenge-heading">You're Left<br>Wondering</h2>
+        <div class="wondering-grid">
+          <div class="wondering-left">
+            <p class="lead">The closer exit becomes, the less it feels like a simple business decision. Questions around value, readiness, deal structure, coordination, and legacy begin to converge, leaving many owners searching for clarity before they can move forward with confidence.</p>
+            <img src="../assets/images/WHY-RTO_Wondering.png" alt="Questions owners face before exit" class="wondering-left__image" loading="lazy" decoding="async">
+          </div>
+
+          <div class="wondering-col--questions">
+            <p class="challenge-col__eyebrow">How Do I ...</p>
+
+            <div class="challenge-item">
+              <p class="challenge-item__text">Maximize the value of my life's work?</p>
+            </div>
+
+            <div class="challenge-item">
+              <p class="challenge-item__text">Know if I and the business are truly ready for a transaction?</p>
+            </div>
+
+            <div class="challenge-item">
+              <p class="challenge-item__text">Evaluate and compare offers from PE firms or strategic buyers who've approached me?</p>
+            </div>
+
+            <div class="challenge-item">
+              <p class="challenge-item__text">Coordinate attorneys, accountants, bankers, and other advisors through this complex process?</p>
+            </div>
+
+            <div class="challenge-item">
+              <p class="challenge-item__text">Protect my employees and preserve our culture through and after a sale?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="challenge-heading">RTO Advisory<br>Solutions</h2>
+        <div class="challenges-grid">
+          <article class="challenge-tile card" data-challenge="1" tabindex="0" role="button" aria-expanded="false" aria-label="You Don't Know Where to Start">
+            <h3>You Don't Know Where to Start</h3>
+            <p class="challenge-item__text"><strong>32%</strong> of owners cite "lack of knowledge on where to start" as their biggest barrier.</p>
+            <p aria-hidden="true">&nbsp;</p>
+            <p><a href="pages/services/succession-planning.html">Our Solution &#8594;</a></p>
+          </article>
+          <article class="challenge-tile card" data-challenge="2" tabindex="0" role="button" aria-expanded="false" aria-label="You've Been Approached, But Don't Know If It's the Right Deal">
+            <h3>You've Been Approached, But Not Sure If It's the Right Deal</h3>
+            <p class="challenge-item__text">PE firms, strategic acquirers, or brokers have reached out, but you're unsure if their offer is fair or if you're prepared.</p>
+            <p><a href="pages/services/succession-planning.html">Our Solution &#8594;</a></p>
+          </article>
+          <article class="challenge-tile card" data-challenge="3" tabindex="0" role="button" aria-expanded="false" aria-label="You're Too Busy Running the Business">
+            <h3>You're Too Busy Running the Business</h3>
+            <p class="challenge-item__text"><strong>45%</strong> of owners say they're "too busy" to plan their exit.</p>
+            <p aria-hidden="true">&nbsp;</p>
+            <p><a href="pages/services/succession-planning.html">Our Solution &#8594;</a></p>
+          </article>
+          <article class="challenge-tile card" data-challenge="4" tabindex="0" role="button" aria-expanded="false" aria-label="You're Worried About Leaving Money on the Table">
+            <h3>You're Worried About Leaving Money on the Table</h3>
+            <p class="challenge-item__text">Most owners underestimate their business value or accept suboptimal deals due to lack of preparation.</p>
+            <p aria-hidden="true">&nbsp;</p>
+            <p><a href="pages/services/succession-planning.html">Our Solution &#8594;</a></p>
+          </article>
+          <article class="challenge-tile card" data-challenge="5" tabindex="0" role="button" aria-expanded="false" aria-label="You're Overwhelmed By the Complexity">
+            <h3>You're Overwhelmed By the Complexity</h3>
+            <p class="challenge-item__text">Exit transactions require coordinating attorneys, CPAs, wealth advisors, lenders, insurance professionals, and industry specialists.</p>
+            <p><a href="pages/services/succession-planning.html">Our Solution &#8594;</a></p>
+          </article>
+          <article class="challenge-tile card" data-challenge="6" tabindex="0" role="button" aria-expanded="false" aria-label="You Fear Losing Control of Your Legacy">
+            <h3>You Fear Losing Control of Your Legacy</h3>
+            <p class="challenge-item__text">Your business reflects your values, standards, and commitment to employees and community.</p>
+            <p aria-hidden="true">&nbsp;</p>
+            <p><a href="pages/services/succession-planning.html">Our Solution &#8594;</a></p>
+          </article>
+          <article class="challenge-tile card" data-challenge="7" tabindex="0" role="button" aria-expanded="false" aria-label="You're Weary of Commission-Based Brokers">
+            <h3>You're Weary of Commission-Based Brokers</h3>
+            <p class="challenge-item__text">Traditional brokers earn more when deals close quickly, creating conflicts with your long-term interests.</p>
+            <p><a href="pages/services/succession-planning.html">Our Solution &#8594;</a></p>
+          </article>
+          <article class="challenge-tile card" data-challenge="8" tabindex="0" role="button" aria-expanded="false" aria-label="You Want to Exit on Your Terms">
+            <h3>You Want to Exit on Your Terms</h3>
+            <p class="challenge-item__text">You've earned the right to retire when and how you choose, not when the market or a buyer dictates.</p>
+            <p><a href="pages/services/succession-planning.html">Our Solution &#8594;</a></p>         </article>
+          <article class="challenge-tile challenge-tile--cta card">
+            <p class="eyebrow">NEXT STEP</p>
+            <h3>Ready to evaluate your position?</h3>
+            <p class="challenge-item__text">Schedule a consultation and we'll walk through your current stage, risks, and practical next steps.</p>
+            <button class="btn btn-primary schedule-consultation-btn" type="button">Schedule Consultation</button>
+          </article>
+        </div>
+        <div class="challenge-panel-scrim" id="challenge-scrim"></div>
+        <div class="challenge-panel" data-challenge="1" role="dialog" aria-hidden="true" aria-labelledby="challenge-1-title"><div class="challenge-panel__content"><button class="challenge-panel__close" aria-label="Close">×</button><h3 id="challenge-1-title">You Don't Know Where to Start</h3><p class="challenge-panel__hook"><strong>32%</strong> of owners cite "lack of knowledge on where to start" as their biggest barrier.</p><hr class="challenge-panel__divider"><p class="challenge-panel__label">Our Solution</p><p>We begin with a comprehensive business assessment and develop a customized 2–5 year roadmap that transforms your business from where it is today to maximum market readiness. You'll know exactly what needs to happen, when, and why—whether you already have a buyer in mind or are just beginning to explore your options.</p></div></div>
+        <div class="challenge-panel" data-challenge="2" role="dialog" aria-hidden="true" aria-labelledby="challenge-2-title"><div class="challenge-panel__content"><button class="challenge-panel__close" aria-label="Close">×</button><h3 id="challenge-2-title">You've Been Approached, But Don't Know If It's the Right Deal</h3><p class="challenge-panel__hook">PE firms, strategic acquirers, or brokers have reached out, but you're unsure if their offer is fair or if you're prepared.</p><hr class="challenge-panel__divider"><p class="challenge-panel__label">Our Solution</p><p>We provide independent transaction readiness assessment and offer evaluation to help you understand:</p><ul class="challenge-panel__list"><li>✓ Whether your business is truly buyer‑ready or if preparation would increase value</li><li>✓ How the offer compares to market benchmarks and your business's potential</li><li>✓ What gaps exist in financial reporting, operations, or documentation</li><li>✓ Whether now is the right time or if strategic preparation would yield better outcomes</li></ul><p>You gain clarity and leverage—whether you proceed, decline, or negotiate from a position of strength.</p></div></div>
+        <div class="challenge-panel" data-challenge="3" role="dialog" aria-hidden="true" aria-labelledby="challenge-3-title"><div class="challenge-panel__content"><button class="challenge-panel__close" aria-label="Close">×</button><h3 id="challenge-3-title">You're Too Busy Running the Business</h3><p class="challenge-panel__hook"><strong>45%</strong> of owners say they're "too busy" to plan their exit.</p><hr class="challenge-panel__divider"><p class="challenge-panel__label">Our Solution</p><p>We work alongside you and your team, implementing improvements without disrupting daily operations. Our systematic approach handles the strategic planning while you maintain focus on running your business profitably.</p></div></div>
+        <div class="challenge-panel" data-challenge="4" role="dialog" aria-hidden="true" aria-labelledby="challenge-4-title"><div class="challenge-panel__content"><button class="challenge-panel__close" aria-label="Close">×</button><h3 id="challenge-4-title">You're Worried About Leaving Money on the Table</h3><p class="challenge-panel__hook">Most owners underestimate their business value or accept suboptimal deals due to lack of preparation.</p><hr class="challenge-panel__divider"><p class="challenge-panel__label">Our Solution</p><p>Our multi‑year value optimization process systematically enhances your business worth through financial performance improvements, operational efficiency, and strategic positioning. Businesses in the lower‑middle market sell for <strong>4–15x EBITDA</strong>—proper preparation can mean millions in additional proceeds.</p><p>Getting buyer‑ready means more than clean financials—it means documented processes, scalable operations, strong management teams, and strategic positioning that maximizes competitive tension and valuation multiples.</p></div></div>
+        <div class="challenge-panel" data-challenge="5" role="dialog" aria-hidden="true" aria-labelledby="challenge-5-title"><div class="challenge-panel__content"><button class="challenge-panel__close" aria-label="Close">×</button><h3 id="challenge-5-title">You're Overwhelmed By the Complexity</h3><p class="challenge-panel__hook">Exit transactions require coordinating attorneys, CPAs, wealth advisors, lenders, insurance professionals, and industry specialists.</p><hr class="challenge-panel__divider"><p class="challenge-panel__label">Our Solution</p><p>We serve as your <strong>transaction quarterback</strong>—the single point of coordination managing all professional service providers throughout the entire process. We:</p><ul class="challenge-panel__list"><li>✓ Assemble and manage your advisory team</li><li>✓ Coordinate due diligence requests and responses</li><li>✓ Ensure all parties stay aligned on timeline and objectives</li><li>✓ Translate complex legal, tax, and financial concepts into actionable decisions</li><li>✓ Keep the process moving forward while you focus on business operations</li></ul><p>You maintain one relationship with one trusted advisor, while we orchestrate the symphony of specialists required for a successful exit.</p></div></div>
+        <div class="challenge-panel" data-challenge="6" role="dialog" aria-hidden="true" aria-labelledby="challenge-6-title"><div class="challenge-panel__content"><button class="challenge-panel__close" aria-label="Close">×</button><h3 id="challenge-6-title">You Fear Losing Control of Your Legacy</h3><p class="challenge-panel__hook">Your business reflects your values, standards, and commitment to employees and community.</p><hr class="challenge-panel__divider"><p class="challenge-panel__label">Our Solution</p><p>Whether you're working with a buyer you've identified, evaluating inbound offers, or preparing for a future transaction, we help you:</p><ul class="challenge-panel__list"><li>✓ Define your non‑negotiable legacy priorities upfront</li><li>✓ Structure transactions that protect what matters most</li><li>✓ Evaluate buyer cultural fit and operational philosophy</li><li>✓ Negotiate employment protections for key team members</li><li>✓ Design earn‑outs and transition agreements that preserve institutional knowledge</li></ul></div></div>
+        <div class="challenge-panel" data-challenge="7" role="dialog" aria-hidden="true" aria-labelledby="challenge-7-title"><div class="challenge-panel__content"><button class="challenge-panel__close" aria-label="Close">×</button><h3 id="challenge-7-title">You're Weary of Commission-Based Brokers</h3><p class="challenge-panel__hook">Traditional brokers earn more when deals close quickly, creating conflicts with your long-term interests.</p><hr class="challenge-panel__divider"><p class="challenge-panel__label">Our Solution</p><p>Our fee‑based advisory model means we earn compensation for providing sound strategic advice—not for rushing you into suboptimal transactions. We save you <strong>50–90%</strong> versus traditional broker commissions while ensuring recommendations serve only your interests.</p><p><strong>Important distinction:</strong> We're not a matchmaking service or buyer‑sourcing firm. We're strategic advisors who prepare you for success regardless of how your buyer emerges—through your own relationships, inbound approaches, or if you later choose to engage a broker or investment banker for formal buyer identification.</p></div></div>
+        <div class="challenge-panel" data-challenge="8" role="dialog" aria-hidden="true" aria-labelledby="challenge-8-title"><div class="challenge-panel__content"><button class="challenge-panel__close" aria-label="Close">×</button><h3 id="challenge-8-title">You Want to Exit on Your Terms</h3><p class="challenge-panel__hook">You've earned the right to retire when and how you choose, not when the market or a buyer dictates.</p><hr class="challenge-panel__divider"><p class="challenge-panel__label">Our Solution</p><p>Early planning gives you control. Whether you're:</p><ul class="challenge-panel__list"><li>✓ Exploring options with no immediate plans</li><li>✓ Evaluating an unsolicited offer from a PE firm or strategic buyer</li><li>✓ Working with a specific buyer already in discussions</li><li>✓ Planning a transaction 2–5 years out</li></ul><p>We meet you where you are and create a roadmap that puts you in the strongest possible position.</p></div></div>
+      </div>
+    </section>
+
+  </main>
+
+  <dialog class="sources-modal" data-sources-modal aria-labelledby="sources-modal-title">
+    <div class="sources-modal__panel">
+      <div class="sources-modal__header">
+        <h2 id="sources-modal-title">Sources</h2>
+        <button class="sources-modal__close" type="button" data-close-sources aria-label="Close sources">&times;</button>
+      </div>
+      <div class="sources-modal__body">
+        <ul class="sources-modal__list">
+          <li>45 Day Exit — <em>Amazingly Poor Business Exit Planning Statistics</em></li>
+          <li>Edgemark Associates — <em>Why Nearly Half of U.S. Business Owners Lack an Exit Plan (And What That Means for You)</em></li>
+          <li>eLOC — <em>Exit Planning Statistics: Key Data for Business Owners</em></li>
+          <li>Exit Horizon — <em>Exit Readiness Assessment Insights</em></li>
+          <li>FamilyBusiness.org — <em>Family Business Succession Planning: A Complete Guide</em></li>
+          <li>Edward Jones / NEXT360 Partners — <em>A Business Succession Boom Is Coming, and One-third of Business Owners Don't View a Plan as a Priority</em></li>
+          <li>ideas42 — <em>Small-Business Owner Perspectives on Succession Planning: Survey and Interview Insights</em></li>
+          <li>Windsor Drake — <em>Lower Middle Market Valuation Multiples 2025</em></li>
+          <li>Arx Business Brokers — <em>Business Broker Fees: What They Charge and Why</em></li>
+        </ul>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="fee-footer-dark">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="site-footer__brand">
+            <h3>Return To Owner Advisory</h3>
+            <p>
+              Fee-based business advisory helping middle-market companies maximize value and achieve
+              successful exits through transparent, conflict-free guidance.
+            </p>
+            <div class="site-footer__contact">
+              <a href="tel:+18447296393">844-R-2-OWNER</a>
+              <a href="mailto:info@rtoadvisory.com">info@rtoadvisory.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Services</h3>
+          <ul class="site-footer__nav">
+            <li><a href="services/exit-readiness.html">Exit Readiness Assessment</a></li>
+            <li><a href="services/value-optimization.html">Strategic Value Optimization</a></li>
+            <li><a href="services/transaction-advisory.html">Transaction Advisory &amp; Management</a></li>
+            <li><a href="services/succession-planning.html">Succession Planning</a></li>
+          </ul>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Resources</h3>
+          <ul class="site-footer__nav">
+            <li><a href="why-rto.html">Why RTO?</a></li>
+            <li><a href="fee-structure.html">Fee Structure</a></li>
+          </ul>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Company</h3>
+          <ul class="site-footer__nav">
+            <li><a href="about.html">About RTO Advisory</a></li>
+            <li><a href="fee-structure.html">Why Fee-Based?</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Return To Owner Advisory. All rights reserved.</p>
+        <p class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="cookies.html">Cookie Policy</a>
+          <a href="#" data-sources-trigger>Sources</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="schedule-modal" id="schedule-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="schedule-modal-dialog"><div class="schedule-modal-header"><h3 style="margin:0;">Schedule Your Consultation</h3><button type="button" class="schedule-modal-close" id="schedule-modal-close">&times;</button></div><div class="schedule-modal-body"><div class="calendly-inline-widget" data-url="https://calendly.com/elliott-rtoadvisory/30min"></div></div></div>
+  </div>
+
+  <script src="../assets/js/navigation.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tiles = document.querySelectorAll('.challenge-tile:not(.challenge-tile--cta)');
+      const panels = document.querySelectorAll('.challenge-panel');
+      const scrim = document.getElementById('challenge-scrim');
+      let currentPanel = null;
+      let currentTile = null;
+      let panelKeyHandler = null;
+
+      const getFocusable = (panel) => {
+        return panel.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      };
+
+      const closePanel = () => {
+        if (!currentPanel) return;
+        if (panelKeyHandler) {
+          currentPanel.removeEventListener('keydown', panelKeyHandler);
+          panelKeyHandler = null;
+        }
+        currentPanel.setAttribute('aria-hidden', 'true');
+        if (currentTile) {
+          currentTile.setAttribute('aria-expanded', 'false');
+          currentTile.focus();
+        }
+        scrim.classList.remove('is-open');
+        document.body.style.overflow = '';
+        currentPanel = null;
+        currentTile = null;
+      };
+
+      const openPanel = (tile) => {
+        closePanel();
+        const challengeNum = tile.dataset.challenge;
+        const panel = document.querySelector(`.challenge-panel[data-challenge="${challengeNum}"]`);
+        if (!panel) return;
+
+        currentPanel = panel;
+        currentTile = tile;
+        panel.setAttribute('aria-hidden', 'false');
+        tile.setAttribute('aria-expanded', 'true');
+        scrim.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+
+        const closeBtn = panel.querySelector('.challenge-panel__close');
+        if (closeBtn) setTimeout(() => closeBtn.focus(), 100);
+
+        panelKeyHandler = (e) => {
+          if (e.key !== 'Tab') return;
+          const focusable = Array.from(getFocusable(panel));
+          if (!focusable.length) return;
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        };
+
+        panel.addEventListener('keydown', panelKeyHandler);
+      };
+
+      tiles.forEach((tile) => {
+        tile.addEventListener('click', (e) => {
+          e.preventDefault();
+          openPanel(tile);
+        });
+        tile.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openPanel(tile);
+          }
+        });
+      });
+
+      scrim.addEventListener('click', closePanel);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && currentPanel) closePanel();
+      });
+
+      panels.forEach((panel) => {
+        const closeBtn = panel.querySelector('.challenge-panel__close');
+        if (closeBtn) closeBtn.addEventListener('click', closePanel);
+      });
+
+      tiles.forEach((tile) => {
+        const link = tile.querySelector('.tile-cta');
+        if (link) link.addEventListener('click', (e) => {
+          e.preventDefault();
+          openPanel(tile);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "ma-advisory-website",
+  "version": "1.0.0",
+  "description": "M&A Advisory website with Netlify Visual Editor",
+  "scripts": {
+    "dev": "npx http-server . -p 3000 -c-1",
+    "build": "echo 'No build needed for static site'",
+    "start": "npx http-server . -p 3000 -c-1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,87 @@
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--color-ink-800);
+  background: var(--color-paper);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  color: var(--color-brand);
+  margin: 0 0 var(--space-4);
+}
+
+h1 { font-size: var(--text-4xl); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+
+p {
+  margin: 0 0 var(--space-4);
+}
+
+.rto_body {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.75;
+  color: var(--color-ink-700);
+  font-weight: 400;
+}
+
+.rto_body + .rto_body {
+  margin-top: var(--space-4);
+}
+
+.rto_body_medium,
+.rto_med {
+  margin: 0;
+  font-size: 1.03rem;
+  line-height: 1.75;
+  color: var(--color-ink-700);
+  font-weight: 400;
+}
+
+.rto_body_small,
+.rto_body_samll {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--color-ink-700);
+  font-weight: 400;
+}
+
+.rto_measure_60 {
+  max-width: 60ch;
+}
+
+.list-styled {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.list-styled li {
+  margin-bottom: 0.45rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.975rem;
+  color: #7a746c;
+  font-weight: 600;
+  margin: 0 0 1.25rem;
+}
+
+.lead {
+  margin: 0;
+  font-size: 1.03rem;
+  line-height: 1.75;
+  color: var(--color-ink-700);
+  font-weight: 400;
+}

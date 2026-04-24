@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | RTO Advisory</title>
+  <meta name="description" content="Start a qualified advisory intake with RTO Advisory." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=block" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/variables.css" />
+  <link rel="stylesheet" href="../assets/css/reset.css" />
+  <link rel="stylesheet" href="../assets/css/typography.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="../index.html"><img src="../assets/images/favicon.png" alt="RTO" /><span class="site-logo__wordmark">RTO Advisory</span></a>
+      <button class="mobile-toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+      <nav class="main-nav" aria-label="Primary">
+        <ul class="main-nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="why-rto.html">Why RTO?</a></li>
+          <li class="has-dropdown">
+            <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+              Services <span class="nav-caret" aria-hidden="true">▾</span>
+            </button>
+            <ul class="nav-dropdown-menu" role="menu">
+              <li><a role="menuitem" href="services/exit-readiness.html">Exit Readiness Assessment</a></li>
+              <li><a role="menuitem" href="services/value-optimization.html">Strategic Value Optimization</a></li>
+              <li><a role="menuitem" href="services/transaction-advisory.html">Transaction Advisory &amp; Management</a></li>
+              <li><a role="menuitem" href="services/succession-planning.html">Succession Planning</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="fee-structure.html">Fee Structure</a></li>
+          <li><a class="active" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container-narrow">
+      <p class="eyebrow">Qualified Intake</p>
+      <h1>Start Your Advisory Intake</h1>
+      <p>Share your context so we can route you to the right advisory path quickly and keep your first consultation focused.</p>
+    </div>
+  </section>
+
+  <main class="section" id="intake-start">
+    <div class="container two-col">
+      <section class="card">
+        <h2>Intake Form</h2>
+        <p class="eyebrow">Step 1 of 3</p>
+        <form id="contactForm" action="https://formspree.io/f/xykdedep" method="POST">
+          <div data-intake-step="1">
+            <div class="form-grid">
+              <div><label for="name">Name</label><input id="name" name="name" required /></div>
+              <div><label for="company">Company</label><input id="company" name="company" required /></div>
+              <div><label for="role">Role</label><input id="role" name="role" required /></div>
+              <div>
+                <label for="size">Revenue Band</label>
+                <select id="size" name="size" required>
+                  <option value="">Choose</option>
+                  <option>$2M-$10M</option>
+                  <option>$10M-$50M</option>
+                  <option>$50M-$100M</option>
+                </select>
+              </div>
+            </div>
+            <p style="margin-top:1rem;"><button class="btn btn-secondary" type="button" data-step-to="2">Continue</button></p>
+          </div>
+
+          <div data-intake-step="2" hidden>
+            <p class="eyebrow">Step 2 of 3</p>
+            <div class="form-grid">
+              <div>
+                <label for="focus">Primary Focus</label>
+                <select id="focus" name="focus" required>
+                  <option value="">Choose</option>
+                  <option>Exit planning</option>
+                  <option>Value optimization</option>
+                  <option>Transaction support</option>
+                  <option>Succession planning</option>
+                </select>
+              </div>
+              <div>
+                <label for="timeline">Timeline</label>
+                <select id="timeline" name="timeline">
+                  <option>Exploring</option>
+                  <option>6-12 months</option>
+                  <option>12-24 months</option>
+                  <option>24+ months</option>
+                </select>
+              </div>
+              <div>
+                <label for="challenge">Current challenge</label>
+                <textarea id="challenge" name="challenge" rows="4"></textarea>
+              </div>
+            </div>
+            <p style="margin-top:1rem;"><button class="btn btn-secondary" type="button" data-step-to="1">Back</button> <button class="btn btn-primary" type="button" data-step-to="3">Continue</button></p>
+          </div>
+
+          <div data-intake-step="3" hidden>
+            <p class="eyebrow">Step 3 of 3</p>
+            <div class="form-grid">
+              <div><label for="email">Email</label><input id="email" name="email" type="email" required /></div>
+              <div><label for="phone">Phone</label><input id="phone" name="phone" /></div>
+              <div>
+                <label for="contact_method">Preferred Contact Method</label>
+                <select id="contact_method" name="contact_method"><option>Email</option><option>Phone</option></select>
+              </div>
+              <div><label for="message">Additional notes</label><textarea id="message" name="message" rows="4"></textarea></div>
+            </div>
+            <p style="margin-top:1rem;"><button class="btn btn-secondary" type="button" data-step-to="2">Back</button> <button class="btn btn-primary" type="submit">Submit Intake</button></p>
+          </div>
+
+          <div id="formMessage" hidden></div>
+        </form>
+      </section>
+
+      <aside class="card">
+        <h3>Direct Contact</h3>
+        <p><strong>Phone</strong><br /><a href="tel:+18447296393">844-R-2-OWNER (844-729-6393)</a></p>
+        <p><strong>Email</strong><br /><a href="mailto:info@rtoadvisory.com">info@rtoadvisory.com</a></p>
+        <p><button type="button" class="btn btn-accent schedule-consultation-btn">Schedule Consultation</button></p>
+        <h4>What Happens Next</h4>
+        <p>After your intake is submitted, we review your stage, goals, and timeline. If there is strong fit, we schedule a focused consultation and outline practical next steps.</p>
+        <h4>Typical Response Time</h4>
+        <p>Within one business day.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="fee-footer-dark">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="site-footer__brand">
+            <h3>Return To Owner Advisory</h3>
+            <p>
+              Fee-based business advisory helping middle-market companies maximize value and achieve
+              successful exits through transparent, conflict-free guidance.
+            </p>
+            <div class="site-footer__contact">
+              <a href="tel:+18447296393">844-R-2-OWNER</a>
+              <a href="mailto:info@rtoadvisory.com">info@rtoadvisory.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Services</h3>
+          <ul class="site-footer__nav">
+            <li><a href="services/exit-readiness.html">Exit Readiness Assessment</a></li>
+            <li><a href="services/value-optimization.html">Strategic Value Optimization</a></li>
+            <li><a href="services/transaction-advisory.html">Transaction Advisory &amp; Management</a></li>
+            <li><a href="services/succession-planning.html">Succession Planning</a></li>
+          </ul>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Resources</h3>
+          <ul class="site-footer__nav">
+            <li><a href="why-rto.html">Why RTO?</a></li>
+            <li><a href="fee-structure.html">Fee Structure</a></li>
+          </ul>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Company</h3>
+          <ul class="site-footer__nav">
+            <li><a href="about.html">About RTO Advisory</a></li>
+            <li><a href="fee-structure.html">Why Fee-Based?</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Return To Owner Advisory. All rights reserved.</p>
+        <p class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="cookies.html">Cookie Policy</a>
+          <a href="#" data-sources-trigger>Sources</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="schedule-modal" id="schedule-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="schedule-modal-dialog">
+      <div class="schedule-modal-header">
+        <h3 style="margin:0;">Schedule Your Consultation</h3>
+        <button type="button" class="schedule-modal-close" id="schedule-modal-close">&times;</button>
+      </div>
+      <div class="schedule-modal-body"><div class="calendly-inline-widget" data-url="https://calendly.com/elliott-rtoadvisory/30min"></div></div>
+    </div>
+  </div>
+
+  <script src="../assets/js/navigation.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>

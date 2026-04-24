@@ -1,0 +1,559 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RTO Advisory | Strategic Exit and Transaction Advisory</title>
+  <meta name="description" content="Fee-based advisory helping owners prepare, optimize value, and execute transactions with clarity." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=block" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/typography.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+  <style>
+    .home-page {
+      background: var(--color-paper);
+      color: #1f1d1a;
+    }
+
+    .home-page .site-header {
+      background: var(--color-header-bg);
+      border-bottom: 1px solid var(--color-header-line);
+      box-shadow: none;
+    }
+
+    .home-page .site-header.is-scrolled {
+      box-shadow: 0 6px 18px var(--color-header-shadow);
+      border-bottom-color: var(--color-header-line-scrolled);
+    }
+
+    .home-page .site-logo__wordmark,
+    .home-page .main-nav-list a,
+    .home-page .nav-dropdown-toggle {
+      color: var(--color-header-ink);
+    }
+
+    .home-page .main-nav-list a.active,
+    .home-page .main-nav-list a:hover {
+      background: rgba(var(--color-brand-rgb), 0.08);
+    }
+
+    .home-page .hero h1 .hero-title-line {
+      display: block;
+      white-space: normal;
+    }
+
+    .home-page .hero h1 .hero-title-line + .hero-title-line {
+      margin-top: 0.12em;
+    }
+
+    .home-page .hero {
+      padding: 60px 0 40px;
+      background: var(--color-paper);
+    }
+
+    .home-page .eyebrow {
+      display: inline-block;
+      margin: 0 0 1rem;
+      font-size: 0.975rem;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a746c;
+    }
+
+    .home-page .hero-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(391px, 476px);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .home-page .hero-copy {
+      max-width: 62ch;
+    }
+
+    .home-page .hero h1 {
+      font-size: clamp(2.65rem, 5vw, 4.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+      max-width: 14ch;
+      margin: 0 0 0.9rem;
+    }
+
+    .home-page .hero .lead {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+      font-weight: 400;
+    }
+
+    .home-page .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 476px;
+      height: 459px;
+      margin: 0 auto;
+      padding: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      overflow: hidden;
+    }
+
+    .home-page .hero-visual__image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      background: transparent;
+      border-radius: 0;
+    }
+
+    .home-page .section-services > .container > .eyebrow {
+      display: inline-block;
+      margin: 0 0 1rem;
+      font-size: 0.975rem;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a746c;
+    }
+
+    .home-page .section-services h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      line-height: 1.1;
+      color: var(--color-brand);
+      margin: 0;
+      max-width: 22ch;
+    }
+
+    .home-page .section-services .services-layout {
+      margin-top: 2rem;
+    }
+
+    .home-page .section-services .card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .home-page .next-step-panel h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2vw, 1.75rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--color-brand);
+      margin: 0 0 0.45rem;
+    }
+
+    .home-page .section-services .card p {
+      font-family: var(--font-body);
+      font-size: var(--text-lg);
+      line-height: 1.6;
+      font-weight: 400;
+      color: var(--color-ink-700);
+      letter-spacing: 0;
+    }
+
+    .home-page .section-services .card p > a {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-brand);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(15, 46, 42, 0.35);
+      letter-spacing: 0;
+      line-height: 1.5;
+    }
+
+    .home-page .section-services .card p > a:hover {
+      opacity: 0.75;
+    }
+
+    .home-page .section-services .card p.rto_med + p {
+      margin-top: auto;
+      padding-top: 1.35rem;
+    }
+
+    .home-page .section-insight .card h3 ~ p {
+      font-family: var(--font-body);
+      font-size: var(--text-lg);
+      line-height: 1.6;
+      font-weight: 400;
+      color: var(--color-ink-700);
+      letter-spacing: 0;
+    }
+
+    .home-page main p:not(.eyebrow),
+    .home-page main li,
+    .home-page main a,
+    .home-page .footer-copy,
+    .home-page .footer-legal a,
+    .home-page .site-footer__brand p,
+    .home-page .site-footer__contact a,
+    .home-page .site-footer__nav a {
+      font-family: var(--font-body);
+    }
+
+    .home-page .section-services .card p.rto_med {
+      font-size: 1.03rem;
+      line-height: 1.75;
+      font-weight: 400;
+    }
+
+    .home-page .section-insight .card p.rto_med {
+      font-size: 1.03rem;
+      line-height: 1.75;
+      font-weight: 400;
+    }
+
+    .home-page .section-insight .card p.rto_med + p.rto_med {
+      margin-top: var(--space-4);
+    }
+
+    .home-page .card {
+      background: var(--color-paper);
+    }
+
+    .home-page .next-step-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 2rem;
+      align-items: center;
+      padding: 2rem;
+      border: 1px solid var(--color-line);
+      border-radius: 20px;
+      background: var(--color-paper);
+    }
+
+    .home-page .next-step-panel p.next-step-body {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--color-ink-700);
+      margin: 0;
+      max-width: 54ch;
+      white-space: normal;
+    }
+
+    .home-page .next-step-panel p.next-step-body.rto_med {
+      font-size: 1.03rem;
+      line-height: 1.75;
+      font-weight: 400;
+    }
+
+    .home-page .next-step-panel .schedule-consultation-btn {
+      align-self: center;
+      justify-self: end;
+      min-height: 48px;
+      padding-inline: 1.35rem;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 46, 42, 0.34);
+      background: transparent;
+      color: var(--color-brand);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      box-shadow: none;
+      transition: background-color 180ms ease, color 180ms ease;
+    }
+
+    .home-page .next-step-panel .schedule-consultation-btn:hover {
+      background: rgba(15, 46, 42, 0.06);
+      color: var(--color-brand);
+    }
+
+    .home-page .services-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .home-page .services-visual {
+      margin: 0;
+      border: 1px solid rgba(31, 29, 26, 0.14);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #efe8dd;
+      min-height: 100%;
+    }
+
+    .home-page .services-visual img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .home-page .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 1100px) {
+      .home-page .hero-grid,
+      .home-page .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .home-page .services-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .home-page .services-visual {
+        min-height: 240px;
+      }
+
+      .home-page .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .home-page .hero-visual {
+        width: 100%;
+        max-width: 100%;
+        min-height: 459px;
+        margin-top: 1.5rem;
+      }
+
+      .home-page .next-step-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .home-page .next-step-panel .schedule-consultation-btn {
+        justify-self: end;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .home-page .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .home-page .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body class="home-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="index.html"><img src="assets/images/favicon.png" alt="RTO" /><span class="site-logo__wordmark">RTO Advisory</span></a>
+      <button class="mobile-toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+      <nav class="main-nav" aria-label="Primary">
+        <ul class="main-nav-list">
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="pages/why-rto.html">Why RTO?</a></li>
+          <li class="has-dropdown">
+            <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+              Services <span class="nav-caret" aria-hidden="true">▾</span>
+            </button>
+            <ul class="nav-dropdown-menu" role="menu">
+              <li><a role="menuitem" href="pages/services/exit-readiness.html">Exit Readiness Assessment</a></li>
+              <li><a role="menuitem" href="pages/services/value-optimization.html">Strategic Value Optimization</a></li>
+              <li><a role="menuitem" href="pages/services/transaction-advisory.html">Transaction Advisory &amp; Management</a></li>
+              <li><a role="menuitem" href="pages/services/succession-planning.html">Succession Planning</a></li>
+            </ul>
+          </li>
+          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/fee-structure.html">Fee Structure</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Middle-Market Owner Advisory</p>
+          <h1>
+            <span class="hero-title-line">Maximize Your Business Value</span>
+            <span class="hero-title-line">Return To Owner Advisory</span>
+          </h1>
+          <p class="rto_body">RTO Advisory is a fee-based strategic partner for owners navigating exit readiness, value optimization, transaction execution, and succession planning. We help you make better decisions before, during, and after a transaction window opens.</p>
+        </div>
+        <div class="hero-visual">
+          <img src="assets/images/index_topright.png" alt="Abstract geometric composition — circle, square, and arc in blush, teal, and warm neutrals" class="hero-visual__image" loading="eager" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-services">
+      <div class="container">
+        <p class="eyebrow">Core Services</p>
+        <h2>Advisory Built Around Outcomes, Not Deal Velocity</h2>
+        <div class="services-layout">
+          <figure class="services-visual">
+            <img src="assets/images/HOME%20PAGE%20BLOCKS.png" alt="Advisory visual blocks" />
+          </figure>
+          <div class="services-grid">
+            <article class="card">
+              <h3>Exit Readiness</h3>
+              <p class="rto_med">Evaluate your business against the RTO Exit Readiness Index™. Six domains, one score, a clear roadmap.</p>
+              <p><a href="pages/services/exit-readiness.html">Explore Service &#8594;</a></p>
+            </article>
+            <article class="card">
+              <h3>Value Optimization</h3>
+              <p class="rto_med">Prioritize the specific initiatives most likely to improve valuation confidence and reduce execution friction.</p>
+              <p><a href="pages/services/value-optimization.html">Explore Service &#8594;</a></p>
+            </article>
+            <article class="card">
+              <h3>Transaction Advisory</h3>
+              <p class="rto_med">Coordinate diligence, structure discussions, and negotiation preparation so you can move from uncertainty to controlled execution.</p>
+              <p><a href="pages/services/transaction-advisory.html">Explore Service &#8594;</a></p>
+            </article>
+            <article class="card">
+              <h3>Succession Planning</h3>
+              <p class="rto_med">Align ownership transition, leadership continuity, and legacy objectives with a practical phased plan.</p>
+              <p><a href="pages/services/succession-planning.html">Explore Service &#8594;</a></p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-insight">
+      <div class="container two-col">
+        <article class="card">
+          <p class="eyebrow">Who We Work With</p>
+          <h3>Owners Planning 12 Months To 5 Years Ahead</h3>
+          <p class="rto_med">Best-fit clients are owners who want objective guidance before making irreversible transaction decisions. You may be evaluating inbound interest, preparing for a formal process, or organizing a leadership transition.</p>
+          <p class="rto_med">We do not operate as a broker matchmaking service. Our role is to improve your position, decision quality, and negotiating leverage regardless of how buyer conversations begin.</p>
+        </article>
+        <article class="card">
+          <p class="eyebrow">What You Can Expect</p>
+          <h3>Structured Process, Clear Milestones</h3>
+          <p class="rto_med">Every engagement starts with scope clarity, timeline alignment, and practical deliverables.</p>
+          <p class="rto_med">You get transparent communication, measurable progress checkpoints, and direct coordination with your other advisors when needed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container card next-step-panel">
+        <div>
+          <p class="eyebrow">Next Step</p>
+          <h2>Schedule a focused 30-minute consultation</h2>
+          <p class="next-step-body rto_med">Bring your current stage, timeline, and top concerns. We will map practical next moves and define whether there is a strong mutual fit.</p>
+        </div>
+        <button type="button" class="btn btn-primary schedule-consultation-btn">Schedule Consultation</button>
+      </div>
+    </section>
+  </main>
+
+ <footer class="fee-footer-dark">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="site-footer__brand">
+            <h3>Return To Owner Advisory</h3>
+            <p>
+              Fee-based business advisory helping middle-market companies maximize value and achieve
+              successful exits through transparent, conflict-free guidance.
+            </p>
+            <div class="site-footer__contact">
+              <a href="tel:+18447296393">844-R-2-OWNER</a>
+              <a href="mailto:info@rtoadvisory.com">info@rtoadvisory.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Services</h3>
+          <ul class="site-footer__nav">
+            <li><a href="pages/services/exit-readiness.html">Exit Readiness Assessment</a></li>
+            <li><a href="pages/services/value-optimization.html">Strategic Value Optimization</a></li>
+            <li><a href="pages/services/transaction-advisory.html">Transaction Advisory &amp; Management</a></li>
+            <li><a href="pages/services/succession-planning.html">Succession Planning</a></li>
+          </ul>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Resources</h3>
+          <ul class="site-footer__nav">
+            <li><a href="pages/why-rto.html">Why RTO?</a></li>
+            <li><a href="pages/fee-structure.html">Fee Structure</a></li>
+          </ul>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Company</h3>
+          <ul class="site-footer__nav">
+            <li><a href="pages/about.html">About RTO Advisory</a></li>
+            <li><a href="pages/fee-structure.html">Why Fee-Based?</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Return To Owner Advisory. All rights reserved.</p>
+        <p class="footer-legal">
+          <a href="pages/privacy.html">Privacy Policy</a>
+          <a href="pages/terms.html">Terms of Service</a>
+          <a href="pages/cookies.html">Cookie Policy</a>
+          <a href="#" data-sources-trigger>Sources</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Schedule Modal -->
+  <div id="schedule-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Schedule a Consultation">
+    <div class="modal-box">
+      <button id="schedule-modal-close" class="modal-close" aria-label="Close">&times;</button>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/elliott-rtoadvisory/30min" style="min-width:320px;height:630px;"></div>
+    </div>
+  </div>
+
+  <style>
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.is-open {
+      display: flex;
+    }
+    .modal-box {
+      position: relative;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      width: min(760px, 95vw);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      font-size: 1.6rem;
+      line-height: 1;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+      z-index: 1;
+    }
+  </style>
+
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>

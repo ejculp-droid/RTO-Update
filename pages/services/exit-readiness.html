@@ -1,0 +1,2841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exit Readiness Assessment | RTO Advisory</title>
+  <meta name="description" content="The Exit Readiness Assessment powered by the RTO Exit Readiness Index™ gives owners a six-gap score, heat map, and roadmap before buyers price the gap for them." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=block" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/css/variables.css" />
+  <link rel="stylesheet" href="../../assets/css/reset.css" />
+  <link rel="stylesheet" href="../../assets/css/typography.css" />
+  <link rel="stylesheet" href="../../assets/css/components.css" />
+  <link rel="stylesheet" href="../../assets/css/layout.css" />
+  <link rel="stylesheet" href="../../assets/css/responsive.css" />
+  <style>
+    .fee-page {
+      --color-brand: #0f2e2a;
+      --color-brand-strong: #0f2e2a;
+      --domain-green: #0f2e2a;
+      background: var(--color-paper);
+      color: var(--color-ink-800);
+    }
+
+    .fee-page .fee-section {
+      padding: 48px 0;
+    }
+
+    .fee-page .fee-section--muted {
+      background: var(--color-paper);
+    }
+
+    .fee-page .fee-section--faq {
+      background: var(--color-paper);
+    }
+
+    .fee-page .fee-section--tight {
+      padding-top: 20px;
+    }
+
+    .fee-page .fee-hero {
+      padding: 60px 0 40px;
+      background: var(--color-paper);
+    }
+
+    .fee-page .fee-hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(391px, 476px);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .fee-page .fee-hero__content {
+      max-width: 62ch;
+    }
+
+    .fee-page .section-eyebrow,
+    .fee-page .faq-section__eyebrow {
+      display: inline-block;
+      margin: 0 0 1rem;
+      font-size: 0.975rem;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a746c;
+    }
+
+    .fee-page .fee-hero__title,
+    .fee-page .section-heading h2,
+    .fee-page .cmp-heading,
+    .fee-page .contact-panel h2 {
+      font-family: var(--font-display);
+      color: var(--color-brand);
+    }
+
+    .fee-page .fee-hero__title {
+      font-size: clamp(2.65rem, 5vw, 4.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+      max-width: 14ch;
+      margin: 0 0 0.9rem;
+    }
+
+    .fee-page .fee-hero__aside {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .fee-page .fee-hero__subhead {
+      margin: 0 0 1rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+      line-height: 1.2;
+      color: var(--color-brand);
+    }
+
+    .fee-page .fee-hero__lead {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .hero-whitepaper {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      max-width: 420px;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .fee-page .hero-whitepapercover {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      display: block;
+      box-shadow: 0 0.75rem 1.75rem rgba(23, 21, 18, 0.18);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .fee-page .hero-whitepaperbutton {
+      white-space: nowrap;
+    }
+
+    .fee-page .hero-whitepapertrademark {
+      margin: 0;
+      text-align: center;
+      line-height: 1.45;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .hero-whitepapertrademark-title {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-ink-800);
+    }
+
+    .fee-page .hero-whitepapertrademark-note {
+      display: block;
+      margin-top: 0.2rem;
+      font-size: 0.86rem;
+      font-style: italic;
+      color: var(--color-ink-500);
+    }
+
+    .fee-page .hero-whitepaper:hover .hero-whitepapercover,
+    .fee-page .hero-whitepaper:focus-visible .hero-whitepapercover {
+      transform: translateY(-0.1rem);
+      box-shadow: 0 1rem 2rem rgba(23, 21, 18, 0.24);
+    }
+
+    .fee-page .hero-whitepaper:focus-visible {
+      outline: 2px solid var(--color-brand);
+      outline-offset: 6px;
+      border-radius: 4px;
+    }
+
+    .fee-page .glance-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .fee-page .glance-stat {
+      padding: 1.35rem 1.2rem;
+      border: 1px solid var(--color-line);
+      border-radius: 18px;
+      background: var(--color-surface);
+    }
+
+    .fee-page .glance-stat__value {
+      display: block;
+      margin-bottom: 0.45rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1;
+      color: var(--color-brand);
+    }
+
+    .fee-page .glance-stat p,
+    .fee-page .section-heading p,
+    .fee-page .framework-tile p:not([class]),
+    .fee-page .advantage-copy p,
+    .fee-page .assessment-row p,
+    .fee-page .white-paper-block__copy p,
+    .fee-page .contact-panel__content > p:not(.eyebrow) {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .white-paper-block__copy .faq-section__eyebrow,
+    .fee-page .resource-faq-rail .faq-section__eyebrow {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 0.975rem;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a746c;
+    }
+
+    .fee-page .assessment-row p.rto_body_medium {
+      font-size: 1.03rem;
+    }
+
+    .fee-page .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.88fr);
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 2rem;
+    }
+
+    .fee-page .section-heading--tight {
+      grid-template-columns: 1fr;
+      max-width: 760px;
+    }
+
+    .fee-page .section-heading h2,
+    .fee-page .cmp-heading {
+      font-size: var(--text-3xl);
+      line-height: 1.1;
+      margin: 0 0 0.8rem;
+    }
+
+    .fee-page .framework-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .fee-page .assessment-row h3,
+    .fee-page .white-paper-block__copy h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.75rem;
+      line-height: 1.25;
+      color: var(--color-brand);
+    }
+
+    .fee-page .framework-layout {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+      gap: 2rem;
+      align-items: start;
+      padding: 2rem;
+      border: 1px solid rgba(188, 150, 86, 0.28);
+      border-radius: 24px;
+      background: var(--color-surface);
+    }
+
+    .fee-page .framework-heading {
+      padding-right: 1rem;
+      border-right: 1px solid var(--color-line);
+    }
+
+    .fee-page .framework-heading .section-eyebrow {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #7a746c;
+      font-weight: 600;
+    }
+
+    .fee-page .framework-heading h2 {
+      margin: 0 0 0.55rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 0.95;
+      color: var(--color-brand);
+    }
+
+    .fee-page .framework-heading p:not([class]) {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+      max-width: 60ch;
+    }
+
+    .fee-page .framework-tiles {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .fee-page .framework-tile {
+      padding: 0.25rem 0.5rem 0.25rem 0;
+    }
+
+    .fee-page .framework-tile p:not([class]) {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .framework-tile h3 {
+      margin: 0 0 0.55rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 2vw, 1.7rem);
+      line-height: 1.2;
+      color: var(--color-brand);
+    }
+
+    @media (max-width: 1023px) {
+      .fee-page .framework-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .fee-page .framework-heading {
+        border-right: none;
+        padding-right: 0;
+        margin-bottom: 1rem;
+      }
+
+      .fee-page .framework-tiles {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .fee-page .domains-section {
+      --domain-green: #0f2e2a;
+      --domain-clay: #c77a5b;
+      --domain-gold: #c9a45b;
+      --domain-ink: #1a1a1a;
+      --domain-reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --domain-reveal-base: 0ms;
+    }
+
+    .fee-page .domains-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      column-gap: clamp(48px, 6vw, 96px);
+      align-items: end;
+      margin-bottom: 72px;
+    }
+
+    .fee-page .domains-heading h2 {
+      margin: 0;
+      max-width: 22ch;
+    }
+
+    .fee-page .domains-heading__intro {
+      margin: 0;
+      font-size: clamp(16px, 1.05vw, 18px);
+      line-height: 1.55;
+      color: var(--color-ink-700);
+      max-width: 46ch;
+      text-align: left;
+      padding-top: 0.35em;
+    }
+
+    .fee-page .domains-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: clamp(3rem, 5vw, 4rem);
+      row-gap: clamp(6rem, 10vw, 8rem);
+      align-items: start;
+    }
+
+    .fee-page .domain-card {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 300ms ease, transform 300ms ease;
+      transition-delay: var(--card-stagger, 0ms);
+      will-change: opacity, transform;
+    }
+
+    .fee-page .domain-card__media {
+      position: relative;
+      margin: 0 0 1.2rem;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(15, 46, 42, 0.16);
+      box-shadow: var(--shadow-sm);
+      background: #e8dfd1;
+      clip-path: inset(100% 0 0 0);
+      transition: clip-path 500ms ease-out;
+      transition-delay: calc(var(--card-stagger, 0ms) + 150ms);
+    }
+
+    .fee-page .domain-card__media img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .fee-page .domain-card__accent {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 28%;
+      height: 28%;
+      opacity: 0.85;
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+      transform: scaleX(0);
+      transform-origin: top right;
+      transition: transform 300ms ease;
+      transition-delay: calc(var(--card-stagger, 0ms) + 300ms);
+    }
+
+    .fee-page .domain-card__accent--green { background: var(--domain-green); }
+    .fee-page .domain-card__accent--clay { background: var(--domain-clay); }
+    .fee-page .domain-card__accent--gold { background: var(--domain-gold); }
+
+    .fee-page .domain-card__head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.55rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .fee-page .domain-card__mono {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a746c;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 350ms ease, transform 350ms ease;
+      transition-delay: calc(var(--card-stagger, 0ms) + 500ms);
+    }
+
+    .fee-page .domain-card__title {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 2vw, 1.7rem);
+      line-height: 1.2;
+      color: var(--domain-green);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 350ms ease, transform 350ms ease;
+      transition-delay: calc(var(--card-stagger, 0ms) + 560ms);
+    }
+
+    .fee-page .domain-card__body {
+      margin: 0;
+      max-width: 60ch;
+      font-size: 1.12rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 400ms ease, transform 400ms ease;
+      transition-delay: calc(var(--card-stagger, 0ms) + 650ms);
+    }
+
+    .fee-page .domain-card__body.rto_body_medium {
+      font-size: var(--text-base);
+      line-height: 1.75;
+      color: var(--color-ink-700);
+      font-weight: 400;
+    }
+
+    .fee-page .domain-card__body sup {
+      font-size: 0.7em;
+      vertical-align: super;
+      line-height: 0;
+    }
+
+    .fee-page .domain-card__body sup a {
+      color: var(--domain-green);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(15, 46, 42, 0.35);
+    }
+
+    .fee-page .domain-card__stat-wrap {
+      margin-top: 1.9rem;
+      opacity: 0;
+      transition: opacity 300ms ease;
+      transition-delay: calc(var(--card-stagger, 0ms) + 900ms);
+    }
+
+    .fee-page .domain-card__stat-live {
+      margin: 0;
+      min-height: 1.1em;
+      font-variant-numeric: tabular-nums;
+      font-family: var(--font-display);
+      font-size: clamp(3.7rem, 7vw, 6rem);
+      line-height: 0.9;
+      color: var(--domain-green);
+    }
+
+    .fee-page .domain-card__stat-caption {
+      margin: 0.55rem 0 0;
+      max-width: 44ch;
+      font-size: 0.93rem;
+      line-height: 1.55;
+      color: var(--color-ink-700);
+      opacity: 0;
+      transition: opacity 300ms ease;
+      transition-delay: calc(var(--card-stagger, 0ms) + 1100ms);
+    }
+
+    .fee-page .domain-card__stat-caption.rto_body_small,
+    .fee-page .domain-card__stat-caption.rto_body_samll {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+      font-weight: 400;
+    }
+
+    .fee-page .domain-card__action {
+      margin-top: 1.35rem;
+      border: 0;
+      background: transparent;
+      padding: 0;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--domain-green);
+      cursor: pointer;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(15, 46, 42, 0.35);
+      opacity: 0;
+      transition: opacity 250ms ease;
+      transition-delay: calc(var(--card-stagger, 0ms) + 1400ms);
+    }
+
+    .fee-page .domain-card__action:hover {
+      opacity: 0.75;
+    }
+
+    .fee-page .domain-card.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fee-page .domain-card.is-revealed .domain-card__media {
+      clip-path: inset(0 0 0 0);
+    }
+
+    .fee-page .domain-card.is-revealed .domain-card__accent {
+      transform: scaleX(1);
+    }
+
+    .fee-page .domain-card.is-revealed .domain-card__mono,
+    .fee-page .domain-card.is-revealed .domain-card__title,
+    .fee-page .domain-card.is-revealed .domain-card__body,
+    .fee-page .domain-card.is-revealed .domain-card__stat-wrap,
+    .fee-page .domain-card.is-revealed .domain-card__stat-caption,
+    .fee-page .domain-card.is-revealed .domain-card__action {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fee-page .market-reality-section .domains-grid {
+      align-items: stretch;
+    }
+
+    .fee-page .stat-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .fee-page .market-reality-section .stat-card .domain-card__head {
+      min-height: calc(2 * 1.2em + 0.55rem);
+      align-items: flex-start;
+    }
+
+    .fee-page .market-reality-section .stat-card .domain-card__title {
+      color: var(--color-brand);
+    }
+
+    .fee-page .domains-section:not(.market-reality-section) .domain-card__title {
+      color: var(--color-brand);
+    }
+
+    .fee-page .stat-card .domain-card__media img {
+      aspect-ratio: 3 / 2;
+    }
+
+    .fee-page .stat-card .domain-card__body {
+      flex: 1;
+      line-height: 1.55;
+    }
+
+    .fee-page .stat-card .domain-card__stat-wrap {
+      margin-top: auto;
+      padding-top: 1.9rem;
+    }
+
+    .fee-page .domain-brief {
+      margin: 0 0 0 auto;
+      width: min(520px, 100vw);
+      max-width: 100vw;
+      height: 100vh;
+      max-height: 100vh;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      overflow: visible;
+    }
+
+    .fee-page .domain-brief::backdrop {
+      background: rgba(15, 46, 42, 0.46);
+      backdrop-filter: blur(2px);
+    }
+
+    .fee-page .sources-modal {
+      width: min(780px, calc(100vw - 48px));
+      max-width: 100vw;
+      max-height: min(86vh, 920px);
+      border: 0;
+      padding: 0;
+      background: transparent;
+    }
+
+    .fee-page .sources-modal::backdrop {
+      background: rgba(15, 46, 42, 0.52);
+    }
+
+    .fee-page .sources-modal__panel {
+      position: relative;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 0;
+      overflow: hidden;
+      max-height: min(86vh, 920px);
+      border: 1px solid rgba(15, 46, 42, 0.12);
+      border-radius: 24px;
+      background: var(--color-surface);
+      box-shadow: 0 28px 48px rgba(15, 46, 42, 0.18);
+    }
+
+    .fee-page .sources-modal__header {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.6rem 1.75rem 1.1rem;
+      border-bottom: 1px solid rgba(15, 46, 42, 0.1);
+    }
+
+    .fee-page .sources-modal__header h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.35rem);
+      line-height: 1.05;
+      color: var(--color-brand);
+    }
+
+    .fee-page .sources-modal__close {
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(15, 46, 42, 0.08);
+      color: var(--color-brand);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .fee-page .sources-modal__body {
+      overflow: auto;
+      padding: 1.35rem 1.75rem 1.7rem;
+    }
+
+    .fee-page .sources-modal__list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0;
+    }
+
+    .fee-page .sources-modal__list li {
+      padding: 1rem 0;
+      border-top: 1px solid rgba(15, 46, 42, 0.1);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .sources-modal__list li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .fee-page .domain-brief[open] .domain-brief__panel {
+      transform: translateX(0);
+    }
+
+    .fee-page .domain-brief__panel {
+      height: 100%;
+      background: var(--color-surface);
+      color: var(--domain-ink);
+      border-left: 1px solid rgba(15, 46, 42, 0.16);
+      box-shadow: -18px 0 30px rgba(15, 46, 42, 0.12);
+      transform: translateX(100%);
+      transition: transform 320ms var(--domain-reveal-ease);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      overflow: hidden;
+    }
+
+    .fee-page .domain-brief__header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.25rem 1.3rem;
+      border-bottom: 1px solid rgba(15, 46, 42, 0.12);
+    }
+
+    .fee-page .domain-brief__kicker {
+      margin: 0 0 0.35rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #7a746c;
+      font-weight: 700;
+    }
+
+    .fee-page .domain-brief__title {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      line-height: 1.12;
+      color: var(--domain-green);
+    }
+
+    .fee-page .domain-brief__close {
+      border: 0;
+      background: transparent;
+      font-size: 1.6rem;
+      line-height: 1;
+      color: var(--color-ink-700);
+      cursor: pointer;
+      padding: 0.2rem;
+    }
+
+    .fee-page .domain-brief__body {
+      overflow-y: auto;
+      padding: 1.1rem 1.3rem 1.4rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .fee-page .domain-brief__body p,
+    .fee-page .domain-brief__body li {
+      margin: 0;
+      color: var(--color-ink-700);
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    .fee-page .domain-brief__callout {
+      border-left: 3px solid var(--domain-clay);
+      padding: 0.7rem 0 0.7rem 0.85rem;
+      font-style: italic;
+      background: rgba(199, 122, 91, 0.08);
+      border-radius: 0 10px 10px 0;
+    }
+
+    .fee-page .domain-brief__list {
+      margin: 0;
+      padding-left: 1.05rem;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .fee-page .domain-brief__sources {
+      margin: 0;
+      padding-left: 1.05rem;
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .fee-page .domain-brief__footer {
+      border-top: 1px solid rgba(15, 46, 42, 0.12);
+      padding: 1rem 1.3rem 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      background: var(--color-surface);
+    }
+
+    .fee-page .domain-brief__footer .btn {
+      min-height: 42px;
+    }
+
+    .fee-page #references {
+      padding-top: 0.5rem;
+    }
+
+    .fee-page .references-card {
+      border: 1px solid var(--color-line);
+      border-radius: 16px;
+      background: var(--color-surface);
+      padding: 1.2rem 1.25rem;
+    }
+
+    .fee-page .references-card h3 {
+      margin: 0 0 0.65rem;
+      font-size: 1.05rem;
+      color: var(--domain-green);
+    }
+
+    .fee-page .references-card ol {
+      margin: 0;
+      padding-left: 1.1rem;
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .fee-page .references-card li,
+    .fee-page .references-card a {
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .heatmap-row__label a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(15, 46, 42, 0.3);
+    }
+
+    .fee-page .heatmap-row__label a:hover {
+      border-bottom-color: rgba(15, 46, 42, 0.7);
+    }
+
+    @media (max-width: 1023px) {
+      .fee-page .domains-heading {
+        grid-template-columns: 1fr;
+        row-gap: 24px;
+        align-items: start;
+      }
+
+      .fee-page .domains-heading__intro {
+        max-width: 60ch;
+        padding-top: 0;
+      }
+
+      .fee-page .domains-grid {
+        grid-template-columns: 1fr;
+        row-gap: 5rem;
+      }
+
+      .fee-page .domain-card__stat-live {
+        font-size: clamp(3rem, 10vw, 4.5rem);
+      }
+    }
+
+    @media (max-width: 640px) {
+
+      .fee-page .domains-grid {
+        row-gap: 4rem;
+      }
+
+      .fee-page .domain-card__stat-live {
+        font-size: clamp(2.6rem, 12vw, 3.5rem);
+      }
+
+      .fee-page .domain-brief {
+        width: 100vw;
+        height: min(100vh, 100%);
+      }
+
+      .fee-page .domain-brief__panel {
+        border-left: 0;
+        border-top: 1px solid rgba(15, 46, 42, 0.16);
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        transform: translateY(100%);
+      }
+
+      .fee-page .domain-brief[open] .domain-brief__panel {
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fee-page .hero-whitepapercover {
+        transition: none;
+      }
+
+      .fee-page .hero-whitepaper:hover .hero-whitepapercover,
+      .fee-page .hero-whitepaper:focus-visible .hero-whitepapercover {
+        transform: none;
+      }
+
+      .fee-page .domain-card,
+      .fee-page .domain-card *,
+      .fee-page .domain-brief__panel {
+        transition: none !important;
+        animation: none !important;
+      }
+
+      .fee-page .domain-card {
+        opacity: 1;
+        transform: none;
+      }
+
+      .fee-page .domain-card__media {
+        clip-path: inset(0 0 0 0);
+      }
+
+      .fee-page .domain-card__mono,
+      .fee-page .domain-card__title,
+      .fee-page .domain-card__body,
+      .fee-page .domain-card__stat-wrap,
+      .fee-page .domain-card__stat-caption,
+      .fee-page .domain-card__action {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .fee-page .faq-list {
+      border-top: 1px solid var(--color-line);
+    }
+
+    .fee-page .faq-item {
+      border-bottom: 1px solid var(--color-line);
+    }
+
+    .fee-page .faq-item__question {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+      padding: 1.4rem 0;
+      background: transparent;
+      border: 0;
+      text-align: left;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 1.03rem;
+      line-height: 1.75;
+      font-weight: 400;
+      letter-spacing: normal;
+      color: var(--color-ink-700);
+      -webkit-appearance: none;
+      appearance: none;
+      font-synthesis: none;
+    }
+
+    .fee-page .faq-item__question:focus-visible {
+      outline: 2px solid var(--color-brand);
+      outline-offset: 4px;
+    }
+
+    .fee-page .faq-item__icon {
+      position: relative;
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-top: 0.35rem;
+      flex-shrink: 0;
+      transition: transform 220ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fee-page .faq-item__icon::before,
+    .fee-page .faq-item__icon::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      background: var(--color-ink-700);
+      transform: translate(-50%, -50%);
+      transition: transform 220ms ease, opacity 220ms ease;
+    }
+
+    .fee-page .faq-item__icon::before {
+      width: 14px;
+      height: 1px;
+    }
+
+    .fee-page .faq-item__icon::after {
+      width: 1px;
+      height: 14px;
+    }
+
+    .fee-page .faq-item.is-open .faq-item__icon {
+      transform: rotate(45deg);
+    }
+
+    .fee-page .faq-item__answer {
+      overflow: hidden;
+      height: 0;
+      opacity: 0;
+      padding: 0;
+      transition: height 280ms cubic-bezier(0.4, 0, 0.2, 1), opacity 180ms ease-out 50ms;
+    }
+
+    .fee-page .faq-item.is-open .faq-item__answer {
+      opacity: 1;
+    }
+
+    .fee-page .faq-item__answer-panel {
+      padding: 0 0 1.2rem;
+    }
+
+    .fee-page .faq-item__question-text {
+      display: grid;
+      gap: 0.4rem;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: inherit;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .faq-item__question-text > .rto_body_medium {
+      display: block;
+      margin: 0;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
+      color: inherit;
+    }
+
+    .fee-page .faq-item.is-open .faq-item__question-text {
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .faq-item__title-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: baseline;
+    }
+
+    .fee-page .faq-item__number {
+      min-width: 2rem;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: #7a746c;
+    }
+
+    .fee-page .faq-item__title {
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: inherit;
+      color: inherit;
+      letter-spacing: inherit;
+    }
+
+    .fee-page .faq-item__summary {
+      max-width: 62ch;
+      font-size: 0.98rem;
+      line-height: 1.65;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .faq-item__answer-panel p,
+    .fee-page .faq-item__answer-panel li {
+      font-family: var(--font-body);
+      font-size: 1.03rem;
+      line-height: 1.75;
+      font-weight: 400;
+      color: var(--color-ink-500);
+    }
+
+    .fee-page .faq-item__answer-panel p {
+      margin: 0 0 0.9rem;
+      max-width: 62ch;
+    }
+
+    .fee-page .faq-item__answer-panel ul {
+      margin: 0;
+      padding-left: 1.15rem;
+      max-width: 64ch;
+      list-style: disc;
+    }
+
+    .fee-page .faq-item__answer-panel li + li {
+      margin-top: 0.4rem;
+    }
+
+    .fee-page .advantage-band {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+      gap: 2rem;
+      align-items: start;
+      padding: 2rem;
+      border: 1px solid rgba(188, 150, 86, 0.28);
+      border-radius: 24px;
+      background: var(--color-surface);
+    }
+
+    .fee-page .advantage-stat {
+      padding-right: 1rem;
+      border-right: 1px solid var(--color-line);
+    }
+
+    .fee-page .advantage-stat__label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #7a746c;
+      font-weight: 600;
+    }
+
+    .fee-page .advantage-stat__value {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 0.95;
+      color: var(--color-brand);
+      margin-bottom: 0.55rem;
+    }
+
+    .fee-page .advantage-copy {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .fee-page .advantage-col {
+      padding: 0.25rem 0.5rem 0.25rem 0;
+    }
+
+    .fee-page .advantage-col h3 {
+      margin: 0 0 0.55rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 2vw, 1.7rem);
+      line-height: 1.2;
+      color: var(--domain-green);
+    }
+
+    @media (min-width: 721px) {
+      .fee-page .advantage-copy .advantage-col:nth-child(2) h3 {
+        white-space: nowrap;
+      }
+
+      .fee-page .framework-tiles .framework-tile:nth-child(3) h3 {
+        white-space: nowrap;
+      }
+    }
+
+    .fee-page .assessment-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .fee-page .assessment-row {
+      display: grid;
+      grid-template-columns: 84px minmax(0, 1fr) minmax(220px, 0.9fr);
+      gap: 1.4rem;
+      align-items: start;
+      padding: 1.35rem 0;
+      border-top: 1px solid var(--color-line);
+    }
+
+    .fee-page .assessment-row:last-child {
+      border-bottom: 1px solid var(--color-line);
+    }
+
+    .fee-page .assessment-row__step {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+      color: rgba(15, 47, 46, 0.34);
+    }
+
+    .fee-page .assessment-row__detail {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--color-ink-500);
+    }
+
+    .fee-page .heatmap-card {
+      padding: 2rem;
+      border: 1px solid var(--color-line);
+      border-radius: 24px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .fee-page .heatmap-card__header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1rem;
+      align-items: start;
+      margin-bottom: 1.4rem;
+    }
+
+    .fee-page .heatmap-card__title {
+      margin: 0 0 0.3rem;
+      font-size: 1.28rem;
+      color: var(--color-brand);
+    }
+
+    .fee-page .heatmap-card__score {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.2rem;
+      text-align: right;
+    }
+
+    .fee-page .heatmap-card__score-value {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      line-height: 1;
+      color: var(--color-brand);
+    }
+
+    .fee-page .heatmap-card__status {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(188, 150, 86, 0.2);
+      color: #8b5f18;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .fee-page .heatmap-bars {
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .fee-page .heatmap-row {
+      display: grid;
+      grid-template-columns: minmax(170px, 220px) minmax(0, 1fr) 50px;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .fee-page .heatmap-row__label,
+    .fee-page .heatmap-row__value {
+      font-size: 0.95rem;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .heatmap-row__track {
+      height: 12px;
+      border-radius: 999px;
+      background: #ebe5da;
+      overflow: hidden;
+    }
+
+    .fee-page .heatmap-row__fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+    }
+
+    .fee-page .heatmap-row__fill--red { background: #b94735; }
+    .fee-page .heatmap-row__fill--orange { background: #d7862e; }
+    .fee-page .heatmap-row__fill--yellow { background: #d0aa37; }
+    .fee-page .heatmap-row__fill--green { background: #4c8a58; }
+
+    .fee-page .heatmap-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--color-line);
+      font-size: 0.95rem;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .heatmap-legend span::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 0.45rem;
+      border-radius: 999px;
+      vertical-align: middle;
+    }
+
+    .fee-page .heatmap-legend .legend-red::before { background: #b94735; }
+    .fee-page .heatmap-legend .legend-orange::before { background: #d7862e; }
+    .fee-page .heatmap-legend .legend-yellow::before { background: #d0aa37; }
+    .fee-page .heatmap-legend .legend-green::before { background: #4c8a58; }
+
+    .fee-page .cmp-heading {
+      margin: 0 0 2rem;
+      background: none;
+    }
+
+    .fee-page .section-intro {
+      margin-bottom: 2rem;
+    }
+
+    .fee-page .section-intro h2 {
+      margin: 0;
+    }
+
+    .fee-page .owner-compare__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: clamp(32px, 4vw, 64px);
+      align-items: start;
+    }
+
+    .fee-page .owner-card {
+      --owner-accent: #c77a5b;
+      --chip-bg: rgba(199, 122, 91, 0.18);
+      display: flex;
+      flex-direction: column;
+      background: var(--color-surface);
+      border: 1px solid var(--color-line);
+      border-radius: 18px;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .fee-page .owner-card--b {
+      --owner-accent: #0f2e2a;
+      --chip-bg: rgba(15, 46, 42, 0.16);
+    }
+
+    .fee-page .owner-card__image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .fee-page .owner-card__image::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 22%;
+      height: 40%;
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+      background: var(--owner-accent);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .fee-page .owner-card__image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .fee-page .owner-card__body {
+      padding: clamp(24px, 3vw, 40px);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      flex: 1;
+    }
+
+    .fee-page .owner-card__eyebrow {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin: 0;
+    }
+
+    .fee-page .owner-card__owner {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a746c;
+    }
+
+    .fee-page .owner-card__dot {
+      font-size: 0.95rem;
+      color: #7a746c;
+    }
+
+    .fee-page .owner-card__tagline {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 2vw, 1.7rem);
+      line-height: 1.2;
+      color: var(--color-brand);
+    }
+
+    .fee-page .owner-card__toggle {
+      align-self: flex-start;
+      min-height: 40px;
+      padding: 0.4rem 0.85rem;
+      border: 1px solid rgba(15, 46, 42, 0.24);
+      border-radius: 999px;
+      background: rgba(15, 46, 42, 0.06);
+      color: var(--color-brand);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+
+    .fee-page .owner-card__toggle:hover {
+      background: rgba(15, 46, 42, 0.12);
+      border-color: rgba(15, 46, 42, 0.38);
+    }
+
+    .fee-page .owner-card__toggle:focus-visible {
+      outline: 2px solid var(--color-brand);
+      outline-offset: 3px;
+    }
+
+    .fee-page .owner-card__details {
+      display: grid;
+      gap: 0;
+    }
+
+    .fee-page .owner-card__details[hidden] {
+      display: none;
+    }
+
+    .fee-page .owner-card__details:not([hidden]) {
+      display: grid;
+      gap: 0;
+    }
+
+    .fee-page .owner-card__rows {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .fee-page .owner-card__row {
+      padding: 16px 0;
+      border-top: 1px solid var(--color-line);
+    }
+
+    .fee-page .owner-card__row:last-child {
+      border-bottom: 1px solid var(--color-line);
+    }
+
+    .fee-page .owner-card__row-label {
+      margin: 0;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-brand);
+      margin-bottom: 0.4rem;
+    }
+
+    .fee-page .owner-card__row-value {
+      margin: 0;
+      font-size: 1.03rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+      text-wrap: pretty;
+    }
+
+    .fee-page .owner-card__footer {
+      margin-top: auto;
+      padding-top: 16px;
+    }
+
+    .fee-page .owner-card__chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--chip-bg);
+      color: var(--color-ink-900);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .fee-page .resource-faq-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.92fr);
+      gap: clamp(1.25rem, 2.6vw, 2.4rem);
+      align-items: start;
+    }
+
+    .fee-page .resource-faq-rail {
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .fee-page .resource-faq-rail .section-heading {
+      display: grid;
+      gap: 0.9rem;
+      align-content: start;
+      margin-bottom: 1rem;
+      max-width: none;
+    }
+
+    .fee-page .resource-faq-rail .section-heading h2 {
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .fee-page .resource-faq-rail .faq-item__question {
+      padding: 1.15rem 0;
+    }
+
+    .fee-page .white-paper-block {
+      position: static;
+      overflow: visible;
+      display: grid;
+      grid-template-columns: minmax(250px, 0.68fr) minmax(0, 1.32fr);
+      gap: clamp(1.6rem, 3vw, 2.8rem);
+      align-items: start;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .fee-page .white-paper-block::before {
+      content: none;
+    }
+
+    .fee-page .white-paper-block__cover {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 4 / 5;
+      width: min(100%, 460px);
+      padding: 0.7rem;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(188, 150, 86, 0.28);
+      background: var(--color-surface);
+      box-shadow: 0 4px 10px rgba(15, 46, 42, 0.08);
+    }
+
+    .fee-page .white-paper-block__cover img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 12px;
+      transition: transform 260ms ease;
+    }
+
+    .fee-page .white-paper-block:hover .white-paper-block__cover img {
+      transform: scale(1.02);
+    }
+
+    .fee-page .white-paper-block__copy {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      align-content: start;
+      gap: 0.9rem;
+      max-width: 30ch;
+    }
+
+    .fee-page .white-paper-block__copy h2,
+    .fee-page .resource-faq-rail .section-heading h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.62rem, 1.95vw, 1.95rem);
+      line-height: 1.1;
+      letter-spacing: normal;
+    }
+
+    .fee-page .white-paper-block__copy > p:not(.faq-section__eyebrow) {
+      font-size: 1.03rem;
+      line-height: 1.75;
+      max-width: 47ch;
+    }
+
+    .fee-page .white-paper-block__copy .fee-hero__actions {
+      margin-top: 0.6rem;
+    }
+
+    .fee-page .white-paper-block__copy .btn {
+      min-height: 48px;
+      padding-inline: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 46, 42, 0.34);
+      background: transparent;
+      color: var(--color-brand);
+      box-shadow: none;
+    }
+
+    .fee-page .white-paper-block__copy .btn:hover {
+      background: rgba(15, 46, 42, 0.06);
+      color: var(--color-brand);
+    }
+
+    @media (max-width: 1080px) {
+      .fee-page .resource-faq-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .fee-page .resource-faq-rail .section-heading h2 {
+        white-space: normal;
+      }
+    }
+
+    .fee-page .contact-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 2rem;
+      align-items: center;
+      padding: 2rem;
+      border: 1px solid var(--color-line);
+      border-radius: 20px;
+      background: var(--color-surface);
+    }
+
+    .fee-page .contact-panel h2 {
+      font-size: clamp(1.3rem, 2vw, 1.75rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin: 0 0 0.45rem;
+    }
+
+    .fee-page .contact-panel__content .eyebrow {
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.975rem;
+      color: #7a746c;
+      font-weight: 600;
+      margin: 0 0 1.25rem;
+    }
+
+    .fee-page .contact-panel__content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .fee-page .contact-panel__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.5rem;
+      justify-self: end;
+    }
+
+    .fee-page .start-intake-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.72rem 1.1rem;
+      border-radius: 12px;
+      border: 1px solid var(--color-brand);
+      background: var(--color-brand);
+      color: var(--color-paper);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: opacity 180ms ease, background-color 180ms ease;
+    }
+
+    .fee-page .start-intake-btn:hover {
+      opacity: 0.9;
+      background: var(--color-brand-strong);
+    }
+
+    @media (max-width: 1100px) {
+      .fee-page .fee-hero__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fee-page .fee-hero__aside {
+        margin-top: 1.5rem;
+      }
+
+      .fee-page .hero-whitepaper {
+        max-width: 320px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .fee-page .hero-whitepaper {
+        max-width: 320px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .fee-page .glance-strip,
+      .fee-page .advantage-copy {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .fee-page .owner-compare__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fee-page .assessment-row {
+        grid-template-columns: 72px minmax(0, 1fr);
+      }
+
+      .fee-page .assessment-row__detail {
+        grid-column: 2;
+      }
+
+      .fee-page .heatmap-row {
+        grid-template-columns: minmax(140px, 180px) minmax(0, 1fr) 44px;
+      }
+
+      .fee-page .advantage-stat {
+        border-right: 0;
+        border-bottom: 1px solid var(--color-line);
+        padding-right: 0;
+        padding-bottom: 1rem;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .fee-page .fee-section {
+        padding: 40px 0;
+      }
+
+      .fee-page .framework-grid,
+      .fee-page .glance-strip,
+      .fee-page .advantage-copy {
+        grid-template-columns: 1fr;
+      }
+
+      .fee-page .white-paper-block,
+      .fee-page .heatmap-card,
+      .fee-page .advantage-band,
+      .fee-page .contact-panel {
+        padding: 1.35rem;
+      }
+
+      .fee-page .white-paper-block {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .fee-page .resource-faq-rail {
+        padding: 1.35rem;
+      }
+
+      .fee-page .white-paper-block__cover {
+        justify-self: center;
+        width: min(100%, 360px);
+      }
+
+      .fee-page .white-paper-block__copy {
+        gap: 0.8rem;
+      }
+
+      .fee-page .white-paper-block__copy h2 {
+        font-size: clamp(1.75rem, 9vw, 2.3rem);
+        white-space: normal;
+      }
+
+      .fee-page .sources-modal {
+        width: min(100vw, calc(100vw - 20px));
+      }
+
+      .fee-page .sources-modal__header,
+      .fee-page .sources-modal__body {
+        padding-inline: 1.15rem;
+      }
+
+      .fee-page .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .fee-page .contact-panel__actions {
+        justify-self: start;
+        align-items: flex-start;
+      }
+
+      .fee-page .heatmap-card__header,
+      .fee-page .heatmap-row {
+        grid-template-columns: 1fr;
+      }
+
+      .fee-page .heatmap-card__score {
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      .fee-page .assessment-row {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      .fee-page .assessment-row__detail {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+<body class="fee-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="../../index.html"><img src="../../assets/images/favicon.png" alt="RTO" /><span class="site-logo__wordmark">RTO Advisory</span></a>
+      <button class="mobile-toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+      <nav class="main-nav" aria-label="Primary">
+        <ul class="main-nav-list">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../why-rto.html">Why RTO?</a></li>
+          <li class="has-dropdown is-current">
+            <button type="button" class="nav-dropdown-toggle" aria-expanded="true" aria-haspopup="true">
+              Services <span class="nav-caret" aria-hidden="true">▾</span>
+            </button>
+            <ul class="nav-dropdown-menu" role="menu">
+              <li><a class="active" role="menuitem" href="exit-readiness.html">Exit Readiness Assessment</a></li>
+              <li><a role="menuitem" href="value-optimization.html">Strategic Value Optimization</a></li>
+              <li><a role="menuitem" href="transaction-advisory.html">Transaction Advisory &amp; Management</a></li>
+              <li><a role="menuitem" href="succession-planning.html">Succession Planning</a></li>
+            </ul>
+          </li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../fee-structure.html">Fee Structure</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="fee-hero">
+      <div class="container">
+        <div class="fee-hero__grid">
+          <div class="fee-hero__content">
+            <h1 class="fee-hero__title">Know Exactly Where You Stand&nbsp;&mdash;&nbsp;Before A&nbsp;Buyer&nbsp;Tells&nbsp;You</h1>
+            <p class="fee-hero__subhead">The Exit Readiness Assessment, powered by the RTO Exit Readiness Index™.</p>
+            <p class="fee-hero__lead">
+              Owners who prepare early can unlock as much as 30% more enterprise value, while owners who wait
+              often absorb a 20&#8211;40% loss when buyers uncover preventable issues first. This assessment turns
+              readiness into a measurable score, a clear heat map, and a roadmap you can act on before the market prices the gap.
+            </p>
+          </div>
+          <div class="fee-hero__aside">
+            <a class="hero-whitepaper"
+               href="../../assets/downloads/the-exit-readiness-gap-white-paper.pdf"
+               target="_blank"
+               rel="noopener"
+               aria-label="Download the Exit Readiness Gap white paper (PDF)">
+              <img
+                class="hero-whitepapercover"
+                src="../../assets/images/WHITE%20PAPER%20THUMB%20NAIL.png"
+                alt="The Exit Readiness Gap — white paper cover, RTO Advisory Q2 2026"
+                loading="lazy"
+                decoding="async">
+              <span class="hero-whitepaperbutton btn btn-secondary">Download the White Paper</span>
+              <p class="hero-whitepapertrademark">
+                <span class="hero-whitepapertrademark-title">RTO Exit Readiness Index™</span>
+                <span class="hero-whitepapertrademark-note">RTO Exit Readiness Index is a trademark of RTO Advisory, 2026.</span>
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fee-section domains-section market-reality-section">
+      <div class="container">
+        <div class="domains-heading">
+          <div>
+            <p class="faq-section__eyebrow">The Market Reality</p>
+            <h2>The Numbers Owners Wish They Knew Earlier</h2>
+          </div>
+          <p class="rto_body_medium">
+            Six data points that frame why exit readiness is a market condition, not a personal preference — and why timing, preparation, and competition are all moving against unprepared owners.
+          </p>
+        </div>
+
+        <div class="domains-grid">
+          <article class="domain-card stat-card" data-source-id="mr-01" data-col="0">
+            <figure class="domain-card__media">
+              <img src="../../assets/images/1. 75_58.png" alt="Owner standing beside sparse planning documents and an empty filing setup" loading="lazy" decoding="async" />
+              <span class="domain-card__accent domain-card__accent--green" aria-hidden="true"></span>
+            </figure>
+            <div class="domain-card__head"><span class="domain-card__mono">Stat 01</span><h3 class="domain-card__title">Most Owners Arrive Without A Plan</h3></div>
+            <p class="domain-card__body rto_body_medium">
+              75% of business owners lack formal exit plans, and 58% have no plan at all when they first enter a transition conversation. Readiness gaps compound quietly until the market forces the timeline.
+            </p>
+            <div class="domain-card__stat-wrap">
+              <p class="domain-card__stat-live"><span class="domain-card__stat-value js-domain-stat" aria-label="75 percent slash 58 percent" aria-hidden="true" data-stat-kind="pair-percent" data-stat-left="75" data-stat-right="58">75% / 58%</span></p>
+              <p class="domain-card__stat-caption rto_body_small">Of owners enter transition conversations without a formal plan.</p>
+            </div>
+          </article>
+
+          <article class="domain-card stat-card" data-source-id="mr-02" data-col="1">
+            <figure class="domain-card__media">
+              <img src="../../assets/images/2. 20_40.png" alt="Domino-like business blocks collapsing around a storefront model" loading="lazy" decoding="async" />
+              <span class="domain-card__accent domain-card__accent--clay" aria-hidden="true"></span>
+            </figure>
+            <div class="domain-card__head"><span class="domain-card__mono">Stat 02</span><h3 class="domain-card__title">Trigger-Event Exits Destroy Value Fast</h3></div>
+            <p class="domain-card__body rto_body_medium">
+              Owners who wait until a trigger event — a health scare, a key employee departure, or an unsolicited offer — are forced into rushed exits that can erode 20–40% of business value before the first buyer walks through the door.
+            </p>
+            <div class="domain-card__stat-wrap">
+              <p class="domain-card__stat-live"><span class="domain-card__stat-value js-domain-stat" aria-label="20 to 40 percent" aria-hidden="true" data-stat-kind="range-percent" data-stat-left="20" data-stat-right="40">20–40%</span></p>
+              <p class="domain-card__stat-caption rto_body_small">Typical value erosion when owners are forced into rushed, trigger-driven exits.</p>
+            </div>
+          </article>
+
+          <article class="domain-card stat-card" data-source-id="mr-03" data-col="0">
+            <figure class="domain-card__media">
+              <img src="../../assets/images/3. 20_30.png" alt="For-sale context with muted warehouse and uncertain close pathway" loading="lazy" decoding="async" />
+              <span class="domain-card__accent domain-card__accent--gold" aria-hidden="true"></span>
+            </figure>
+            <div class="domain-card__head"><span class="domain-card__mono">Stat 03</span><h3 class="domain-card__title">Most Listings Never Close</h3></div>
+            <p class="domain-card__body rto_body_medium">
+              Only 20–30% of businesses listed for sale actually complete a transaction. The rest stall in diligence, fail on price, or run out of buyer interest before a deal closes.
+            </p>
+            <div class="domain-card__stat-wrap">
+              <p class="domain-card__stat-live"><span class="domain-card__stat-value js-domain-stat" aria-label="20 to 30 percent" aria-hidden="true" data-stat-kind="range-percent" data-stat-left="20" data-stat-right="30">20–30%</span></p>
+              <p class="domain-card__stat-caption rto_body_small">Share of listed businesses that actually complete a transaction.</p>
+            </div>
+          </article>
+
+          <article class="domain-card stat-card" data-source-id="mr-04" data-col="1">
+            <figure class="domain-card__media">
+              <img src="../../assets/images/4. 75_70.png" alt="Owner silhouette with ledger foreground and reflective posture" loading="lazy" decoding="async" />
+              <span class="domain-card__accent domain-card__accent--green" aria-hidden="true"></span>
+            </figure>
+            <div class="domain-card__head"><span class="domain-card__mono">Stat 04</span><h3 class="domain-card__title">Regret Is The Default Outcome</h3></div>
+            <p class="domain-card__body rto_body_medium">
+              75% of owners ultimately regret their exit, and 70% of founders are disappointed in the value they achieved. Preparation is the single largest determinant of whether owners look back satisfied.
+            </p>
+            <div class="domain-card__stat-wrap">
+              <p class="domain-card__stat-live"><span class="domain-card__stat-value js-domain-stat" aria-label="75 percent slash 70 percent" aria-hidden="true" data-stat-kind="pair-percent" data-stat-left="75" data-stat-right="70">75% / 70%</span></p>
+              <p class="domain-card__stat-caption rto_body_small">Owners who regret the exit / founders disappointed in the value achieved.</p>
+            </div>
+          </article>
+
+          <article class="domain-card stat-card" data-source-id="mr-05" data-col="0">
+            <figure class="domain-card__media">
+              <img src="../../assets/images/5. 14T.png" alt="Abstract financial value stack dissolving toward a distant horizon" loading="lazy" decoding="async" />
+              <span class="domain-card__accent domain-card__accent--clay" aria-hidden="true"></span>
+            </figure>
+            <div class="domain-card__head"><span class="domain-card__mono">Stat 05</span><h3 class="domain-card__title">A Generational Transfer, Largely Unplanned</h3></div>
+            <p class="domain-card__body rto_body_medium">
+              Collectively, this represents an estimated $14 trillion transition opportunity over the next decade — and the majority of it sits in businesses whose owners have not yet planned for the handoff.
+            </p>
+            <div class="domain-card__stat-wrap">
+              <p class="domain-card__stat-live"><span class="domain-card__stat-value js-domain-stat" aria-label="14 trillion dollars" aria-hidden="true" data-stat-kind="currency-magnitude" data-stat-value="14" data-stat-prefix="$" data-stat-suffix="T">$14T</span></p>
+              <p class="domain-card__stat-caption rto_body_small">Estimated privately-held business value expected to transition over the next decade.</p>
+            </div>
+          </article>
+
+          <article class="domain-card stat-card" data-source-id="mr-06" data-col="1">
+            <figure class="domain-card__media">
+              <img src="../../assets/images/6. 18_24.png" alt="Strategic chess-like movement across a boardroom surface" loading="lazy" decoding="async" />
+              <span class="domain-card__accent domain-card__accent--gold" aria-hidden="true"></span>
+            </figure>
+            <div class="domain-card__head"><span class="domain-card__mono">Stat 06</span><h3 class="domain-card__title">Seller Competition Is Accelerating</h3></div>
+            <p class="domain-card__body rto_body_medium">
+              Sell-side M&amp;A intent among middle-market firms is projected to rise from 18% in 2025 to 24% by 2027. Seller competition is accelerating, and unprepared owners will face increasingly selective buyers.
+            </p>
+            <div class="domain-card__stat-wrap">
+              <p class="domain-card__stat-live"><span class="domain-card__stat-value js-domain-stat" aria-label="18 percent to 24 percent" aria-hidden="true" data-stat-kind="progression-percent" data-stat-left="18" data-stat-right="24">18% → 24%</span></p>
+              <p class="domain-card__stat-caption rto_body_small">Projected increase in middle-market sell-side M&amp;A intent, 2025 → 2027.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fee-section framework-section">
+      <div class="container">
+        <div class="framework-layout">
+          <div class="framework-heading">
+            <p class="section-eyebrow">The Framework</p>
+            <h2>The RTO Exit Readiness Index™</h2>
+            <p class="rto_body_medium">
+              A proprietary six-gap scoring framework that converts exit preparation into one defensible readiness score,
+              a buyer-style heat map, and a practical action plan.
+            </p>
+          </div>
+          <div class="framework-tiles">
+            <article class="framework-tile">
+              <h3>Six Gaps</h3>
+              <p class="rto_body_small">We examine the six areas buyers and lenders use to test quality, resilience, and transferability.</p>
+            </article>
+            <article class="framework-tile">
+              <h3>Weighted Scoring</h3>
+              <p class="rto_body_small">Each gap is scored and weighted so the overall result reflects material deal risk, not guesswork.</p>
+            </article>
+            <article class="framework-tile">
+              <h3>Actionable Roadmap</h3>
+              <p class="rto_body_small">You leave with prioritized fixes, timing guidance, and a roadmap sequenced for a 3&#8211;5 year horizon.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fee-section domains-section">
+      <div class="container">
+        <div class="domains-heading">
+          <div>
+            <p class="faq-section__eyebrow">The Six Readiness Gaps</p>
+            <h2>See Where Value Strengthens Or Breaks</h2>
+          </div>
+          <p class="rto_body_medium rto_measure_60">
+            The six gaps buyers, lenders, and QofE teams probe first — and where the RTO Exit Readiness Index™ makes risk visible early.
+          </p>
+        </div>
+
+        <div class="domains-grid">
+          <article class="domain-card" data-domain="financial-reporting" data-source-id="wp-01" data-col="0">
+            <figure class="domain-card__media">
+              <img src="../../assets/images/EXRED-Financial Reporting.png" alt="Miniature advisor reviewing stacked reporting blocks to represent financial reporting discipline" loading="lazy" decoding="async" />
+              <span class="domain-card__accent domain-card__accent--green" aria-hidden="true"></span>
+            </figure>
+            <div class="domain-card__head"><span class="domain-card__mono">Gap 01 ·</span><h3 class="domain-card__title">Financial Reporting</h3></div>
+            <p class="domain-card__body rto_body_medium">
+              We test whether your numbers tell a buyer-grade story with consistency, clarity, and credibility.
+              Weak reporting discipline is the single largest source of QofE adjustments and the most common cause of late-stage price retrades.
+              In many processes, 30&#8211;40% of diligence rework links back to reporting quality gaps.
+            </p>
+            <div class="domain-card__stat-wrap">
+              <p class="domain-card__stat-live" aria-live="polite"><span class="domain-card__stat-value js-domain-stat" aria-hidden="true" data-stat-kind="percent" data-stat-value="30">30%</span><span class="sr-only js-domain-stat-announcer"></span></p>
+              <p class="domain-card__stat-caption rto_body_small">Typical QofE adjustment range when reporting discipline is weak.</p>
+            </div>
+            <button class="domain-card__action js-domain-brief-open" type="button" aria-haspopup="dialog" aria-controls="domain-brief-1" data-target="domain-brief-1">Read the Gap Brief &#8594;</button>
+          </article>
+
+          <article class="domain-card" data-domain="tax-strategy" data-source-id="wp-02" data-col="1">
+            <figure class="domain-card__media">
+              <img src="../../assets/images/EXRED-Tax Strategy.png" alt="Advisory team around geometric blocks representing tax structure planning" loading="lazy" decoding="async" />
+              <span class="domain-card__accent domain-card__accent--clay" aria-hidden="true"></span>
+            </figure>
+            <div class="domain-card__head"><span class="domain-card__mono">Gap 02 ·</span><h3 class="domain-card__title">Tax Strategy</h3></div>
+            <p class="domain-card__body rto_body_medium">
+              We evaluate whether your current structure and planning support an efficient exit instead of a tax surprise.
+              Poor timing and structure coordination can erode after-tax owner proceeds well before the deal closes.
+              Tax friction often emerges after LOI, when options are already narrower.
+            </p>
+            <div class="domain-card__stat-wrap">
+              <p class="domain-card__stat-live" aria-live="polite"><span class="domain-card__stat-value js-domain-stat" aria-hidden="true" data-stat-kind="percent" data-stat-value="20">20%</span><span class="sr-only js-domain-stat-announcer"></span></p>
+              <p class="domain-card__stat-caption rto_body_small">Share of owner proceeds commonly lost to avoidable tax structure gaps.</p>
+            </div>
+            <button class="domain-card__action js-domain-brief-open" type="button" aria-haspopup="dialog" aria-controls="domain-brief-2" data-target="domain-brief-2">Read the Gap Brief &#8594;</button>
+          </article>
+
+          <article class="domain-card" data-domain="succession-continuity" data-source-id="wp-03" data-col="0">
+            <figure class="domain-card__media">
+              <img src="../../assets/images/EXRED-Succession & Continuity.png" alt="Owner standing above team to represent succession and continuity readiness" loading="lazy" decoding="async" />
+              <span class="domain-card__accent domain-card__accent--gold" aria-hidden="true"></span>
+            </figure>
+            <div class="domain-card__head"><span class="domain-card__mono">Gap 03 ·</span><h3 class="domain-card__title">Succession &amp; Continuity</h3></div>
+            <p class="domain-card__body rto_body_medium">
+              We measure how dependent the business remains on one owner and whether leadership continuity is believable.
+              Key-person risk suppresses multiple and shrinks the buyer pool.
+              Continuity planning is one of the clearest ways to expand buyer confidence before market outreach.
+            </p>
+            <div class="domain-card__stat-wrap">
+              <p class="domain-card__stat-live" aria-live="polite"><span class="domain-card__stat-value js-domain-stat" aria-hidden="true" data-stat-kind="multiplier" data-stat-value="1.8">1.8x</span><span class="sr-only js-domain-stat-announcer"></span></p>
+              <p class="domain-card__stat-caption rto_body_small">EBITDA multiple lift when owner-dependence is materially reduced.</p>
+            </div>
+            <button class="domain-card__action js-domain-brief-open" type="button" aria-haspopup="dialog" aria-controls="domain-brief-3" data-target="domain-brief-3">Read the Gap Brief &#8594;</button>
+          </article>
+
+          <article class="domain-card" data-domain="valuation-reality" data-source-id="wp-04" data-col="1">
+            <figure class="domain-card__media">
+              <img src="../../assets/images/EXRED-Valuation Reality.png" alt="Stacked blocks suggesting valuation assumptions versus market reality" loading="lazy" decoding="async" />
+              <span class="domain-card__accent domain-card__accent--green" aria-hidden="true"></span>
+            </figure>
+            <div class="domain-card__head"><span class="domain-card__mono">Gap 04 ·</span><h3 class="domain-card__title">Valuation Reality</h3></div>
+            <p class="domain-card__body rto_body_medium">
+              We compare owner expectations to what a buyer is likely to underwrite in the current market.
+              Aspirational pricing collides with diligence evidence and narrows the buyer field fast.
+              The earlier this gap is surfaced, the more strategic options you keep in play.
+            </p>
+            <div class="domain-card__stat-wrap">
+              <p class="domain-card__stat-live" aria-live="polite"><span class="domain-card__stat-value js-domain-stat" aria-hidden="true" data-stat-kind="percent" data-stat-value="25">25%</span><span class="sr-only js-domain-stat-announcer"></span></p>
+              <p class="domain-card__stat-caption rto_body_small">Typical gap between owner expectation and buyer underwriting at LOI.</p>
+            </div>
+            <button class="domain-card__action js-domain-brief-open" type="button" aria-haspopup="dialog" aria-controls="domain-brief-4" data-target="domain-brief-4">Read the Gap Brief &#8594;</button>
+          </article>
+
+          <article class="domain-card" data-domain="operational-dependence" data-source-id="wp-05" data-col="0">
+            <figure class="domain-card__media">
+              <img src="../../assets/images/EXRED-Operational Dependence.png" alt="Miniature figure pushing a large block to represent operational concentration risk" loading="lazy" decoding="async" />
+              <span class="domain-card__accent domain-card__accent--clay" aria-hidden="true"></span>
+            </figure>
+            <div class="domain-card__head"><span class="domain-card__mono">Gap 05 ·</span><h3 class="domain-card__title">Operational Dependence</h3></div>
+            <p class="domain-card__body rto_body_medium">
+              We identify process, customer, and vendor dependencies that make the company look fragile under diligence.
+              Concentration and undocumented workflows are retrade triggers.
+              Operations maturity usually signals execution reliability to both buyers and lenders.
+            </p>
+            <div class="domain-card__stat-wrap">
+              <p class="domain-card__stat-live" aria-live="polite"><span class="domain-card__stat-value js-domain-stat" aria-hidden="true" data-stat-kind="text" data-stat-text="1 in 4">1 in 4</span><span class="sr-only js-domain-stat-announcer"></span></p>
+              <p class="domain-card__stat-caption rto_body_small">Deals retraded for process, vendor, or customer concentration issues.</p>
+            </div>
+            <button class="domain-card__action js-domain-brief-open" type="button" aria-haspopup="dialog" aria-controls="domain-brief-5" data-target="domain-brief-5">Read the Gap Brief &#8594;</button>
+          </article>
+
+          <article class="domain-card" data-domain="banking-coverage-collateral" data-source-id="wp-06" data-col="1">
+            <figure class="domain-card__media">
+              <img src="../../assets/images/EXRED-Banking, Coverage & Collateral.png" alt="Advisory scene with geometric objects representing banking and collateral controls" loading="lazy" decoding="async" />
+              <span class="domain-card__accent domain-card__accent--gold" aria-hidden="true"></span>
+            </figure>
+            <div class="domain-card__head"><span class="domain-card__mono">Gap 06 ·</span><h3 class="domain-card__title">Banking, Coverage &amp; Collateral</h3></div>
+            <p class="domain-card__body rto_body_medium">
+              We review capital structure, lender posture, insurance coverage, and pledged assets that can complicate a deal.
+              Covenant and collateral surprises routinely stall closing.
+              Pre-close cleanup in this domain protects timeline certainty and valuation confidence.
+            </p>
+            <div class="domain-card__stat-wrap">
+              <p class="domain-card__stat-live" aria-live="polite"><span class="domain-card__stat-value js-domain-stat" aria-hidden="true" data-stat-kind="percent" data-stat-value="15">15%</span><span class="sr-only js-domain-stat-announcer"></span></p>
+              <p class="domain-card__stat-caption rto_body_small">Value at risk from unaddressed covenant and insurance gaps.</p>
+            </div>
+            <button class="domain-card__action js-domain-brief-open" type="button" aria-haspopup="dialog" aria-controls="domain-brief-6" data-target="domain-brief-6">Read the Gap Brief &#8594;</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <dialog class="domain-brief" id="domain-brief-1" data-slug="financial-reporting" aria-labelledby="domain-brief-title-1">
+      <div class="domain-brief__panel">
+        <header class="domain-brief__header">
+          <div><p class="domain-brief__kicker">01 · Financial Reporting</p><h3 class="domain-brief__title" id="domain-brief-title-1">Gap Brief</h3></div>
+          <button class="domain-brief__close" type="button" data-close-domain aria-label="Close gap brief">&times;</button>
+        </header>
+        <div class="domain-brief__body">
+          <p>Financial reporting is where confidence is either built or lost. Buyers test whether reporting quality supports a repeatable earnings story, not just a single-year narrative.</p>
+          <p>When close cadence, KPI visibility, and forecast discipline are inconsistent, diligence expands and value certainty shrinks.</p>
+          <blockquote class="domain-brief__callout">Typical finding: The company has strong underlying economics, but inconsistent monthly closes and weak supporting schedules create avoidable diligence friction and widen the negotiation range.</blockquote>
+          <h4>What We Test</h4>
+          <ul class="domain-brief__list"><li>Assess earnings quality, margin consistency, and reporting discipline.</li><li>Identify gaps in monthly closes, KPI visibility, and forecast reliability.</li><li>Flag issues that typically trigger diligence rework or purchase price pressure.</li></ul>
+          <h4>Sources</h4>
+          <ol class="domain-brief__sources"><li><a href="#references">The Exit Readiness Gap, Financial Reporting notes</a></li></ol>
+        </div>
+        <footer class="domain-brief__footer"><a class="btn btn-secondary" href="../../assets/white-papers/exit-readiness-gap.pdf">Download the White Paper</a></footer>
+      </div>
+    </dialog>
+
+    <dialog class="domain-brief" id="domain-brief-2" data-slug="tax-strategy" aria-labelledby="domain-brief-title-2">
+      <div class="domain-brief__panel">
+        <header class="domain-brief__header"><div><p class="domain-brief__kicker">02 · Tax Strategy</p><h3 class="domain-brief__title" id="domain-brief-title-2">Gap Brief</h3></div><button class="domain-brief__close" type="button" data-close-domain aria-label="Close gap brief">&times;</button></header>
+        <div class="domain-brief__body">
+          <p>Tax structure choices can compound or erode owner proceeds long before closing. We evaluate tax posture against likely transaction pathways and timing.</p>
+          <p>Misalignment between legal structure and exit goals often surfaces late when options are expensive to change.</p>
+          <blockquote class="domain-brief__callout">Typical finding: Owners defer structural planning until active negotiations, then absorb unnecessary tax drag because optimization windows have already closed.</blockquote>
+          <h4>What We Test</h4>
+          <ul class="domain-brief__list"><li>Review entity structure, basis issues, and transaction-sensitive tax exposures.</li><li>Surface pre-sale planning opportunities that require lead time to execute well.</li><li>Highlight areas where poor coordination can erode after-tax owner proceeds.</li></ul>
+          <h4>Sources</h4>
+          <ol class="domain-brief__sources"><li><a href="#references">The Exit Readiness Gap, Tax Strategy notes</a></li></ol>
+        </div>
+        <footer class="domain-brief__footer"><a class="btn btn-secondary" href="../../assets/white-papers/exit-readiness-gap.pdf">Download the White Paper</a></footer>
+      </div>
+    </dialog>
+
+    <dialog class="domain-brief" id="domain-brief-3" data-slug="succession-continuity" aria-labelledby="domain-brief-title-3">
+      <div class="domain-brief__panel">
+        <header class="domain-brief__header"><div><p class="domain-brief__kicker">03 · Succession &amp; Continuity</p><h3 class="domain-brief__title" id="domain-brief-title-3">Gap Brief</h3></div><button class="domain-brief__close" type="button" data-close-domain aria-label="Close gap brief">&times;</button></header>
+        <div class="domain-brief__body">
+          <p>Buyers pay for transferability. We assess whether leadership, accountability, and client continuity can survive reduced owner involvement.</p>
+          <p>Without clear continuity evidence, perceived risk rises and valuation multiples compress.</p>
+          <blockquote class="domain-brief__callout">Typical finding: Critical client and decision relationships remain concentrated in one owner, weakening succession credibility and reducing buyer confidence.</blockquote>
+          <h4>What We Test</h4>
+          <ul class="domain-brief__list"><li>Evaluate bench strength, decision delegation, and documented responsibilities.</li><li>Assess whether clients, employees, and partners can transition without disruption.</li><li>Identify key-person risk that suppresses value or scares buyers away.</li></ul>
+          <h4>Sources</h4>
+          <ol class="domain-brief__sources"><li><a href="#references">The Exit Readiness Gap, Succession notes</a></li></ol>
+        </div>
+        <footer class="domain-brief__footer"><a class="btn btn-secondary" href="../../assets/white-papers/exit-readiness-gap.pdf">Download the White Paper</a></footer>
+      </div>
+    </dialog>
+
+    <dialog class="domain-brief" id="domain-brief-4" data-slug="valuation-reality" aria-labelledby="domain-brief-title-4">
+      <div class="domain-brief__panel">
+        <header class="domain-brief__header"><div><p class="domain-brief__kicker">04 · Valuation Reality</p><h3 class="domain-brief__title" id="domain-brief-title-4">Gap Brief</h3></div><button class="domain-brief__close" type="button" data-close-domain aria-label="Close gap brief">&times;</button></header>
+        <div class="domain-brief__body">
+          <p>Valuation expectations must align with current underwriting logic. We stress-test assumptions against risk factors buyers quantify immediately.</p>
+          <p>When expectations outrun evidence, process momentum and negotiating leverage both weaken.</p>
+          <blockquote class="domain-brief__callout">Typical finding: Owner target value assumes forward-state performance while buyers anchor to current transferability risk, creating a preventable valuation gap.</blockquote>
+          <h4>What We Test</h4>
+          <ul class="domain-brief__list"><li>Stress-test value assumptions against concentration, margin, and transferability risk.</li><li>Clarify which improvements move multiple and which ones simply reduce friction.</li><li>Separate aspirational pricing from evidence-backed positioning.</li></ul>
+          <h4>Sources</h4>
+          <ol class="domain-brief__sources"><li><a href="#references">The Exit Readiness Gap, Valuation notes</a></li></ol>
+        </div>
+        <footer class="domain-brief__footer"><a class="btn btn-secondary" href="../../assets/white-papers/exit-readiness-gap.pdf">Download the White Paper</a></footer>
+      </div>
+    </dialog>
+
+    <dialog class="domain-brief" id="domain-brief-5" data-slug="operational-dependence" aria-labelledby="domain-brief-title-5">
+      <div class="domain-brief__panel">
+        <header class="domain-brief__header"><div><p class="domain-brief__kicker">05 · Operational Dependence</p><h3 class="domain-brief__title" id="domain-brief-title-5">Gap Brief</h3></div><button class="domain-brief__close" type="button" data-close-domain aria-label="Close gap brief">&times;</button></header>
+        <div class="domain-brief__body">
+          <p>Operational dependence concentrates risk in people, customers, vendors, or undocumented process steps. Buyers treat this as execution fragility.</p>
+          <p>We map where dependence can trigger retrades and where process hardening improves certainty.</p>
+          <blockquote class="domain-brief__callout">Typical finding: Revenue concentration and undocumented handoffs look manageable internally but become major diligence concerns during buyer risk review.</blockquote>
+          <h4>What We Test</h4>
+          <ul class="domain-brief__list"><li>Map owner-dependent workflows, undocumented processes, and concentration issues.</li><li>Review whether systems, contracts, and reporting can support scale or transition.</li><li>Expose execution risk before it becomes a diligence discount.</li></ul>
+          <h4>Sources</h4>
+          <ol class="domain-brief__sources"><li><a href="#references">The Exit Readiness Gap, Operational Dependence notes</a></li></ol>
+        </div>
+        <footer class="domain-brief__footer"><a class="btn btn-secondary" href="../../assets/white-papers/exit-readiness-gap.pdf">Download the White Paper</a></footer>
+      </div>
+    </dialog>
+
+    <dialog class="domain-brief" id="domain-brief-6" data-slug="banking-coverage-collateral" aria-labelledby="domain-brief-title-6">
+      <div class="domain-brief__panel">
+        <header class="domain-brief__header"><div><p class="domain-brief__kicker">06 · Banking, Coverage &amp; Collateral</p><h3 class="domain-brief__title" id="domain-brief-title-6">Gap Brief</h3></div><button class="domain-brief__close" type="button" data-close-domain aria-label="Close gap brief">&times;</button></header>
+        <div class="domain-brief__body">
+          <p>Capital structure, lender expectations, and insurance architecture can silently constrain transaction pathways.</p>
+          <p>We surface covenant, collateral, and coverage gaps early to avoid preventable delays near close.</p>
+          <blockquote class="domain-brief__callout">Typical finding: A manageable covenant exception internally becomes a deal-timing risk when lenders and buyers request synchronized approvals during closing.</blockquote>
+          <h4>What We Test</h4>
+          <ul class="domain-brief__list"><li>Review debt terms, covenant risk, and collateral arrangements that constrain options.</li><li>Test whether insurance, indemnity, and risk transfer practices are transaction ready.</li><li>Flag issues that can slow a process or reduce buyer confidence late in the deal.</li></ul>
+          <h4>Sources</h4>
+          <ol class="domain-brief__sources"><li><a href="#references">The Exit Readiness Gap, Banking/Coverage notes</a></li></ol>
+        </div>
+        <footer class="domain-brief__footer"><a class="btn btn-secondary" href="../../assets/white-papers/exit-readiness-gap.pdf">Download the White Paper</a></footer>
+      </div>
+    </dialog>
+
+   <section class="fee-section framework-section">
+      <div class="container">
+        <div class="framework-layout">
+          <div class="framework-heading">
+            <p class="section-eyebrow">The 3&#8211;5 Year Advantage</p>
+            <h2>Up To 30% Higher Valuation</h2>
+            <p class="rto_body_medium">
+              Preparation compounds when owners fix risks before buyers, lenders, and management transitions stack up at once.
+            </p>
+          </div>
+          <div class="framework-tiles">
+            <article class="framework-tile">
+              <h3>More Options</h3>
+              <p class="rto_body_small">Starting early gives you room to choose timing, transaction structure, and the right buyer profile.</p>
+            </article>
+            <article class="framework-tile">
+              <h3>Stronger&nbsp;Narrative</h3>
+              <p class="rto_body_small">Buyers pay for credibility when the business demonstrates repeatability, leadership depth, and fewer hidden surprises.</p>
+            </article>
+            <article class="framework-tile">
+              <h3>Better Leverage</h3>
+              <p class="rto_body_small">Owners who prepare before pressure builds can negotiate from strength instead of reacting to diligence findings.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fee-section">
+      <div class="container">
+        <div class="domains-heading">
+          <div>
+            <p class="faq-section__eyebrow">Inside the Assessment</p>
+            <h2>What The Assessment Actually Delivers</h2>
+          </div>
+          <p class="rto_body_medium">The process is structured like an editorial diagnostic: clear sequencing, measurable outputs, and buyer-relevant priorities.</p>
+        </div>
+        <div class="assessment-list">
+          <article class="assessment-row">
+            <div class="assessment-row__step">01</div>
+            <div>
+              <h3>Clarifying Objectives</h3>
+              <p class="rto_body_medium">We align on owner goals, timing, constraints, and what a successful transition actually needs to accomplish.</p>
+            </div>
+            <div class="assessment-row__detail rto_body_small">This anchors the scoring model to your reality, not a generic sale template.</div>
+          </article>
+          <article class="assessment-row">
+            <div class="assessment-row__step">02</div>
+            <div>
+              <h3>Diagnostic Across Six Gaps</h3>
+              <p class="rto_body_medium">We review records, leadership dependency, transaction posture, and the transferability issues buyers probe first.</p>
+            </div>
+            <div class="assessment-row__detail rto_body_small">The review is structured to uncover both value unlocks and preventable diligence friction.</div>
+          </article>
+          <article class="assessment-row">
+            <div class="assessment-row__step">03</div>
+            <div>
+              <h3>Your Index Score &amp; Heat Map</h3>
+              <p class="rto_body_medium">You receive an overall score, gap-level scoring, and a visual heat map showing where urgency sits.</p>
+            </div>
+            <div class="assessment-row__detail rto_body_small">It becomes a single readiness baseline your advisory team can work from.</div>
+          </article>
+          <article class="assessment-row">
+            <div class="assessment-row__step">04</div>
+            <div>
+              <h3>3&#8211;5 Year Roadmap</h3>
+              <p class="rto_body_medium">We prioritize the fixes, sequence them by dependency and timing, and identify the work that can move value most.</p>
+            </div>
+            <div class="assessment-row__detail rto_body_small">The result is a practical owner roadmap, not just a report card.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fee-section">
+      <div class="container">
+        <div class="domains-heading">
+          <div>
+            <p class="faq-section__eyebrow">Sample Index Output</p>
+            <h2>Sample RTO Exit Readiness Index™ Output</h2>
+          </div>
+          <p class="rto_body_medium">This illustrative output shows how the Index turns six gaps into a score, a visual heat map, and a clear readiness signal.</p>
+        </div>
+        <div class="heatmap-card">
+          <div class="heatmap-card__header">
+            <div>
+              <h3 class="heatmap-card__title">Buyer-Style Readiness View</h3>
+              <p class="rto_body_medium">Each gap reflects a weighted contribution to overall exit preparedness.</p>
+            </div>
+            <div class="heatmap-card__score">
+              <span class="heatmap-card__score-value">52/100</span>
+              <span class="heatmap-card__status">Strategic Preparation Recommended</span>
+            </div>
+          </div>
+          <div class="heatmap-bars" aria-label="Sample readiness scores by gap">
+            <div class="heatmap-row"><span class="heatmap-row__label"><a href="#gap/financial-reporting">Financial Reporting</a></span><span class="heatmap-row__track"><span class="heatmap-row__fill heatmap-row__fill--orange" style="width: 45%"></span></span><span class="heatmap-row__value">45</span></div>
+            <div class="heatmap-row"><span class="heatmap-row__label"><a href="#gap/tax-strategy">Tax</a></span><span class="heatmap-row__track"><span class="heatmap-row__fill heatmap-row__fill--red" style="width: 35%"></span></span><span class="heatmap-row__value">35</span></div>
+            <div class="heatmap-row"><span class="heatmap-row__label"><a href="#gap/succession-continuity">Succession</a></span><span class="heatmap-row__track"><span class="heatmap-row__fill heatmap-row__fill--red" style="width: 25%"></span></span><span class="heatmap-row__value">25</span></div>
+            <div class="heatmap-row"><span class="heatmap-row__label"><a href="#gap/valuation-reality">Valuation</a></span><span class="heatmap-row__track"><span class="heatmap-row__fill heatmap-row__fill--yellow" style="width: 70%"></span></span><span class="heatmap-row__value">70</span></div>
+            <div class="heatmap-row"><span class="heatmap-row__label"><a href="#gap/operational-dependence">Operations</a></span><span class="heatmap-row__track"><span class="heatmap-row__fill heatmap-row__fill--orange" style="width: 55%"></span></span><span class="heatmap-row__value">55</span></div>
+            <div class="heatmap-row"><span class="heatmap-row__label"><a href="#gap/banking-coverage-collateral">Banking</a></span><span class="heatmap-row__track"><span class="heatmap-row__fill heatmap-row__fill--green" style="width: 80%"></span></span><span class="heatmap-row__value">80</span></div>
+          </div>
+          <div class="heatmap-legend">
+            <span class="legend-red">Red &lt; 40</span>
+            <span class="legend-orange">Orange 40&#8211;60</span>
+            <span class="legend-yellow">Yellow 60&#8211;75</span>
+            <span class="legend-green">Green 75+</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fee-section">
+      <div class="container">
+        <div class="section-intro">
+          <p class="faq-section__eyebrow">The Comparison</p>
+          <h2>Two Owners. Two Timelines. Two Outcomes.</h2>
+        </div>
+        <div class="owner-compare__grid">
+          <article class="owner-card owner-card--a">
+            <figure class="owner-card__image">
+              <img src="../../assets/images/exit-readiness_Owner A.png" alt="Illustration representing a reactive owner path" loading="lazy" decoding="async" />
+            </figure>
+            <div class="owner-card__body">
+              <div class="owner-card__eyebrow">
+                <span class="owner-card__owner">Owner A</span>
+                <span class="owner-card__dot" aria-hidden="true">&#183;</span>
+                <h3 class="owner-card__tagline">Waits Until Interest Arrives</h3>
+              </div>
+              <button class="owner-card__toggle" type="button" aria-expanded="false" aria-controls="owner-a-details">View Breakdown</button>
+              <div class="owner-card__details" id="owner-a-details" hidden>
+                <div class="owner-card__rows">
+                  <div class="owner-card__row">
+                    <p class="owner-card__row-label">Posture</p>
+                    <p class="owner-card__row-value">&ldquo;I&rsquo;ll Deal With It When I&rsquo;m Ready&rdquo; Reactive. Starts organizing only after a buyer asks for diligence.</p>
+                  </div>
+                  <div class="owner-card__row">
+                    <p class="owner-card__row-label">Timing</p>
+                    <p class="owner-card__row-value">Compressed. Fixes happen under pressure with less negotiating room.</p>
+                  </div>
+                  <div class="owner-card__row">
+                    <p class="owner-card__row-label">Leverage</p>
+                    <p class="owner-card__row-value">Lower. Gaps show up as discounts, contingencies, or lost buyers.</p>
+                  </div>
+                </div>
+                <footer class="owner-card__footer">
+                  <span class="owner-card__chip">Outcome &#183; Value at risk</span>
+                </footer>
+                </div>
+            </div>
+          </article>
+
+          <article class="owner-card owner-card--b">
+            <figure class="owner-card__image">
+              <img src="../../assets/images/exit-readiness_Owner B.png" alt="Illustration representing a prepared owner path" loading="lazy" decoding="async" />
+            </figure>
+            <div class="owner-card__body">
+              <div class="owner-card__eyebrow">
+                <span class="owner-card__owner">Owner B</span>
+                <span class="owner-card__dot" aria-hidden="true">&#183;</span>
+                <h3 class="owner-card__tagline">Prepares 3&#8211;5 Years Ahead</h3>
+              </div>
+              <button class="owner-card__toggle" type="button" aria-expanded="false" aria-controls="owner-b-details">View Breakdown</button>
+              <div class="owner-card__details" id="owner-b-details" hidden>
+                <div class="owner-card__rows">
+                  <div class="owner-card__row">
+                    <p class="owner-card__row-label">Posture</p>
+                    <p class="owner-card__row-value">&ldquo;Exit Readiness Is a Strategic Priority&rdquo; Planned. Uses the Index to prioritize fixes before outside pressure mounts.</p>
+                  </div>
+                  <div class="owner-card__row">
+                    <p class="owner-card__row-label">Timing</p>
+                    <p class="owner-card__row-value">Deliberate. Builds management depth and cleaner reporting over time.</p>
+                  </div>
+                  <div class="owner-card__row">
+                    <p class="owner-card__row-label">Leverage</p>
+                    <p class="owner-card__row-value">Stronger. Approaches the market with a stronger narrative and clearer leverage.</p>
+                  </div>
+                </div>
+                <footer class="owner-card__footer">
+                  <span class="owner-card__chip">Outcome &#183; Value realized</span>
+                </footer>
+                </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fee-section fee-section--muted fee-section--faq">
+      <div class="container">
+        <div class="resource-faq-layout">
+          <div class="white-paper-block">
+            <div class="white-paper-block__cover">
+              <img src="../../assets/images/WHITE%20PAPER%20THUMB%20NAIL.png" alt="The Exit Readiness Gap — white paper cover, RTO Advisory Q2 2026" loading="lazy" decoding="async" />
+            </div>
+            <div class="white-paper-block__copy">
+              <p class="faq-section__eyebrow">Read the Research</p>
+              <h2>The Exit Readiness Gap</h2>
+              <p class="rto_body_medium">
+                The companion white paper explains the market evidence, owner risk, and the full methodology behind the RTO Exit Readiness Index™.
+                It is designed to help owners understand why readiness gaps destroy value long before a letter of intent appears.
+              </p>
+              <div class="fee-hero__actions">
+                <a class="btn btn-primary" href="../../assets/white-papers/exit-readiness-gap.pdf">Download the White Paper</a>
+              </div>
+            </div>
+          </div>
+
+          <aside class="resource-faq-rail">
+            <div class="section-heading section-heading--tight">
+              <p class="faq-section__eyebrow">FAQ</p>
+              <h2>Questions Owners Ask Before They Start</h2>
+            </div>
+            <div class="faq-list">
+          <article class="faq-item">
+            <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-1-answer" id="faq-1-question">
+              <span class="faq-item__question-text"><span class="rto_body_medium">What Is The RTO Exit Readiness Index™?</span></span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__answer" id="faq-1-answer" aria-labelledby="faq-1-question">
+              <div class="faq-item__answer-panel">
+                <p>It is RTO Advisory&apos;s proprietary six-gap framework for measuring exit preparedness, producing an overall readiness score, gap-level scoring, and a roadmap for improvement.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-2-answer" id="faq-2-question">
+              <span class="faq-item__question-text"><span class="rto_body_medium">When Should I Start Exit Planning?</span></span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__answer" id="faq-2-answer" aria-labelledby="faq-2-question">
+              <div class="faq-item__answer-panel">
+                <p>The strongest window is typically 3&#8211;5 years before an intended transition, because the biggest improvements in value and transferability take time to implement well.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-3-answer" id="faq-3-question">
+              <span class="faq-item__question-text"><span class="rto_body_medium">What If I&apos;m Not Ready To Sell?</span></span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__answer" id="faq-3-answer" aria-labelledby="faq-3-question">
+              <div class="faq-item__answer-panel">
+                <p>That is precisely when the assessment is most useful. The goal is not to push a sale, but to show what needs work so you can widen your options and improve leverage before timing becomes urgent.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-4-answer" id="faq-4-question">
+              <span class="faq-item__question-text"><span class="rto_body_medium">How Is This Different From A Broker?</span></span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__answer" id="faq-4-answer" aria-labelledby="faq-4-question">
+              <div class="faq-item__answer-panel">
+                <p>This is a fee-based diagnostic and advisory engagement. It is built to improve readiness and decision quality before a sale process, not to earn a commission by forcing a transaction regardless of timing.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-5-answer" id="faq-5-question">
+              <span class="faq-item__question-text"><span class="rto_body_medium">What Does The Assessment Cost?</span></span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__answer" id="faq-5-answer" aria-labelledby="faq-5-question">
+              <div class="faq-item__answer-panel">
+                <p>Pricing is scoped based on company complexity, information readiness, and whether additional valuation or planning work is folded into the engagement. Start with intake and we will define a practical scope.</p>
+              </div>
+            </div>
+          </article>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <dialog class="sources-modal" data-sources-modal aria-labelledby="sources-modal-title">
+    <div class="sources-modal__panel">
+      <div class="sources-modal__header">
+        <h2 id="sources-modal-title">Sources</h2>
+        <button class="sources-modal__close" type="button" data-close-sources aria-label="Close sources">&times;</button>
+      </div>
+      <div class="sources-modal__body">
+        <ul class="sources-modal__list">
+          <li>45 Day Exit — Amazingly Poor Business Exit Planning Statistics</li>
+          <li>Edgemark Associates — Why Nearly Half of U.S. Business Owners Lack an Exit Plan (And What That Means for You)</li>
+          <li>eLOC — Exit Planning Statistics: Key Data for Business Owners</li>
+          <li>Exit Horizon — Exit Readiness Assessment Insights</li>
+          <li>Capstone Partners — Middle Market Business Owners Survey 2025</li>
+          <li>KeyBank — How Middle Market Companies Plan for Growth and Exit</li>
+          <li>Forvis Mazars — Q2 2025 Middle Market M&A Insights: Signs of Potential Recovery</li>
+          <li>Windsor Drake — Lower Middle Market Valuation Multiples 2025</li>
+          <li>Gallup — Most Small Business Owners Lack a Succession Plan</li>
+        </ul>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="fee-footer-dark">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="site-footer__brand">
+            <h3>Return To Owner Advisory</h3>
+            <p>
+              Fee-based business advisory helping middle-market companies maximize value and achieve
+              successful exits through transparent, conflict-free guidance.
+            </p>
+            <div class="site-footer__contact">
+              <a href="tel:+18447296393">844-R-2-OWNER</a>
+              <a href="mailto:info@rtoadvisory.com">info@rtoadvisory.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Services</h3>
+          <ul class="site-footer__nav">
+            <li><a href="exit-readiness.html">Exit Readiness Assessment</a></li>
+            <li><a href="value-optimization.html">Strategic Value Optimization</a></li>
+            <li><a href="transaction-advisory.html">Transaction Advisory &amp; Management</a></li>
+            <li><a href="succession-planning.html">Succession Planning</a></li>
+          </ul>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Resources</h3>
+          <ul class="site-footer__nav">
+            <li><a href="../why-rto.html">Why RTO?</a></li>
+            <li><a href="../fee-structure.html">Fee Structure</a></li>
+          </ul>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Company</h3>
+          <ul class="site-footer__nav">
+            <li><a href="../about.html">About RTO Advisory</a></li>
+            <li><a href="../fee-structure.html">Why Fee-Based?</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Return To Owner Advisory. All rights reserved.</p>
+        <p class="footer-legal">
+          <a href="../privacy.html">Privacy Policy</a>
+          <a href="../terms.html">Terms of Service</a>
+          <a href="../cookies.html">Cookie Policy</a>
+          <a href="#" data-sources-trigger>Sources</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/navigation.js"></script>
+  <script src="../../assets/js/main.js"></script>
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const faqItems = Array.from(document.querySelectorAll('.fee-section--faq .faq-item'));
+    const closeFaqItem = (item, immediate = false) => {
+      const button = item.querySelector('.faq-item__question');
+      const answer = item.querySelector('.faq-item__answer');
+      if (!button || !answer) return;
+      button.setAttribute('aria-expanded', 'false');
+      item.classList.remove('is-open');
+      if (prefersReducedMotion || immediate) {
+        answer.style.transition = 'none';
+        answer.style.height = '0px';
+        answer.style.opacity = '0';
+        return;
+      }
+      const h = answer.scrollHeight;
+      answer.style.height = `${h}px`;
+      answer.style.opacity = '1';
+      answer.offsetHeight;
+      answer.style.transition = 'height 220ms ease-in, opacity 140ms ease-in';
+      answer.style.height = '0px';
+      answer.style.opacity = '0';
+    };
+
+    const openFaqItem = (item) => {
+      const button = item.querySelector('.faq-item__question');
+      const answer = item.querySelector('.faq-item__answer');
+      if (!button || !answer) return;
+      button.setAttribute('aria-expanded', 'true');
+      item.classList.add('is-open');
+      if (prefersReducedMotion) {
+        answer.style.transition = 'none';
+        answer.style.height = 'auto';
+        answer.style.opacity = '1';
+        return;
+      }
+      answer.style.transition = 'height 280ms cubic-bezier(0.4, 0, 0.2, 1), opacity 180ms ease-out 50ms';
+      answer.style.height = '0px';
+      answer.style.opacity = '0';
+      answer.offsetHeight;
+      answer.style.height = `${answer.scrollHeight}px`;
+      answer.style.opacity = '1';
+    };
+
+    faqItems.forEach((item) => {
+      const button = item.querySelector('.faq-item__question');
+      if (!button) return;
+      closeFaqItem(item, true);
+      button.addEventListener('click', () => {
+        item.classList.contains('is-open') ? closeFaqItem(item) : openFaqItem(item);
+      });
+    });
+
+    const ownerCards = Array.from(document.querySelectorAll('.owner-card'));
+    const setOwnerCardState = (card, expanded) => {
+      const toggle = card.querySelector('.owner-card__toggle');
+      const details = card.querySelector('.owner-card__details');
+      if (!toggle || !details) return;
+      toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      toggle.textContent = expanded ? 'Hide Breakdown' : 'View Breakdown';
+      details.hidden = !expanded;
+      card.classList.toggle('is-collapsed', !expanded);
+    };
+
+    ownerCards.forEach((card) => {
+      const toggle = card.querySelector('.owner-card__toggle');
+      if (!toggle) return;
+      setOwnerCardState(card, false);
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        setOwnerCardState(card, !expanded);
+      });
+    });
+
+    const formatStat = (kind, value, text, el = null) => {
+      const left = Number(el?.dataset.statLeft || 0);
+      const right = Number(el?.dataset.statRight || 0);
+      const prefix = el?.dataset.statPrefix || '';
+      const suffix = el?.dataset.statSuffix || '';
+      if (kind === 'text') return text || '';
+      if (kind === 'pair-percent') return `${Math.round(left)}% / ${Math.round(right)}%`;
+      if (kind === 'range-percent') return `${Math.round(left)}–${Math.round(right)}%`;
+      if (kind === 'currency-magnitude') return `${prefix}${Math.round(value)}${suffix}`;
+      if (kind === 'progression-percent') return `${Math.round(left)}% → ${Math.round(right)}%`;
+      if (kind === 'multiplier') return `${Number(value).toFixed(1)}x`;
+      return `${Math.round(value)}%`;
+    };
+
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+    const animateStat = (el) => {
+      const kind = el.dataset.statKind;
+      const announcer = el.parentElement.querySelector('.js-domain-stat-announcer');
+      if (kind === 'text') {
+        const finalText = el.dataset.statText || el.textContent.trim();
+        el.textContent = finalText;
+        if (announcer) announcer.textContent = finalText;
+        return;
+      }
+      const endValue = Number(el.dataset.statValue || 0);
+      const left = Number(el.dataset.statLeft || 0);
+      const right = Number(el.dataset.statRight || 0);
+      const start = performance.now();
+      const duration = kind === 'progression-percent' ? 1500 : 1200;
+      const tick = (now) => {
+        const p = Math.min(1, (now - start) / duration);
+        const v = easeOut(p) * endValue;
+        if (kind === 'pair-percent') {
+          el.textContent = `${Math.round(easeOut(p) * left)}% / ${Math.round(easeOut(p) * right)}%`;
+        } else if (kind === 'range-percent') {
+          el.textContent = `${Math.round(easeOut(p) * left)}–${Math.round(easeOut(p) * right)}%`;
+        } else if (kind === 'currency-magnitude') {
+          el.textContent = `${el.dataset.statPrefix || ''}${Math.round(v)}${el.dataset.statSuffix || ''}`;
+        } else if (kind === 'progression-percent') {
+          el.textContent = `${left}% → ${Math.round(left + (right - left) * easeOut(p))}%`;
+        } else {
+          el.textContent = kind === 'multiplier' ? `${v.toFixed(1)}x` : `${Math.round(v)}%`;
+        }
+        if (p < 1) requestAnimationFrame(tick);
+        else if (announcer) announcer.textContent = formatStat(kind, endValue, el.dataset.statText, el);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const domainCards = Array.from(document.querySelectorAll('.domain-card'));
+    if (prefersReducedMotion) {
+      domainCards.forEach((card) => {
+        card.classList.add('is-revealed');
+        const statEl = card.querySelector('.js-domain-stat');
+        if (!statEl) return;
+        const finalText = formatStat(statEl.dataset.statKind, statEl.dataset.statValue, statEl.dataset.statText, statEl);
+        statEl.textContent = finalText;
+        const announcer = card.querySelector('.js-domain-stat-announcer');
+        if (announcer) announcer.textContent = finalText;
+      });
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const card = entry.target;
+          card.classList.add('is-revealed');
+          const stagger = Number(card.dataset.col || 0) * 120;
+          card.style.setProperty('--card-stagger', `${stagger}ms`);
+          const statEl = card.querySelector('.js-domain-stat');
+          if (statEl) setTimeout(() => animateStat(statEl), 900 + stagger);
+          observer.unobserve(card);
+        });
+      }, { rootMargin: '0px 0px -20% 0px', threshold: 0.3 });
+      domainCards.forEach((card) => observer.observe(card));
+    }
+
+    const domainDialogs = Array.from(document.querySelectorAll('.domain-brief'));
+    const dialogById = new Map(domainDialogs.map((d) => [d.id, d]));
+    const dialogBySlug = new Map(domainDialogs.map((d) => [d.dataset.slug, d]));
+    let lastFocused = null;
+
+    const getFocusable = (node) => Array.from(node.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'));
+    const trapTab = (dialog, evt) => {
+      if (evt.key !== 'Tab') return;
+      const focusables = getFocusable(dialog);
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (evt.shiftKey && document.activeElement === first) {
+        evt.preventDefault();
+        last.focus();
+      } else if (!evt.shiftKey && document.activeElement === last) {
+        evt.preventDefault();
+        first.focus();
+      }
+    };
+
+    const closeDomainDialog = (dialog, preserveHash = false) => {
+      if (!dialog || !dialog.open) return;
+      dialog.close();
+      if (!preserveHash && (location.hash.startsWith('#gap/') || location.hash.startsWith('#domain/'))) {
+        history.replaceState(null, '', `${location.pathname}${location.search}`);
+      }
+      if (lastFocused && document.contains(lastFocused)) lastFocused.focus();
+    };
+
+    const openDomainDialog = (dialog, fromHash = false) => {
+      if (!dialog) return;
+      domainDialogs.forEach((d) => {
+        if (d !== dialog && d.open) d.close();
+      });
+      lastFocused = document.activeElement;
+      if (!dialog.open) dialog.showModal();
+      const focusables = getFocusable(dialog);
+      if (focusables.length) focusables[0].focus();
+      if (!fromHash) history.replaceState(null, '', `#gap/${dialog.dataset.slug}`);
+    };
+
+    document.querySelectorAll('.js-domain-brief-open').forEach((button) => {
+      button.addEventListener('click', () => {
+        const target = dialogById.get(button.dataset.target);
+        openDomainDialog(target, false);
+      });
+    });
+
+    domainDialogs.forEach((dialog) => {
+      dialog.addEventListener('keydown', (evt) => trapTab(dialog, evt));
+      dialog.addEventListener('cancel', (evt) => {
+        evt.preventDefault();
+        closeDomainDialog(dialog, false);
+      });
+      dialog.querySelectorAll('[data-close-domain]').forEach((btn) => {
+        btn.addEventListener('click', () => closeDomainDialog(dialog, false));
+      });
+    });
+
+    const syncHashToDialog = () => {
+      const hash = decodeURIComponent(location.hash || '');
+      if (!hash.startsWith('#gap/') && !hash.startsWith('#domain/')) {
+        domainDialogs.forEach((dialog) => {
+          if (dialog.open) dialog.close();
+        });
+        return;
+      }
+      const slug = hash.replace(/^#(?:gap|domain)\//, '');
+      const dialog = dialogBySlug.get(slug);
+      if (dialog) openDomainDialog(dialog, true);
+    };
+
+    window.addEventListener('hashchange', syncHashToDialog);
+    syncHashToDialog();
+
+    window.addEventListener('resize', () => {
+      faqItems.forEach((item) => {
+        const answer = item.querySelector('.faq-item__answer');
+        if (!answer || !item.classList.contains('is-open') || prefersReducedMotion) return;
+        answer.style.height = `${answer.scrollHeight}px`;
+      });
+    });
+  </script>
+</body>
+</html>
+
+

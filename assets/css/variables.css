@@ -1,0 +1,66 @@
+:root {
+  /* ============================================================
+     BRAND TOKENS — single source of truth
+     ============================================================ */
+  --color-brand:          #0f2e2a;
+  --color-brand-rgb:      15, 46, 42;
+  --color-brand-strong:   #0f2e2a;
+
+  /* Header system — mathematically derived from --color-brand */
+  --color-header-bg:      #e2e6e5;
+  --color-header-line:    rgba(var(--color-brand-rgb), 0.08);
+  --color-header-line-scrolled: rgba(var(--color-brand-rgb), 0.14);
+  --color-header-shadow:  rgba(var(--color-brand-rgb), 0.06);
+  --color-header-ink:     var(--color-brand);
+
+  /* Semantic colors */
+  --color-ink-950: #121212;
+  --color-ink-800: #2a2a2a;
+  --color-ink-700: #414141;
+  --color-ink-500: #666;
+  --color-paper: rgba(241, 244, 247, 0);
+  --color-surface: #fffdf8;
+  --color-line: #d9d2c6;
+  --color-accent: #bc9656;
+  --color-accent-soft: #e8d8bc;
+  --color-success: #1f7a3f;
+  --color-danger: #a52828;
+
+  --font-body: "Inter", "Segoe UI", sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.3rem;
+  --text-2xl: 1.7rem;
+  --text-3xl: clamp(2rem, 4.8vw, 3rem);
+  --text-4xl: clamp(2.4rem, 6.5vw, 4.2rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 5rem;
+
+  --radius-sm: 0.35rem;
+  --radius-md: 0.6rem;
+  --radius-lg: 1rem;
+
+  --shadow-sm: 0 2px 8px rgba(18, 18, 18, 0.08);
+  --shadow-md: 0 10px 28px rgba(18, 18, 18, 0.13);
+
+  --container: 1200px;
+  --container-narrow: 760px;
+
+  --transition-fast: 160ms ease;
+  --transition-base: 260ms ease;
+
+  --z-nav: 1000;
+  --z-modal: 2000;
+}
