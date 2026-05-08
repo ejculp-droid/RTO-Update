@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -31,7 +31,7 @@
         "name": "What size companies do you work with?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We advise owners of established small businesses and middle-market companies with $2M-$100M in annual revenue and $1M-$20M in EBITDA. Whether the engagement involves a valuation, merger, or transaction, RTO Advisory is built to maximize your Return To Owner."
+          "text": "We advise owners of established small businesses and middle-market companies with $1M\u2013$100M in annual revenue and $1M\u2013$20M in EBITDA. Whether the engagement involves a valuation, merger, or transaction, RTO Advisory is built to maximize your Return To Owner."
         }
       }
     ]
@@ -227,7 +227,7 @@
 
     .fee-page .retainer-card p {
       font-family: var(--font-body);
-      font-size: 1.03rem;
+      font-size: 1.05rem;
       line-height: 1.75;
       font-weight: 400;
       color: var(--color-ink-700);
@@ -353,11 +353,14 @@
     }
 
     .fee-page .retainer-modal__list li::before {
-      content: "✓";
-      color: var(--color-brand);
-      font-weight: 600;
-      line-height: 1.2;
-      transform: translateY(0.08em);
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--color-brand);
+      border-radius: 1px;
+      flex-shrink: 0;
+      margin-top: 0.45em;
     }
 
     .fee-page .project-layout {
@@ -411,7 +414,7 @@
 
     .fee-page .project-card p {
       font-family: var(--font-body);
-      font-size: 1.03rem;
+      font-size: 1.05rem;
       line-height: 1.75;
       font-weight: 400;
       color: var(--color-ink-700);
@@ -546,11 +549,14 @@
     }
 
     .fee-page .project-modal__list li::before {
-      content: "✓";
-      color: var(--color-brand);
-      font-weight: 600;
-      line-height: 1.2;
-      transform: translateY(0.08em);
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--color-brand);
+      border-radius: 1px;
+      flex-shrink: 0;
+      margin-top: 0.45em;
     }
 
     .fee-page .fee-hero__eyebrow,
@@ -1281,7 +1287,7 @@
 
     .fee-page .comparison-card .cmp-col__list li .rto_med {
       display: block;
-      font-size: 1.03rem;
+      font-size: 1.05rem;
       line-height: 1.75;
     }
 
@@ -1361,15 +1367,10 @@
     }
 
     .fee-page .faq-item__question-text {
-      font-size: 1.1rem;
-      line-height: 1.45;
-      font-weight: 500;
-      color: var(--color-brand);
-      transition: color 180ms ease;
-    }
-
-    .fee-page .faq-item.is-open .faq-item__question-text {
-      color: var(--color-ink-800);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-weight: 400;
+      color: var(--color-ink-700);
     }
 
     /* FAQ answer */
@@ -1398,10 +1399,12 @@
 
     .fee-page .faq-item__answer-panel p {
       margin: 0;
-      text-align: left;
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--color-ink-500);
       max-width: 62ch;
-      line-height: 1.65;
-      color: var(--color-ink-700);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1977,6 +1980,183 @@
       border-top: 0;
       padding-top: 0;
     }
+
+    /* ── Resource / FAQ two-column layout ── */
+    .resource-faq-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(1.6rem, 3vw, 2.8rem);
+      align-items: start;
+    }
+
+    .resource-left-stack {
+      display: grid;
+      gap: 1.5rem;
+      align-content: start;
+    }
+
+    .intake-cta-block {
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+    }
+
+    .faq-section__eyebrow {
+      display: inline-block;
+      margin: 0 0 0.55rem;
+      font-family: var(--font-body);
+      font-size: 0.975rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #7a746c;
+      font-weight: 600;
+    }
+
+    .resource-left-stack .section-heading,
+    .resource-faq-rail .section-heading {
+      display: grid;
+      gap: 0.9rem;
+      align-content: start;
+      margin-bottom: 1rem;
+      max-width: none;
+    }
+
+    .resource-left-stack .section-heading {
+      margin-bottom: 0.65rem;
+    }
+
+    .resource-left-stack .section-heading h2,
+    .resource-faq-rail .section-heading h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.62rem, 1.95vw, 1.95rem);
+      line-height: 1.1;
+      letter-spacing: normal;
+      color: var(--color-brand);
+    }
+
+    .resource-faq-rail .section-heading h2 {
+      white-space: nowrap;
+    }
+
+    .intake-cta-block > p {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-weight: 400;
+      letter-spacing: normal;
+      color: var(--color-ink-700);
+      max-width: 47ch;
+    }
+
+    .intake-cta-actions {
+      margin-top: 0.6rem;
+    }
+
+    .intake-cta-block .btn,
+    .intake-cta-block .btn.btn-primary {
+      min-height: 48px;
+      padding-inline: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 46, 42, 0.34);
+      background: transparent;
+      color: var(--color-brand);
+      box-shadow: none;
+    }
+
+    .intake-cta-block .btn:hover,
+    .intake-cta-block .btn.btn-primary:hover {
+      background: rgba(15, 46, 42, 0.06);
+      color: var(--color-brand);
+    }
+
+    .value-whitepaper-block {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(180px, 0.65fr);
+      gap: clamp(1rem, 2.2vw, 1.8rem);
+      align-items: start;
+      border-top: 1px solid var(--color-line);
+      padding-top: 1.35rem;
+    }
+
+    .value-whitepaper-block__cover {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 4 / 5;
+      width: min(100%, 300px);
+      padding: 0.55rem;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(188, 150, 86, 0.28);
+      background: var(--color-surface);
+      box-shadow: 0 4px 10px rgba(15, 46, 42, 0.08);
+    }
+
+    .value-whitepaper-block__cover img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 12px;
+    }
+
+    .value-whitepaper-block__copy {
+      display: grid;
+      align-content: start;
+      gap: 0.75rem;
+      max-width: 30ch;
+    }
+
+    .value-whitepaper-block__copy h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.62rem, 1.95vw, 1.95rem);
+      line-height: 1.1;
+      color: var(--color-brand);
+    }
+
+    .value-whitepaper-block__copy .btn {
+      min-height: 48px;
+      padding-inline: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 46, 42, 0.34);
+      background: transparent;
+      color: var(--color-brand);
+      box-shadow: none;
+    }
+
+    .value-whitepaper-block__copy .btn:hover {
+      background: rgba(15, 46, 42, 0.06);
+      color: var(--color-brand);
+    }
+
+    .resource-faq-rail {
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+    }
+
+    @media (max-width: 1023px) {
+      .resource-faq-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .value-whitepaper-block {
+        grid-template-columns: 1fr;
+      }
+
+      .value-whitepaper-block__cover {
+        width: min(100%, 320px);
+      }
+    }
   </style>
 </head>
 <body class="fee-page">
@@ -2370,78 +2550,81 @@
       </div>
     </section>
 
-    <section class="fee-section fee-section--faq">
-      <div class="container container-narrow">
-        <div class="section-heading section-heading--tight">
-          <p class="faq-section__eyebrow">FAQ</p>
-          <h2>Frequently Asked Questions</h2>
-        </div>
-
-        <div class="faq-list">
-          <article class="faq-item">
-            <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-1-answer" id="faq-1-question">
-              <span class="faq-item__question-text">Why should I pay upfront fees instead of just a success fee?</span>
-              <span class="faq-item__icon" aria-hidden="true"></span>
-            </button>
-            <div class="faq-item__answer" id="faq-1-answer" aria-labelledby="faq-1-question">
-              <div class="faq-item__answer-panel">
-                <p>
-                  Upfront retainers ensure our advice is objective and in your best interests,
-                  not influenced by the desire to close a transaction. Success fees alone create
-                  pressure to sell quickly rather than optimize timing and value.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-2-answer" id="faq-2-question">
-              <span class="faq-item__question-text">What if I decide not to sell after the engagement?</span>
-              <span class="faq-item__icon" aria-hidden="true"></span>
-            </button>
-            <div class="faq-item__answer" id="faq-2-answer" aria-labelledby="faq-2-question">
-              <div class="faq-item__answer-panel">
-                <p>
-                  That is perfectly fine. Our goal is to provide objective, independent advice.
-                  If the analysis shows selling is not optimal, we will tell you and help you build value
-                  for a stronger exit when the timing is right.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-3-answer" id="faq-3-question">
-              <span class="faq-item__question-text">What size companies do you work with?</span>
-              <span class="faq-item__icon" aria-hidden="true"></span>
-            </button>
-            <div class="faq-item__answer" id="faq-3-answer" aria-labelledby="faq-3-question">
-              <div class="faq-item__answer-panel">
-                <p>
-                  We advise owners of established small businesses and middle-market companies with
-                  $2M-$100M in annual revenue and $1M-$20M in EBITDA. Whether the engagement involves
-                  a valuation, merger, or transaction, RTO Advisory is built to maximize your Return To Owner.
-                </p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="fee-section fee-section--closing">
+    <section class="fee-section">
       <div class="container">
-        <div class="contact-panel">
-          <div class="contact-panel__content">
-            <p class="eyebrow">Plan Now</p>
-            <h2>Discuss Your Situation</h2>
-            <p>
-              Ready to discuss how our fee-based advisory model can help you maximize your business value?
-            </p>
+        <div class="resource-faq-layout">
+          <div class="resource-left-stack">
+
+            <div class="intake-cta-block">
+              <div class="section-heading section-heading--tight">
+                <p class="faq-section__eyebrow">Next Step</p>
+                <h2>Discuss Your Situation</h2>
+              </div>
+              <p>Ready to discuss how our fee-based advisory model can help you maximize your business value? Start with a strategic intake.</p>
+              <div class="intake-cta-actions">
+                <a class="btn btn-primary" href="contact.html">Start Intake</a>
+              </div>
+            </div>
+
+            <div class="value-whitepaper-block">
+              <div class="value-whitepaper-block__copy">
+                <p class="faq-section__eyebrow">Or Read The Research</p>
+                <h2>The Exit Readiness Gap</h2>
+                <div class="intake-cta-actions">
+                  <a class="btn btn-primary" href="../assets/white-papers/exit-readiness-gap.pdf">Download the White Paper</a>
+                </div>
+              </div>
+              <div class="value-whitepaper-block__cover">
+                <img src="../assets/images/WHITE%20PAPER%20THUMB%20NAIL.png" alt="The Exit Readiness Gap, white paper cover, RTO Advisory Q2 2026" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
           </div>
-          <div class="contact-panel__actions">
-            <a href="contact.html" class="start-intake-btn">Start Intake</a>
-          </div>
+
+          <aside class="resource-faq-rail">
+            <div class="section-heading section-heading--tight">
+              <p class="faq-section__eyebrow">FAQ</p>
+              <h2>Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-list">
+              <article class="faq-item">
+                <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-1-answer" id="faq-1-question">
+                  <span class="faq-item__question-text">Why should I pay upfront fees instead of just a success fee?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__answer" id="faq-1-answer" aria-labelledby="faq-1-question">
+                  <div class="faq-item__answer-panel">
+                    <p>Upfront retainers ensure our advice is objective and in your best interests, not influenced by the desire to close a transaction. Success fees alone create pressure to sell quickly rather than optimize timing and value.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="faq-item">
+                <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-2-answer" id="faq-2-question">
+                  <span class="faq-item__question-text">What if I decide not to sell after the engagement?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__answer" id="faq-2-answer" aria-labelledby="faq-2-question">
+                  <div class="faq-item__answer-panel">
+                    <p>That is perfectly fine. Our goal is to provide objective, independent advice. If the analysis shows selling is not optimal, we will tell you and help you build value for a stronger exit when the timing is right.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="faq-item">
+                <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-3-answer" id="faq-3-question">
+                  <span class="faq-item__question-text">What size companies do you work with?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__answer" id="faq-3-answer" aria-labelledby="faq-3-question">
+                  <div class="faq-item__answer-panel">
+                    <p>We advise owners of established small businesses and middle-market companies with $1M&ndash;$100M in annual revenue and $1M&ndash;$20M in EBITDA. Whether the engagement involves a valuation, merger, or transaction, RTO Advisory is built to maximize your Return To Owner.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -2816,5 +2999,160 @@
       }
     });
   </script>
-</body>
-</html>
+
+  <!-- PDF Gate Modal -->
+  <div id="pdfGateModal" class="pdf-gate-modal">
+    <div class="pdf-gate-modal__overlay"></div>
+    <div class="pdf-gate-modal__content">
+      <button class="pdf-gate-modal__close" aria-label="Close modal">&times;</button>
+      <h2 class="pdf-gate-modal__title">Get the White Paper</h2>
+      <form id="pdfGateForm" class="pdf-gate-form">
+        <div class="pdf-gate-form__grid">
+          <div>
+            <label for="firstName">First Name</label>
+            <input id="firstName" name="first_name" type="text" required />
+          </div>
+          <div>
+            <label for="lastName">Last Name</label>
+            <input id="lastName" name="last_name" type="text" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div>
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" required />
+          </div>
+          <div>
+            <label for="readerType">Reader Type</label>
+            <select id="readerType" name="reader_type" required>
+              <option value="">Choose</option>
+              <option>Owner</option>
+              <option>Business Executive</option>
+              <option>CPA</option>
+              <option>Attorney</option>
+              <option>Wealth Advisor/Manager</option>
+              <option>Consultant</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div id="otherReaderInput" style="display:none;">
+            <label for="readerTypeOther">Please specify</label>
+            <input id="readerTypeOther" name="reader_type_other" type="text" />
+          </div>
+        </div>
+        <div class="pdf-gate-message" style="display:none;"></div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top: 1.5rem;">Send White Paper to Email</button>
+      </form>
+    </div>
+  </div>
+
+  <style>
+    .pdf-gate-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .pdf-gate-modal__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .pdf-gate-modal__content {
+      position: relative;
+      background: #fff;
+      border-radius: 8px;
+      padding: 2.5rem;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+    .pdf-gate-modal__close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #999;
+      padding: 0;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pdf-gate-modal__close:hover {
+      color: #333;
+    }
+    .pdf-gate-modal__title {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: var(--color-brand);
+    }
+    .pdf-gate-form__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .pdf-gate-form__grid > div:nth-child(3),
+    .pdf-gate-form__grid > div:nth-child(4),
+    .pdf-gate-form__grid > div:nth-child(5),
+    .pdf-gate-form__grid > div:nth-child(6) {
+      grid-column: 1 / -1;
+    }
+    .pdf-gate-form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--color-ink-900);
+    }
+    .pdf-gate-form input,
+    .pdf-gate-form select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--color-line);
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-family: var(--font-body);
+    }
+    .pdf-gate-form input:focus,
+    .pdf-gate-form select:focus {
+      outline: none;
+      border-color: var(--color-brand);
+      box-shadow: 0 0 0 3px rgba(15, 46, 42, 0.1);
+    }
+    .pdf-gate-message {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+    .pdf-gate-message--success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .pdf-gate-message--error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+  </style>
+
+  <script src="../assets/js/pdf-gate.js"></script>
+

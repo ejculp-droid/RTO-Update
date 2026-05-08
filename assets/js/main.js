@@ -47,10 +47,10 @@ function bindContactForm() {
     }
 
     try {
-      const response = await fetch(form.action, {
+      const response = await fetch('/', {
         method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' }
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
       });
 
       if (!response.ok) throw new Error('submit failed');

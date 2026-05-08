@@ -41,21 +41,30 @@
     .framework-card p:not(.phase-marker),
     .engagement-card p:not(.eyebrow) {
       font-family: var(--font-body);
-      font-size: 1.03rem;
+      font-size: 1.12rem;
       line-height: 1.75;
       font-weight: 400;
       color: var(--color-ink-700);
       letter-spacing: 0;
       margin: 0 0 auto;
     }
+    .lever-card h3,
+    .framework-card h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 2vw, 1.7rem);
+      line-height: 1.2;
+      font-weight: 600;
+      color: var(--color-brand);
+      margin: 0.25rem 0 0.8rem;
+    }
     .lever-card__link,
     .framework-card__link,
     .engagement-card__link {
       font-family: var(--font-body);
-      font-size: var(--text-lg);
+      font-size: 0.85rem;
       line-height: 1.6;
-      font-weight: 400;
-      color: var(--color-ink-700);
+      font-weight: 600;
+      color: var(--color-brand);
       text-decoration: none;
       border-bottom: none;
       display: inline-block;
@@ -169,11 +178,14 @@
     .lever-modal__list li::before,
     .framework-modal__list li::before,
     .engagement-modal__list li::before {
-      content: "✓";
-      color: var(--color-brand);
-      font-weight: 600;
-      line-height: 1.2;
-      transform: translateY(0.08em);
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--color-brand);
+      border-radius: 1px;
+      flex-shrink: 0;
+      margin-top: 0.45em;
     }
 
     .advantage-panel {
@@ -181,10 +193,12 @@
       grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
       gap: 2rem;
       align-items: start;
-      padding: 2rem;
-      border: 1px solid rgba(188, 150, 86, 0.28);
-      border-radius: 24px;
-      background: var(--color-surface);
+      padding: 2.5rem 0;
+      border: 0;
+      border-top: 1px solid var(--color-line);
+      border-bottom: 1px solid var(--color-line);
+      border-radius: 0;
+      background: transparent;
     }
 
     .advantage-panel__heading {
@@ -335,7 +349,7 @@
     .intake-cta-block > p {
       margin: 0;
       font-family: var(--font-body);
-      font-size: 1.03rem;
+      font-size: 1.05rem;
       line-height: 1.75;
       font-weight: 400;
       letter-spacing: normal;
@@ -439,7 +453,7 @@
     .resource-faq-rail .faq summary,
     .resource-faq-rail .faq p {
       font-family: var(--font-body);
-      font-size: 1.03rem;
+      font-size: 1.05rem;
       line-height: 1.75;
       font-weight: 400;
       letter-spacing: normal;
@@ -552,6 +566,175 @@
         width: min(100%, 320px);
       }
     }
+
+    /* ── FAQ accordion ─────────────────────────────────────────── */
+    .faq-item {
+      border-bottom: 1px solid var(--color-line);
+    }
+
+    .faq-item__question {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+      padding: 1.4rem 0;
+      background: transparent;
+      border: 0;
+      text-align: left;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-weight: 400;
+      letter-spacing: normal;
+      color: var(--color-ink-700);
+      -webkit-appearance: none;
+      appearance: none;
+      font-synthesis: none;
+    }
+
+    .faq-item__question:focus-visible {
+      outline: 2px solid var(--color-brand);
+      outline-offset: 4px;
+    }
+
+    .faq-item__icon {
+      position: relative;
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-top: 0.35rem;
+      flex-shrink: 0;
+      transition: transform 220ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .faq-item__icon::before,
+    .faq-item__icon::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      background: var(--color-ink-700);
+      transform: translate(-50%, -50%);
+      transition: transform 220ms ease, opacity 220ms ease;
+    }
+
+    .faq-item__icon::before { width: 14px; height: 1px; }
+    .faq-item__icon::after  { width: 1px;  height: 14px; }
+
+    .faq-item.is-open .faq-item__icon { transform: rotate(45deg); }
+
+    .faq-item__answer {
+      overflow: hidden;
+      height: 0;
+      opacity: 0;
+      transition: height 280ms cubic-bezier(0.4, 0, 0.2, 1), opacity 180ms ease-out 50ms;
+    }
+
+    .faq-item.is-open .faq-item__answer { opacity: 1; }
+
+    .faq-item__answer-panel {
+      padding: 0 0 1.2rem;
+    }
+
+    .faq-item__answer-panel p {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-weight: 400;
+      color: var(--color-ink-500);
+      max-width: 62ch;
+    }
+
+    /* -- Engagement options ---------------------------------------- */
+    .sp-engagement-header {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 2.5rem;
+    }
+
+    .sp-engagement-header__heading {
+      padding-right: 1rem;
+      border-right: 1px solid var(--color-line);
+    }
+
+    .sp-engagement-header__heading h2 {
+      margin: 0.4rem 0 0;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.05;
+      color: var(--color-brand);
+    }
+
+    .sp-engagement-lead {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+      max-width: 52ch;
+    }
+
+    .sp-engagement-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin-top: 0;
+    }
+
+    .sp-engagement-option {
+      padding: 1.5rem 1.5rem 1.5rem 0;
+      border-top: 1px solid var(--color-line);
+    }
+
+    .sp-engagement-option h3 {
+      margin: 0.6rem 0 0.5rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+      line-height: 1.2;
+      color: var(--color-brand);
+    }
+
+    .sp-engagement-option p {
+      margin: 0 0 0.4rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--color-ink-500);
+    }
+
+    .sp-engagement-option p:last-child { margin-bottom: 0; }
+
+    .sp-engagement-option__duration {
+      display: inline-block;
+      margin: 0 0 0.75rem;
+      font-size: 0.975rem;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      color: #7a746c;
+    }
+
+    @media (max-width: 1023px) {
+      .sp-engagement-header { grid-template-columns: 1fr; }
+      .sp-engagement-header__heading { border-right: none; padding-right: 0; padding-bottom: 1rem; border-bottom: 1px solid var(--color-line); margin-bottom: 0.5rem; }
+    }
+
+    @media (max-width: 860px) {
+      .sp-engagement-grid { grid-template-columns: 1fr; }
+    }
+
+    .fee-section {
+      padding: 48px 0;
+    }
+
+    .fee-section > .container {
+      border-top: 1px solid var(--color-line);
+      padding-top: 48px;
+    }
   </style>
 </head>
 <body class="service-page service-page--light">
@@ -565,7 +748,7 @@
           <li><a href="../why-rto.html">Why RTO?</a></li>
           <li class="has-dropdown is-current">
             <button type="button" class="nav-dropdown-toggle" aria-expanded="true" aria-haspopup="true">
-              Services <span class="nav-caret" aria-hidden="true">▾</span>
+              Services <span class="nav-caret" aria-hidden="true">&#9662;</span>
             </button>
             <ul class="nav-dropdown-menu" role="menu">
               <li><a role="menuitem" href="exit-readiness.html">Exit Readiness Assessment</a></li>
@@ -586,8 +769,9 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
+          <p class="eyebrow">Strategic Value Optimization</p>
           <h1>
-            <span class="hero-title-line">Maximize Value Before</span>
+            <span class="hero-title-line">Maximize Value</span>
             <span class="hero-title-line">Before You Sell</span>
           </h1>
           <p class="rto_body">Systematic, multi-year preparation that compounds enterprise value and protects it when diligence begins.</p>
@@ -601,9 +785,7 @@
     <section class="section section--cream">
       <div class="container value-opt-intro-grid">
         <div class="value-opt-intro-visual">
-          <video class="value-opt-intro-visual__image" autoplay loop muted playsinline preload="metadata" aria-label="Strategic Value Optimization section visual">
-            <source src="../../assets/images/Image to video 丨 have these people hand the objects to eachother up and down the.mp4" type="video/mp4" />
-          </video>
+          <img class="value-opt-intro-visual__image" src="../../assets/images/Value-Opt_section%201_STRATEGIC%20VALUE%20OPTIMIZATION.png" alt="Strategic Value Optimization section visual" loading="lazy" decoding="async" />
         </div>
         <div class="value-opt-intro-copy">
           <p class="eyebrow">STRATEGIC VALUE OPTIMIZATION</p>
@@ -622,9 +804,7 @@
         <div class="value-opportunity-layout">
           <div class="value-opportunity-visual">
             <p class="value-opportunity-visual__lead rto_body_medium">The levers buyers and lenders reward first and where disciplined preparation compounds value long before a letter of intent.</p>
-            <video class="value-opportunity-visual__image" autoplay loop muted playsinline preload="metadata" aria-label="Value creation opportunity visual">
-              <source src="../../assets/images/1776771793917-2ebef613-001a-417d-8cdb-bd7600f618a1.mp4" type="video/mp4" />
-            </video>
+            <img class="value-opportunity-visual__image" src="../../assets/images/Value-Opt_section%202_THE%20VALUE%20CREATION%20OPPORTUNITY.png" alt="Value creation opportunity visual" loading="lazy" decoding="async" />
           </div>
 
           <div class="value-opportunity-right">
@@ -633,28 +813,28 @@
                 <p class="eyebrow">LEVER 01</p>
                 <h3>Financial Performance</h3>
                 <p>EBITDA margin improvement, revenue quality, working capital efficiency, and profitability mix.</p>
-                <a href="#" class="lever-card__link">Explore lever</a>
+                <a href="#" class="lever-card__link">Explore Lever &#8594;</a>
               </article>
 
               <article class="lever-card card" data-lever="2" tabindex="0" role="button" aria-expanded="false" aria-label="Operational Excellence">
                 <p class="eyebrow">LEVER 02</p>
                 <h3>Operational Excellence</h3>
                 <p>Process documentation, management team development, technology assessment, and scalability planning.</p>
-                <a href="#" class="lever-card__link">Explore lever</a>
+                <a href="#" class="lever-card__link">Explore Lever &#8594;</a>
               </article>
 
               <article class="lever-card card" data-lever="3" tabindex="0" role="button" aria-expanded="false" aria-label="Growth Strategy">
                 <p class="eyebrow">LEVER 03</p>
                 <h3>Growth Strategy</h3>
                 <p>Organic growth initiatives, strategic acquisitions, market expansion, and portfolio optimization.</p>
-                <a href="#" class="lever-card__link">Explore lever</a>
+                <a href="#" class="lever-card__link">Explore Lever &#8594;</a>
               </article>
 
               <article class="lever-card card" data-lever="4" tabindex="0" role="button" aria-expanded="false" aria-label="Strategic Positioning">
                 <p class="eyebrow">LEVER 04</p>
                 <h3>Strategic Positioning</h3>
                 <p>Competitive differentiation, market positioning, concentration reduction, and recurring revenue development.</p>
-                <a href="#" class="lever-card__link">Explore lever</a>
+                <a href="#" class="lever-card__link">Explore Lever &#8594;</a>
               </article>
             </div>
         </div>
@@ -663,7 +843,7 @@
 
         <div class="lever-modal" data-lever="1" role="dialog" aria-hidden="true" aria-labelledby="lever-modal-title-1">
           <div class="lever-modal__content">
-            <button class="lever-modal__close" aria-label="Close">×</button>
+            <button class="lever-modal__close" aria-label="Close">&times;</button>
             <h3 id="lever-modal-title-1">Financial Performance</h3>
             <p class="lever-modal__meta">Value Lever 01</p>
             <hr class="lever-modal__divider" />
@@ -678,7 +858,7 @@
 
         <div class="lever-modal" data-lever="2" role="dialog" aria-hidden="true" aria-labelledby="lever-modal-title-2">
           <div class="lever-modal__content">
-            <button class="lever-modal__close" aria-label="Close">×</button>
+            <button class="lever-modal__close" aria-label="Close">&times;</button>
             <h3 id="lever-modal-title-2">Operational Excellence</h3>
             <p class="lever-modal__meta">Value Lever 02</p>
             <hr class="lever-modal__divider" />
@@ -693,7 +873,7 @@
 
         <div class="lever-modal" data-lever="3" role="dialog" aria-hidden="true" aria-labelledby="lever-modal-title-3">
           <div class="lever-modal__content">
-            <button class="lever-modal__close" aria-label="Close">×</button>
+            <button class="lever-modal__close" aria-label="Close">&times;</button>
             <h3 id="lever-modal-title-3">Growth Strategy</h3>
             <p class="lever-modal__meta">Value Lever 03</p>
             <hr class="lever-modal__divider" />
@@ -708,7 +888,7 @@
 
         <div class="lever-modal" data-lever="4" role="dialog" aria-hidden="true" aria-labelledby="lever-modal-title-4">
           <div class="lever-modal__content">
-            <button class="lever-modal__close" aria-label="Close">×</button>
+            <button class="lever-modal__close" aria-label="Close">&times;</button>
             <h3 id="lever-modal-title-4">Strategic Positioning</h3>
             <p class="lever-modal__meta">Value Lever 04</p>
             <hr class="lever-modal__divider" />
@@ -733,32 +913,30 @@
             <div class="framework-stack">
               <article class="framework-card card" data-phase="1" tabindex="0" role="button" aria-expanded="false" aria-label="Baseline and Prioritization">
                 <p class="phase-marker">PHASE 01</p>
-                <h3 class="phase-title">Baseline and Prioritization</h3>
+                <h3>Baseline and Prioritization</h3>
                 <p>Current-state assessment, value-driver identification, initiative ranking, and resource planning.</p>
-                <a href="#" class="framework-card__link">Explore phase</a>
+                <a href="#" class="framework-card__link">Explore Phase &#8594;</a>
               </article>
 
               <article class="framework-card card" data-phase="2" tabindex="0" role="button" aria-expanded="false" aria-label="Implementation and Monitoring">
                 <p class="phase-marker">PHASE 02</p>
-                <h3 class="phase-title">Implementation and Monitoring</h3>
+                <h3>Implementation and Monitoring</h3>
                 <p>Strategic planning cadence, progress tracking, project support, reporting, and obstacle removal.</p>
-                <a href="#" class="framework-card__link">Explore phase</a>
+                <a href="#" class="framework-card__link">Explore Phase &#8594;</a>
               </article>
 
               <article class="framework-card card" data-phase="3" tabindex="0" role="button" aria-expanded="false" aria-label="Transaction Preparation">
                 <p class="phase-marker">PHASE 03</p>
-                <h3 class="phase-title">Transaction Preparation</h3>
+                <h3>Transaction Preparation</h3>
                 <p>Documentation readiness, presentation refinement, diligence prep, positioning, and structure planning.</p>
-                <a href="#" class="framework-card__link">Explore phase</a>
+                <a href="#" class="framework-card__link">Explore Phase &#8594;</a>
               </article>
             </div>
           </div>
 
           <div class="framework-visual">
             <p class="framework-visual__lead rto_body_medium">A three-phase program that converts preparation time into measurable multiple expansion, sequenced the way buyers, lenders, and QofE teams test quality.</p>
-            <video class="framework-visual__image" autoplay loop muted playsinline preload="metadata" aria-label="The RTO Value Optimization Framework visual">
-              <source src="../../assets/images/Image to video 丨 motion that supports or enhances this narrative_ THE FRAMEWORK.mp4" type="video/mp4" />
-            </video>
+            <img class="framework-visual__image" src="../../assets/images/Value-Opt_section%203_The%20RTO%20Value%20Optimization%20Framework.png" alt="The RTO Value Optimization Framework visual" loading="lazy" decoding="async" />
           </div>
         </div>
 
@@ -766,7 +944,7 @@
 
         <div class="framework-modal" data-phase="1" role="dialog" aria-hidden="true" aria-labelledby="framework-modal-title-1">
           <div class="framework-modal__content">
-            <button class="framework-modal__close" aria-label="Close">×</button>
+            <button class="framework-modal__close" aria-label="Close">&times;</button>
             <h3 id="framework-modal-title-1">Baseline and Prioritization</h3>
             <p class="framework-modal__meta">Phase 01</p>
             <hr class="framework-modal__divider" />
@@ -781,7 +959,7 @@
 
         <div class="framework-modal" data-phase="2" role="dialog" aria-hidden="true" aria-labelledby="framework-modal-title-2">
           <div class="framework-modal__content">
-            <button class="framework-modal__close" aria-label="Close">×</button>
+            <button class="framework-modal__close" aria-label="Close">&times;</button>
             <h3 id="framework-modal-title-2">Implementation and Monitoring</h3>
             <p class="framework-modal__meta">Phase 02</p>
             <hr class="framework-modal__divider" />
@@ -797,7 +975,7 @@
 
         <div class="framework-modal" data-phase="3" role="dialog" aria-hidden="true" aria-labelledby="framework-modal-title-3">
           <div class="framework-modal__content">
-            <button class="framework-modal__close" aria-label="Close">×</button>
+            <button class="framework-modal__close" aria-label="Close">&times;</button>
             <h3 id="framework-modal-title-3">Transaction Preparation</h3>
             <p class="framework-modal__meta">Phase 03</p>
             <hr class="framework-modal__divider" />
@@ -807,89 +985,6 @@
               <li>Due-diligence readiness</li>
               <li>Market positioning strategy</li>
               <li>Transaction structure optimization</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--cream">
-      <div class="container">
-        <p class="eyebrow">ENGAGEMENT MODELS</p>
-        <h2 class="display-lg">Three Ways To Engage</h2>
-        <div class="engagement-layout">
-          <div class="engagement-visual">
-            <p class="engagement-visual__lead rto_body_medium">Scoped to your timeline, your complexity, and how much of the value-creation work you want RTO to drive alongside you.</p>
-            <img class="engagement-visual__image" src="../../assets/images/Value-Opt_section%204_Ways%20to%20engage.png" alt="Ways to engage illustration" loading="lazy" decoding="async" />
-          </div>
-
-          <div class="engagement-right">
-            <div class="engagement-stack">
-              <article class="engagement-card card" data-model="a" tabindex="0" role="button" aria-expanded="false" aria-label="Comprehensive Program">
-                <p class="eyebrow">MODEL A · 24-36 MONTHS</p>
-                <h3 class="card-title">Comprehensive Program</h3>
-                <p>Full strategic partnership, on-site sessions, weekly support, and open advisory access.</p>
-                <a href="#" class="engagement-card__link">Explore model</a>
-              </article>
-
-              <article class="engagement-card card" data-model="b" tabindex="0" role="button" aria-expanded="false" aria-label="Targeted Initiative Program">
-                <p class="eyebrow">MODEL B · 12-18 MONTHS</p>
-                <h3 class="card-title">Targeted Initiative Program</h3>
-                <p>Focused value-driver work with quarterly strategy sessions and implementation support.</p>
-                <a href="#" class="engagement-card__link">Explore model</a>
-              </article>
-
-              <article class="engagement-card card" data-model="c" tabindex="0" role="button" aria-expanded="false" aria-label="Executive Advisory">
-                <p class="eyebrow">MODEL C · ONGOING</p>
-                <h3 class="card-title">Executive Advisory</h3>
-                <p>Senior strategic guidance for ownership and C Suite Executives with ongoing monthly and ad-hoc support.</p>
-                <a href="#" class="engagement-card__link">Explore model</a>
-              </article>
-            </div>
-          </div>
-        </div>
-
-        <div class="engagement-modal-scrim" id="engagement-modal-scrim"></div>
-
-        <div class="engagement-modal" data-model="a" role="dialog" aria-hidden="true" aria-labelledby="engagement-modal-title-a">
-          <div class="engagement-modal__content">
-            <button class="engagement-modal__close" aria-label="Close">×</button>
-            <h3 id="engagement-modal-title-a">Comprehensive Program</h3>
-            <p class="engagement-modal__meta">Model A · 24-36 Months</p>
-            <hr class="engagement-modal__divider" />
-            <ul class="engagement-modal__list">
-              <li>Full strategic partnership through exit readiness</li>
-              <li>Monthly on-site strategic sessions</li>
-              <li>Weekly advisory calls and support</li>
-              <li>Unlimited email and phone consultation</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="engagement-modal" data-model="b" role="dialog" aria-hidden="true" aria-labelledby="engagement-modal-title-b">
-          <div class="engagement-modal__content">
-            <button class="engagement-modal__close" aria-label="Close">×</button>
-            <h3 id="engagement-modal-title-b">Targeted Initiative Program</h3>
-            <p class="engagement-modal__meta">Model B · 12-18 Months</p>
-            <hr class="engagement-modal__divider" />
-            <ul class="engagement-modal__list">
-              <li>Focus on 2-3 high-impact value drivers</li>
-              <li>Quarterly strategy sessions</li>
-              <li>Project-specific implementation support</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="engagement-modal" data-model="c" role="dialog" aria-hidden="true" aria-labelledby="engagement-modal-title-c">
-          <div class="engagement-modal__content">
-            <button class="engagement-modal__close" aria-label="Close">×</button>
-            <h3 id="engagement-modal-title-c">Executive Advisory</h3>
-            <p class="engagement-modal__meta">Model C · Ongoing</p>
-            <hr class="engagement-modal__divider" />
-            <ul class="engagement-modal__list">
-              <li>Strategic advisor to ownership and C Suite Executives</li>
-              <li>Monthly advisory sessions</li>
-              <li>Ad-hoc consultation and problem-solving</li>
             </ul>
           </div>
         </div>
@@ -926,6 +1021,42 @@
       </div>
     </section>
 
+    <section class="fee-section">
+      <div class="container">
+        <div class="sp-engagement-header">
+          <div class="sp-engagement-header__heading">
+            <p class="eyebrow">ENGAGEMENT MODELS</p>
+            <h2>Three Ways To Engage</h2>
+          </div>
+          <p class="sp-engagement-lead">Scoped to your timeline, your complexity, and how much of the value-creation work you want RTO to drive alongside you. All three models are fee-based and conflict-free.</p>
+        </div>
+        <div class="sp-engagement-grid">
+
+          <div class="sp-engagement-option">
+            <span class="sp-engagement-option__duration">Model A &#183; 24&#8211;36 Months</span>
+            <h3>Comprehensive Program</h3>
+            <p>Full strategic partnership, on-site sessions, weekly support, and open advisory access through exit readiness.</p>
+            <p>Monthly on-site strategic sessions, weekly advisory calls, and unlimited email and phone consultation.</p>
+          </div>
+
+          <div class="sp-engagement-option">
+            <span class="sp-engagement-option__duration">Model B &#183; 12&#8211;18 Months</span>
+            <h3>Targeted Initiative Program</h3>
+            <p>Focused value-driver work concentrating on 2&#8211;3 high-impact levers with quarterly strategy sessions and implementation support.</p>
+            <p>Project-specific guidance, progress tracking, and obstacle removal scoped to your highest-priority initiatives.</p>
+          </div>
+
+          <div class="sp-engagement-option">
+            <span class="sp-engagement-option__duration">Model C &#183; Ongoing</span>
+            <h3>Executive Advisory</h3>
+            <p>Senior strategic guidance for ownership and C Suite Executives with ongoing monthly and ad-hoc support.</p>
+            <p>Monthly advisory sessions and ad-hoc consultation scoped to your pace, your priorities, and your path to exit.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <section class="section section--cream">
       <div class="container">
         <div class="resource-faq-layout">
@@ -946,11 +1077,11 @@
                 <p class="faq-section__eyebrow">OR READ THE RESEARCH</p>
                 <h2>The Exit Readiness Gap</h2>
                 <div class="intake-cta-actions">
-                  <a class="btn btn-primary" href="../../assets/white-papers/exit-readiness-gap.pdf">Download the White Paper</a>
+                  <button class="btn btn-primary" data-pdf-gate>Download the White Paper</button>
                 </div>
               </div>
               <div class="value-whitepaper-block__cover">
-                <img src="../../assets/images/WHITE%20PAPER%20THUMB%20NAIL.png" alt="The Exit Readiness Gap — white paper cover, RTO Advisory Q2 2026" loading="lazy" decoding="async" />
+                <img src="../../assets/images/WHITE%20PAPER%20THUMB%20NAIL.png" alt="The Exit Readiness Gap - white paper cover, RTO Advisory Q2 2026" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
@@ -961,30 +1092,69 @@
               <h2>Questions Owners Ask Before They Start</h2>
             </div>
 
-            <details class="faq">
-              <summary>How long does a value optimization engagement take?</summary>
-              <p>Most engagements run 12-36 months. The Comprehensive Program runs 24-36 months; the Targeted Initiative Program runs 12-18 months; Executive Advisory is ongoing.</p>
-            </details>
+            <div class="faq-list">
 
-            <details class="faq">
-              <summary>How is this different from management consulting?</summary>
-              <p>Every initiative is selected and sequenced to move the valuation multiple a buyer or lender will actually pay for, not generic operational improvement. The framework is buyer-facing from day one.</p>
-            </details>
+              <article class="faq-item">
+                <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="vo-faq-1-answer" id="vo-faq-1-question">
+                  <span class="faq-item__question-text">How long does a value optimization engagement take?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__answer" id="vo-faq-1-answer" aria-labelledby="vo-faq-1-question">
+                  <div class="faq-item__answer-panel">
+                    <p>Most engagements run 12-36 months. The Comprehensive Program runs 24-36 months; the Targeted Initiative Program runs 12-18 months; Executive Advisory is ongoing.</p>
+                  </div>
+                </div>
+              </article>
 
-            <details class="faq">
-              <summary>Do you guarantee a higher multiple?</summary>
-              <p>No credible advisor can. What we can commit to is disciplined execution on the drivers that have historically compounded multiple expansion: earnings quality, reduced concentration, documented operations, and a defensible growth narrative.</p>
-            </details>
+              <article class="faq-item">
+                <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="vo-faq-2-answer" id="vo-faq-2-question">
+                  <span class="faq-item__question-text">How is this different from management consulting?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__answer" id="vo-faq-2-answer" aria-labelledby="vo-faq-2-question">
+                  <div class="faq-item__answer-panel">
+                    <p>Every initiative is selected and sequenced to move the valuation multiple a buyer or lender will actually pay for, not generic operational improvement. The framework is buyer-facing from day one.</p>
+                  </div>
+                </div>
+              </article>
 
-            <details class="faq">
-              <summary>Can you work alongside our existing CPA and attorney?</summary>
-              <p>Yes. RTO is fee-based and conflict-free, and the engagement is designed to coordinate with your existing advisors rather than replace them.</p>
-            </details>
+              <article class="faq-item">
+                <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="vo-faq-3-answer" id="vo-faq-3-question">
+                  <span class="faq-item__question-text">Do you guarantee a higher multiple?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__answer" id="vo-faq-3-answer" aria-labelledby="vo-faq-3-question">
+                  <div class="faq-item__answer-panel">
+                    <p>No credible advisor can. What we can commit to is disciplined execution on the drivers that have historically compounded multiple expansion: earnings quality, reduced concentration, documented operations, and a defensible growth narrative.</p>
+                  </div>
+                </div>
+              </article>
 
-            <details class="faq">
-              <summary>What size companies is this for?</summary>
-              <p>Middle-market, privately-held companies, typically 5M-100M in revenue, where multi-year preparation can meaningfully expand the buyer pool and the multiple.</p>
-            </details>
+              <article class="faq-item">
+                <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="vo-faq-4-answer" id="vo-faq-4-question">
+                  <span class="faq-item__question-text">Can you work alongside our existing CPA and attorney?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__answer" id="vo-faq-4-answer" aria-labelledby="vo-faq-4-question">
+                  <div class="faq-item__answer-panel">
+                    <p>Yes. RTO is fee-based and conflict-free, and the engagement is designed to coordinate with your existing advisors rather than replace them.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="faq-item">
+                <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="vo-faq-5-answer" id="vo-faq-5-question">
+                  <span class="faq-item__question-text">What size companies is this for?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__answer" id="vo-faq-5-answer" aria-labelledby="vo-faq-5-question">
+                  <div class="faq-item__answer-panel">
+                    <p>Privately-held businesses with $1M&ndash;$100M in annual revenue and $1M&ndash;$20M in EBITDA, where multi-year preparation can meaningfully expand the buyer pool and the exit multiple.</p>
+                  </div>
+                </div>
+              </article>
+
+            </div>
           </aside>
         </div>
       </div>
@@ -999,12 +1169,11 @@
       </div>
       <div class="sources-modal__body">
         <ul class="sources-modal__list">
-          <li>TobinLeff — <em>Increase Enterprise Value: Strengthen Value Drivers Before Selling a Business</em></li>
-          <li>Versailles Group — <em>A Guide for Business Owners: How Middle Market Valuation Works</em></li>
-          <li>Madras Accountancy — <em>Business Exit Strategy Planning: The Ultimate Value Creation Guide</em></li>
-          <li>Windsor Drake — <em>Lower Middle Market Valuation Multiples 2025</em></li>
-          <li>Windsor Drake — <em>EBITDA Multiples by Industry 2026</em></li>
-          <li>The Exit Readiness Gap — <em>RTO Advisory White Paper, Q2 2026</em></li>
+          <li>TobinLeff: <em>Increase Enterprise Value: Strengthen Value Drivers Before Selling a Business</em></li>
+          <li>Versailles Group: <em>A Guide for Business Owners: How Middle Market Valuation Works</em></li>
+          <li>Madras Accountancy: <em>Business Exit Strategy Planning: The Ultimate Value Creation Guide</em></li>
+          <li>Windsor Drake: <em>Lower Middle Market Valuation Multiples 2025</em></li>
+          <li>Windsor Drake: <em>EBITDA Multiples by Industry 2026</em></li>
         </ul>
       </div>
     </div>
@@ -1052,7 +1221,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">© 2026 Return To Owner Advisory. All rights reserved.</p>
+        <p class="footer-copy">&copy; 2026 Return To Owner Advisory. All rights reserved.</p>
         <p class="footer-legal">
           <a href="../privacy.html">Privacy Policy</a>
           <a href="../terms.html">Terms of Service</a>
@@ -1066,6 +1235,43 @@
   <script src="../../assets/js/navigation.js"></script>
   <script src="../../assets/js/main.js"></script>
   <script>
+    // FAQ accordion
+    (function () {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const faqItems = Array.from(document.querySelectorAll('.resource-faq-rail .faq-item'));
+
+      const closeFaqItem = (item, immediate) => {
+        const btn = item.querySelector('.faq-item__question');
+        const ans = item.querySelector('.faq-item__answer');
+        if (!btn || !ans) return;
+        btn.setAttribute('aria-expanded', 'false');
+        item.classList.remove('is-open');
+        if (prefersReducedMotion || immediate) { ans.style.transition = 'none'; ans.style.height = '0px'; ans.style.opacity = '0'; return; }
+        const h = ans.scrollHeight;
+        ans.style.height = `${h}px`; ans.style.opacity = '1'; ans.offsetHeight;
+        ans.style.transition = 'height 220ms ease-in, opacity 140ms ease-in';
+        ans.style.height = '0px'; ans.style.opacity = '0';
+      };
+
+      const openFaqItem = (item) => {
+        const btn = item.querySelector('.faq-item__question');
+        const ans = item.querySelector('.faq-item__answer');
+        if (!btn || !ans) return;
+        btn.setAttribute('aria-expanded', 'true');
+        item.classList.add('is-open');
+        if (prefersReducedMotion) { ans.style.transition = 'none'; ans.style.height = 'auto'; ans.style.opacity = '1'; return; }
+        ans.style.transition = 'height 280ms cubic-bezier(0.4,0,0.2,1), opacity 180ms ease-out 50ms';
+        ans.style.height = '0px'; ans.style.opacity = '0'; ans.offsetHeight;
+        ans.style.height = `${ans.scrollHeight}px`; ans.style.opacity = '1';
+      };
+
+      faqItems.forEach(item => {
+        const btn = item.querySelector('.faq-item__question');
+        if (!btn) return;
+        closeFaqItem(item, true);
+        btn.addEventListener('click', () => item.classList.contains('is-open') ? closeFaqItem(item) : openFaqItem(item));
+      });
+    })();
     document.addEventListener('DOMContentLoaded', () => {
       const bindCardModals = ({ cardSelector, modalSelector, scrimId, dataKey, linkSelector, closeSelector }) => {
         const cards = document.querySelectorAll(cardSelector);
@@ -1163,5 +1369,160 @@
       });
     });
   </script>
-</body>
-</html>
+
+  <!-- PDF Gate Modal -->
+  <div id="pdfGateModal" class="pdf-gate-modal">
+    <div class="pdf-gate-modal__overlay"></div>
+    <div class="pdf-gate-modal__content">
+      <button class="pdf-gate-modal__close" aria-label="Close modal">&times;</button>
+      <h2 class="pdf-gate-modal__title">Get the White Paper</h2>
+      <form id="pdfGateForm" class="pdf-gate-form">
+        <div class="pdf-gate-form__grid">
+          <div>
+            <label for="firstName">First Name</label>
+            <input id="firstName" name="first_name" type="text" required />
+          </div>
+          <div>
+            <label for="lastName">Last Name</label>
+            <input id="lastName" name="last_name" type="text" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div>
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" required />
+          </div>
+          <div>
+            <label for="readerType">Reader Type</label>
+            <select id="readerType" name="reader_type" required>
+              <option value="">Choose</option>
+              <option>Owner</option>
+              <option>Business Executive</option>
+              <option>CPA</option>
+              <option>Attorney</option>
+              <option>Wealth Advisor/Manager</option>
+              <option>Consultant</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div id="otherReaderInput" style="display:none;">
+            <label for="readerTypeOther">Please specify</label>
+            <input id="readerTypeOther" name="reader_type_other" type="text" />
+          </div>
+        </div>
+        <div class="pdf-gate-message" style="display:none;"></div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top: 1.5rem;">Send White Paper to Email</button>
+      </form>
+    </div>
+  </div>
+
+  <style>
+    .pdf-gate-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .pdf-gate-modal__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .pdf-gate-modal__content {
+      position: relative;
+      background: #fff;
+      border-radius: 8px;
+      padding: 2.5rem;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+    .pdf-gate-modal__close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #999;
+      padding: 0;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pdf-gate-modal__close:hover {
+      color: #333;
+    }
+    .pdf-gate-modal__title {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: var(--color-brand);
+    }
+    .pdf-gate-form__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .pdf-gate-form__grid > div:nth-child(3),
+    .pdf-gate-form__grid > div:nth-child(4),
+    .pdf-gate-form__grid > div:nth-child(5),
+    .pdf-gate-form__grid > div:nth-child(6) {
+      grid-column: 1 / -1;
+    }
+    .pdf-gate-form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--color-ink-900);
+    }
+    .pdf-gate-form input,
+    .pdf-gate-form select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--color-line);
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-family: var(--font-body);
+    }
+    .pdf-gate-form input:focus,
+    .pdf-gate-form select:focus {
+      outline: none;
+      border-color: var(--color-brand);
+      box-shadow: 0 0 0 3px rgba(15, 46, 42, 0.1);
+    }
+    .pdf-gate-message {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+    .pdf-gate-message--success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .pdf-gate-message--error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+  </style>
+
+  <script src="../../assets/js/pdf-gate.js"></script>
+

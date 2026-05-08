@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -198,7 +198,7 @@
     .fee-page .white-paper-block__copy p,
     .fee-page .contact-panel__content > p:not(.eyebrow) {
       margin: 0;
-      font-size: 1.12rem;
+      font-size: 1.05rem;
       line-height: 1.75;
       color: var(--color-ink-700);
     }
@@ -215,8 +215,20 @@
       color: #7a746c;
     }
 
-    .fee-page .assessment-row p.rto_body_medium {
-      font-size: 1.03rem;
+    .fee-page .rto_body_medium {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+      margin: 0;
+    }
+
+    .fee-page .rto_body_small {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--color-ink-500);
+      margin: 0;
     }
 
     .fee-page .section-heading {
@@ -258,10 +270,12 @@
       grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
       gap: 2rem;
       align-items: start;
-      padding: 2rem;
-      border: 1px solid rgba(188, 150, 86, 0.28);
-      border-radius: 24px;
-      background: var(--color-surface);
+      padding: 2.5rem 0;
+      border: 0;
+      border-top: 1px solid var(--color-line);
+      border-bottom: 1px solid var(--color-line);
+      border-radius: 0;
+      background: transparent;
     }
 
     .fee-page .framework-heading {
@@ -351,6 +365,15 @@
       column-gap: clamp(48px, 6vw, 96px);
       align-items: end;
       margin-bottom: 72px;
+    }
+
+    .fee-page .domains-heading--assessment {
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      align-items: center;
+    }
+
+    .fee-page .domains-heading--assessment > p {
+      align-self: center;
     }
 
     .fee-page .domains-heading h2 {
@@ -1168,7 +1191,7 @@
       display: grid;
       grid-template-columns: 84px minmax(0, 1fr) minmax(220px, 0.9fr);
       gap: 1.4rem;
-      align-items: start;
+      align-items: center;
       padding: 1.35rem 0;
       border-top: 1px solid var(--color-line);
     }
@@ -1186,15 +1209,16 @@
 
     .fee-page .assessment-row__detail {
       font-size: 0.95rem;
-      line-height: 1.65;
+      line-height: 1.7;
       color: var(--color-ink-500);
+      align-self: center;
     }
 
     .fee-page .heatmap-card {
       padding: 2rem;
-      border: 1px solid var(--color-line);
+      border: 1px solid var(--color-header-bg);
       border-radius: 24px;
-      background: var(--color-surface);
+      background: transparent;
       box-shadow: var(--shadow-sm);
     }
 
@@ -1322,10 +1346,9 @@
 
     .fee-page .owner-card {
       --owner-accent: #c77a5b;
-      --chip-bg: rgba(199, 122, 91, 0.18);
       display: flex;
       flex-direction: column;
-      background: var(--color-surface);
+      background: transparent;
       border: 1px solid var(--color-line);
       border-radius: 18px;
       overflow: hidden;
@@ -1334,7 +1357,6 @@
 
     .fee-page .owner-card--b {
       --owner-accent: #0f2e2a;
-      --chip-bg: rgba(15, 46, 42, 0.16);
     }
 
     .fee-page .owner-card__image {
@@ -1477,21 +1499,34 @@
 
     .fee-page .owner-card__footer {
       margin-top: auto;
-      padding-top: 16px;
+      padding-top: 20px;
+      display: flex;
+      justify-content: center;
     }
 
     .fee-page .owner-card__chip {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 8px 14px;
-      border-radius: 999px;
+      justify-content: center;
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 8px;
       background: var(--chip-bg);
-      color: var(--color-ink-900);
-      font-size: 0.72rem;
+      color: var(--chip-color);
+      font-size: 0.85rem;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
+    }
+
+    .fee-page .owner-card--a {
+      --chip-bg: rgba(199, 122, 91, 0.18);
+      --chip-color: #8b3a1a;
+    }
+
+    .fee-page .owner-card--b {
+      --chip-bg: rgba(15, 46, 42, 0.14);
+      --chip-color: #0f2e2a;
     }
 
     .fee-page .resource-faq-layout {
@@ -1853,6 +1888,7 @@
       <div class="container">
         <div class="fee-hero__grid">
           <div class="fee-hero__content">
+            <p class="section-eyebrow">Exit Readiness Assessment</p>
             <h1 class="fee-hero__title">Know Exactly Where You Stand&nbsp;&mdash;&nbsp;Before A&nbsp;Buyer&nbsp;Tells&nbsp;You</h1>
             <p class="fee-hero__subhead">The Exit Readiness Assessment, powered by the RTO Exit Readiness Index™.</p>
             <p class="fee-hero__lead">
@@ -2155,8 +2191,6 @@
           <blockquote class="domain-brief__callout">Typical finding: The company has strong underlying economics, but inconsistent monthly closes and weak supporting schedules create avoidable diligence friction and widen the negotiation range.</blockquote>
           <h4>What We Test</h4>
           <ul class="domain-brief__list"><li>Assess earnings quality, margin consistency, and reporting discipline.</li><li>Identify gaps in monthly closes, KPI visibility, and forecast reliability.</li><li>Flag issues that typically trigger diligence rework or purchase price pressure.</li></ul>
-          <h4>Sources</h4>
-          <ol class="domain-brief__sources"><li><a href="#references">The Exit Readiness Gap, Financial Reporting notes</a></li></ol>
         </div>
         <footer class="domain-brief__footer"><a class="btn btn-secondary" href="../../assets/white-papers/exit-readiness-gap.pdf">Download the White Paper</a></footer>
       </div>
@@ -2171,8 +2205,6 @@
           <blockquote class="domain-brief__callout">Typical finding: Owners defer structural planning until active negotiations, then absorb unnecessary tax drag because optimization windows have already closed.</blockquote>
           <h4>What We Test</h4>
           <ul class="domain-brief__list"><li>Review entity structure, basis issues, and transaction-sensitive tax exposures.</li><li>Surface pre-sale planning opportunities that require lead time to execute well.</li><li>Highlight areas where poor coordination can erode after-tax owner proceeds.</li></ul>
-          <h4>Sources</h4>
-          <ol class="domain-brief__sources"><li><a href="#references">The Exit Readiness Gap, Tax Strategy notes</a></li></ol>
         </div>
         <footer class="domain-brief__footer"><a class="btn btn-secondary" href="../../assets/white-papers/exit-readiness-gap.pdf">Download the White Paper</a></footer>
       </div>
@@ -2187,8 +2219,6 @@
           <blockquote class="domain-brief__callout">Typical finding: Critical client and decision relationships remain concentrated in one owner, weakening succession credibility and reducing buyer confidence.</blockquote>
           <h4>What We Test</h4>
           <ul class="domain-brief__list"><li>Evaluate bench strength, decision delegation, and documented responsibilities.</li><li>Assess whether clients, employees, and partners can transition without disruption.</li><li>Identify key-person risk that suppresses value or scares buyers away.</li></ul>
-          <h4>Sources</h4>
-          <ol class="domain-brief__sources"><li><a href="#references">The Exit Readiness Gap, Succession notes</a></li></ol>
         </div>
         <footer class="domain-brief__footer"><a class="btn btn-secondary" href="../../assets/white-papers/exit-readiness-gap.pdf">Download the White Paper</a></footer>
       </div>
@@ -2203,8 +2233,6 @@
           <blockquote class="domain-brief__callout">Typical finding: Owner target value assumes forward-state performance while buyers anchor to current transferability risk, creating a preventable valuation gap.</blockquote>
           <h4>What We Test</h4>
           <ul class="domain-brief__list"><li>Stress-test value assumptions against concentration, margin, and transferability risk.</li><li>Clarify which improvements move multiple and which ones simply reduce friction.</li><li>Separate aspirational pricing from evidence-backed positioning.</li></ul>
-          <h4>Sources</h4>
-          <ol class="domain-brief__sources"><li><a href="#references">The Exit Readiness Gap, Valuation notes</a></li></ol>
         </div>
         <footer class="domain-brief__footer"><a class="btn btn-secondary" href="../../assets/white-papers/exit-readiness-gap.pdf">Download the White Paper</a></footer>
       </div>
@@ -2219,8 +2247,6 @@
           <blockquote class="domain-brief__callout">Typical finding: Revenue concentration and undocumented handoffs look manageable internally but become major diligence concerns during buyer risk review.</blockquote>
           <h4>What We Test</h4>
           <ul class="domain-brief__list"><li>Map owner-dependent workflows, undocumented processes, and concentration issues.</li><li>Review whether systems, contracts, and reporting can support scale or transition.</li><li>Expose execution risk before it becomes a diligence discount.</li></ul>
-          <h4>Sources</h4>
-          <ol class="domain-brief__sources"><li><a href="#references">The Exit Readiness Gap, Operational Dependence notes</a></li></ol>
         </div>
         <footer class="domain-brief__footer"><a class="btn btn-secondary" href="../../assets/white-papers/exit-readiness-gap.pdf">Download the White Paper</a></footer>
       </div>
@@ -2235,8 +2261,6 @@
           <blockquote class="domain-brief__callout">Typical finding: A manageable covenant exception internally becomes a deal-timing risk when lenders and buyers request synchronized approvals during closing.</blockquote>
           <h4>What We Test</h4>
           <ul class="domain-brief__list"><li>Review debt terms, covenant risk, and collateral arrangements that constrain options.</li><li>Test whether insurance, indemnity, and risk transfer practices are transaction ready.</li><li>Flag issues that can slow a process or reduce buyer confidence late in the deal.</li></ul>
-          <h4>Sources</h4>
-          <ol class="domain-brief__sources"><li><a href="#references">The Exit Readiness Gap, Banking/Coverage notes</a></li></ol>
         </div>
         <footer class="domain-brief__footer"><a class="btn btn-secondary" href="../../assets/white-papers/exit-readiness-gap.pdf">Download the White Paper</a></footer>
       </div>
@@ -2272,7 +2296,7 @@
 
     <section class="fee-section">
       <div class="container">
-        <div class="domains-heading">
+        <div class="domains-heading domains-heading--assessment">
           <div>
             <p class="faq-section__eyebrow">Inside the Assessment</p>
             <h2>What The Assessment Actually Delivers</h2>

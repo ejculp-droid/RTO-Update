@@ -15,6 +15,33 @@
   <link rel="stylesheet" href="../assets/css/layout.css" />
   <link rel="stylesheet" href="../assets/css/responsive.css" />
   <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+  <style>
+    .card {
+      background: #fff;
+      border-color: var(--color-header-bg);
+    }
+    .card:hover {
+      border-color: var(--color-brand);
+    }
+    .schedule-consultation-btn {
+      min-height: 48px;
+      padding-inline: 1.35rem;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 46, 42, 0.34);
+      background: transparent;
+      color: var(--color-brand);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      box-shadow: none;
+      transition: background-color 180ms ease, color 180ms ease;
+    }
+    .schedule-consultation-btn:hover {
+      background: rgba(15, 46, 42, 0.06);
+      color: var(--color-brand);
+      transform: none;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -56,9 +83,10 @@
     <div class="container two-col">
       <section class="card">
         <h2>Intake Form</h2>
-        <p class="eyebrow">Step 1 of 3</p>
-        <form id="contactForm" action="https://formspree.io/f/xykdedep" method="POST">
+        <form id="contactForm" name="intake" action="/" method="POST" netlify data-netlify="true">
+          <input type="hidden" name="form-name" value="intake" />
           <div data-intake-step="1">
+            <p class="eyebrow">Step 1 of 3</p>
             <div class="form-grid">
               <div><label for="name">Name</label><input id="name" name="name" required /></div>
               <div><label for="company">Company</label><input id="company" name="company" required /></div>
@@ -67,9 +95,10 @@
                 <label for="size">Revenue Band</label>
                 <select id="size" name="size" required>
                   <option value="">Choose</option>
-                  <option>$2M-$10M</option>
+                  <option>$1M-$10M</option>
                   <option>$10M-$50M</option>
                   <option>$50M-$100M</option>
+                  <option>$100M+</option>
                 </select>
               </div>
             </div>

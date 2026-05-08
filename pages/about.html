@@ -1,21 +1,549 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | RTO Advisory</title>
-  <meta name="description" content="About RTO Advisory's owner-first strategic approach." />
+  <title>About RTO Advisory | Owner-First Business Advisory</title>
+  <meta name="description" content="RTO Advisory provides disciplined, fee-based advisory for owners navigating business transition. Learn about our approach, purpose, and the standard we hold ourselves to." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=block" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=block" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/variables.css" />
   <link rel="stylesheet" href="../assets/css/reset.css" />
   <link rel="stylesheet" href="../assets/css/typography.css" />
   <link rel="stylesheet" href="../assets/css/components.css" />
   <link rel="stylesheet" href="../assets/css/layout.css" />
   <link rel="stylesheet" href="../assets/css/responsive.css" />
+  <style>
+    /* -- Page base ----------------------------------------------- */
+    .about-page {
+      background: #fff;
+      color: var(--color-ink-800);
+    }
+
+    /* -- Hero ----------------------------------------------------- */
+    .about-hero {
+      padding: 80px 0 72px;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--color-line);
+    }
+
+    .about-hero__inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-hero__eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.975rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a746c;
+      margin-bottom: 1rem;
+    }
+
+    .about-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+      font-weight: 600;
+      line-height: 0.95;
+      letter-spacing: -0.025em;
+      color: var(--color-brand);
+      margin: 0 0 1.5rem;
+      max-width: 14ch;
+    }
+
+    .about-hero__lead {
+      font-family: var(--font-body);
+      font-size: 1.12rem;
+      line-height: 1.78;
+      color: var(--color-ink-700);
+      max-width: 52ch;
+      margin: 0;
+    }
+
+    .about-hero__visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 476px;
+      height: 459px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .about-hero__image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 0;
+    }
+
+    /* -- Shared section chrome ------------------------------------ */
+    .about-section {
+      padding: 80px 0;
+    }
+
+    .about-section--surface {
+      background: #fff;
+    }
+
+    .about-section--tinted {
+      background: #fff;
+    }
+
+    .about-section--brand {
+      background: var(--color-brand);
+    }
+
+    .about-section__inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .about-eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.975rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+    }
+
+    .about-eyebrow--muted {
+      color: #7a746c;
+    }
+
+    .about-single-col {
+      max-width: 100%;
+    }
+
+    /* -- Split layout (image + copy) ------------------------------ */
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-split--reverse .about-split__visual {
+      order: 2;
+    }
+
+    .about-split--reverse .about-split__copy {
+      order: 1;
+    }
+
+    .about-split__heading {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--color-brand);
+      margin: 0 0 1.5rem;
+    }
+
+    .about-split__heading--light {
+      color: #fff;
+    }
+
+    .about-split__body {
+      font-family: var(--font-body);
+      font-size: 1.12rem;
+      line-height: 1.78;
+      color: var(--color-ink-700);
+      margin: 0 0 1.25rem;
+    }
+
+    .about-split__body--light {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .about-split__body:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-split__visual {
+      position: relative;
+    }
+
+    .about-split__image {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      display: block;
+    }
+
+    .about-split__image--portrait {
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .about-split__image--landscape {
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    /* decorative accent corner on images */
+    .about-split__accent {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 28%;
+      height: 28%;
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+      border-radius: 0 var(--radius-lg) 0 0;
+    }
+
+    .about-split__accent--gold   { background: var(--color-accent); opacity: 0.82; }
+    .about-split__accent--brand  { background: var(--color-brand);  opacity: 0.72; }
+    .about-split__accent--sage   { background: #5a7a6a;             opacity: 0.78; }
+
+    /* -- Pillar cards row ----------------------------------------- */
+    .about-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .about-pillar {
+      background: #fff;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+    }
+
+    .about-pillar__number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .about-pillar__title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-brand);
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+
+    .about-pillar__body {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--color-ink-500);
+    }
+
+    /* -- Founder section ------------------------------------------ */
+    .founder-section {
+      padding: 100px 0;
+      background: #fff;
+    }
+
+    .founder-section__inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .founder-copy {
+      order: 1;
+      max-width: 62ch;
+    }
+
+    .founder-photo-wrap {
+      position: relative;
+      order: 2;
+      justify-self: end;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .founder-photo {
+      width: 100%;
+      border-radius: 0;
+      display: block;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(8%);
+    }
+
+    .founder-photo-accent,
+    .founder-photo-rule {
+      display: none;
+    }
+
+    .founder-copy__eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.975rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a746c;
+      margin-bottom: 1rem;
+    }
+
+    .founder-copy__name {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--color-brand);
+      margin: 0 0 0.6rem;
+    }
+
+    .founder-copy__title {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7a746c;
+      margin: 0 0 2rem;
+    }
+
+    .founder-copy__divider {
+      width: 48px;
+      height: 2px;
+      background: var(--color-accent);
+      border: none;
+      margin: 0 0 2rem;
+    }
+
+    .founder-copy__body {
+      font-family: var(--font-body);
+      font-size: 1.12rem;
+      line-height: 1.78;
+      color: var(--color-ink-700);
+      margin: 0 0 1.25rem;
+    }
+
+    .founder-copy__body:last-of-type {
+      margin-bottom: 2rem;
+    }
+
+    .founder-copy__credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .founder-credential {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-brand);
+      background: rgba(15,46,42,0.08);
+      padding: 0.45rem 0.9rem;
+      border-radius: 100px;
+    }
+
+    /* -- Commitment / pull quote section ------------------------- */
+    .about-commitment {
+      padding: 100px 0;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-commitment__inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-commitment__copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-commitment__eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.975rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a746c;
+      margin-bottom: 1rem;
+    }
+
+    .about-commitment__heading {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--color-brand);
+      margin: 0 0 1.5rem;
+    }
+
+    .about-commitment__body {
+      font-family: var(--font-body);
+      font-size: 1.12rem;
+      line-height: 1.78;
+      color: var(--color-ink-700);
+      margin: 0 0 1.25rem;
+    }
+
+    .about-commitment__blockquote {
+      position: relative;
+      z-index: 1;
+      padding: 2.5rem;
+      background: #fff;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-lg);
+    }
+
+    .about-commitment__quote-mark {
+      font-family: var(--font-display);
+      font-size: 6rem;
+      line-height: 0.6;
+      color: var(--color-accent);
+      opacity: 0.5;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .about-commitment__quote-text {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+      line-height: 1.4;
+      color: var(--color-brand);
+      margin: 0 0 1.5rem;
+    }
+
+    .about-commitment__quote-attribution {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7a746c;
+    }
+
+    /* -- CTA strip ------------------------------------------------ */
+    .about-cta {
+      padding: 80px 0;
+      background: #fff;
+      border-top: 1px solid var(--color-line);
+    }
+
+    .about-cta__inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-cta__heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--color-brand);
+      margin: 0 0 0.75rem;
+    }
+
+    .about-cta__sub {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--color-ink-500);
+      margin: 0;
+    }
+
+    .about-cta__actions {
+      display: flex;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* -- Responsive ----------------------------------------------- */
+    @media (max-width: 1023px) {
+      .about-hero__inner,
+      .about-split,
+      .about-commitment__inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .about-split--reverse .about-split__visual,
+      .about-split--reverse .about-split__copy {
+        order: unset;
+      }
+
+      .founder-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .founder-photo {
+        max-width: 320px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .about-hero { padding: 56px 0 48px; }
+      .about-section { padding: 56px 0; }
+      .founder-section { padding: 56px 0; }
+      .about-commitment { padding: 56px 0; }
+      .about-cta { padding: 56px 0; }
+
+      .about-cta__inner {
+        grid-template-columns: 1fr;
+      }
+
+      .about-pillars {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-<body>
+<body class="about-page">
   <header class="site-header">
     <div class="header-inner">
       <a class="site-logo" href="../index.html"><img src="../assets/images/favicon.png" alt="RTO" /><span class="site-logo__wordmark">RTO Advisory</span></a>
@@ -26,7 +554,7 @@
           <li><a href="why-rto.html">Why RTO?</a></li>
           <li class="has-dropdown">
             <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
-              Services <span class="nav-caret" aria-hidden="true">▾</span>
+              Services <span class="nav-caret" aria-hidden="true">?</span>
             </button>
             <ul class="nav-dropdown-menu" role="menu">
               <li><a role="menuitem" href="services/exit-readiness.html">Exit Readiness Assessment</a></li>
@@ -43,25 +571,85 @@
     </div>
   </header>
 
-  <section class="page-hero"><div class="container-narrow"><p class="eyebrow">Firm Profile</p><h1>About RTO Advisory</h1><p>Independent, fee-based advisory for owners navigating complex transition decisions.</p></div></section>
-
   <main>
-    <section class="section">
-      <div class="container two-col">
-        <article class="card">
-          <h3>Our mission</h3>
-          <p>Help owners maximize return to owner through disciplined preparation, objective decision support, and coordinated execution during transition events.</p>
-          <h3>Our approach</h3>
-          <p>We focus on strategic readiness before transaction urgency. That means clearer priorities, stronger data quality, and reduced execution risk.</p>
-        </article>
-        <article class="card">
-          <h3>Who we serve</h3>
-          <p>Founder-led and middle-market businesses preparing for succession, evaluating inbound interest, or planning a sale in the next 1-5 years.</p>
-          <h3>How we work</h3>
-          <p>Structured engagement plans, clear milestones, practical communication cadence, and direct coordination with your legal, tax, and financial advisors.</p>
-        </article>
+
+    <!-- -- HERO ------------------------------------------------------ -->
+    <section class="about-hero" aria-label="Firm overview">
+      <div class="about-hero__inner">
+        <div class="about-hero__content">
+          <span class="about-hero__eyebrow">Firm Profile</span>
+          <h1 class="about-hero__title">About RTO Advisory</h1>
+          <p class="about-hero__lead">Return To Owner (RTO) Advisory works with privately held business owners preparing for the most important transition in the life of their company. Through independent, fee-based advisory, we evaluate exit readiness, identify value-limiting gaps, and build practical plans that improve owner options before a transaction, succession event, or outside trigger forces the issue.</p>
+        </div>
+        <div class="about-hero__visual">
+          <img class="about-hero__image" src="../assets/images/About/About_Hero.png" alt="RTO Advisory" loading="eager" decoding="async" />
+        </div>
       </div>
     </section>
+
+    <!-- -- OUR APPROACH ---------------------------------------------- -->
+    <section class="about-section about-section--surface" aria-labelledby="approach-heading">
+      <div class="about-section__inner">
+        <div class="about-single-col">
+          <span class="about-eyebrow about-eyebrow--muted">How We Work</span>
+          <h2 class="about-split__heading" id="approach-heading">Our Approach</h2>
+          <p class="about-split__body">Everything we do is built around disciplined, intentional preparation. Strong outcomes are not left to timing, buyer interest, or transaction momentum. They are created through financial and operational refinement, strategic positioning, due diligence readiness, thoughtful deal structuring, and coordinated collaboration with legal, tax, financial, and operational stakeholders.</p>
+          <p class="about-split__body">Our guiding principle is straightforward. We steward the business as if it were our own. Every recommendation, negotiation, and structural decision is approached with the diligence, rigor, discretion, and accountability we would apply to our own enterprise.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- -- WHY WE EXIST ---------------------------------------------- -->
+    <section class="about-section" aria-labelledby="purpose-heading">
+      <div class="about-section__inner">
+        <div class="about-single-col">
+          <span class="about-eyebrow about-eyebrow--muted">Our Purpose</span>
+          <h2 class="about-split__heading" id="purpose-heading">Why We Exist</h2>
+          <p class="about-split__body">RTO Advisory was created from a pattern our founder, Elliott Culp, saw repeatedly in his work with business owners. The same owners who brought discipline, judgment, and care to every part of their company often had not given the same attention to how they would one day transition from it.</p>
+          <p class="about-split__body">That gap became the reason for RTO Advisory. You have worked too hard, for too long, to leave the return on your life's work to timing, chance, or a process you only begin once the pressure is already real.</p>
+          <p class="about-split__body">Our purpose is to help you prepare before that moment arrives. We work to strengthen enterprise value, protect what makes the business worth preserving, and give you a clearer path for sale, succession, recapitalization, or continued ownership.</p>
+          <p class="about-split__body">It is through this lens that we serve our clients. You care deeply about what you have built. Our charge is to help you plan for it, protect it, and maximize the return on your life's work.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- -- WHO WE WORK WITH ------------------------------------------ -->
+    <section class="about-section about-section--surface" aria-labelledby="who-heading">
+      <div class="about-section__inner">
+        <div class="about-single-col">
+          <span class="about-eyebrow about-eyebrow--muted">Ideal Client</span>
+          <h2 class="about-split__heading" id="who-heading">Who We Work With</h2>
+          <p class="about-split__body">RTO Advisory is not designed for every owner. That selectivity is intentional. We hold ourselves to a high standard, and we ask the same level of discipline, candor, and engagement from the owners we serve.</p>
+          <p class="about-split__body">A sale, acquisition, merger, recapitalization, or succession event cannot be treated as part time work. These decisions affect years of effort, personal wealth, family outcomes, employee futures, and the long term integrity of the business.</p>
+          <p class="about-split__body">When owners are fully engaged, we can move with greater precision. We can anticipate issues before they surface, coordinate advisors more effectively, reduce the number of moving pieces the owner must personally manage, and lead the process with clarity from preparation through execution.</p>
+          <p class="about-split__body">The deeper the engagement, the tighter the alignment. That is how we protect the process, preserve owner control, and pursue the strongest possible outcome.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- -- FOUNDER --------------------------------------------------- -->
+    <section class="founder-section" aria-labelledby="founder-heading">
+      <div class="founder-section__inner">
+        <div class="founder-grid">
+          <div class="founder-photo-wrap">
+            <img class="founder-photo" src="../assets/images/About/RS%20B%26W.png" alt="Elliott Culp, Founder of RTO Advisory" loading="lazy" decoding="async" />
+            <div class="founder-photo-accent" aria-hidden="true"></div>
+            <div class="founder-photo-rule" aria-hidden="true"></div>
+          </div>
+          <div class="founder-copy">
+            <span class="founder-copy__eyebrow">About the Founder</span>
+            <h2 class="founder-copy__name" id="founder-heading">Elliott J. Culp</h2>
+            <p class="founder-copy__title">Founder, RTO Advisory</p>
+            <hr class="founder-copy__divider" />
+            <p class="founder-copy__body">Elliott J. Culp is the Founder of RTO Advisory. He brings more than a decade of experience across commercial banking, wealth management, and transaction advisory, with work spanning capital structure evaluation, credit analysis, financial modeling, transaction structuring, diligence coordination, and strategic guidance for privately held companies.</p>
+            <p class="founder-copy__body">Before founding RTO Advisory, Elliott worked with owners through mergers, acquisitions, divestitures, succession planning, and broader transition initiatives. Across those engagements, he saw a recurring gap. Many owners bring extraordinary discipline to building and operating their companies, yet give far less attention to how they will one day transition from them. RTO Advisory was created to close that gap.</p>
+            <p class="founder-copy__body">Elliott has also owned and operated businesses himself, giving him a personal understanding of the time, risk, and identity owners pour into their companies. His approach combines institutional finance experience, practical ownership perspective, analytical discipline, and a deep respect for the human dynamics behind every business transition.</p>
+            <p class="founder-copy__body">Elliott holds degrees in psychology and sociology and earned an MBA in international business and finance. Originally from Northern California, he now lives in Greensboro, North Carolina. Outside the firm, he spends time with his two boys, ages 9 and 12, and his partner Amanda.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
  <footer class="fee-footer-dark">
@@ -106,7 +694,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">© 2026 Return To Owner Advisory. All rights reserved.</p>
+        <p class="footer-copy">� 2026 Return To Owner Advisory. All rights reserved.</p>
         <p class="footer-legal">
           <a href="privacy.html">Privacy Policy</a>
           <a href="terms.html">Terms of Service</a>

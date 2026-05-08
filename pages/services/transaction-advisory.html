@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Transaction Advisory &amp; Management | RTO Advisory</title>
-  <meta name="description" content="Independent transaction advisory and process management for owners." />
+  <meta name="description" content="Independent transaction advisory and process management for owners navigating M&amp;A from initial offer through close." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=block" rel="stylesheet" />
@@ -14,8 +14,972 @@
   <link rel="stylesheet" href="../../assets/css/components.css" />
   <link rel="stylesheet" href="../../assets/css/layout.css" />
   <link rel="stylesheet" href="../../assets/css/responsive.css" />
+  <style>
+    body.fee-page main p:not(.section-eyebrow):not(.faq-section__eyebrow):not(.eyebrow):not(.advantage-panel__eyebrow):not(.ta-snapshot__eyebrow),
+    body.fee-page main li,
+    body.fee-page main summary {
+      font-family: var(--font-body);
+    }
+
+    /* ── Fee-page section system ──────────────────────────────────── */
+    .fee-page .section-eyebrow,
+    .fee-page .faq-section__eyebrow {
+      display: inline-block;
+      margin: 0 0 1rem;
+      font-size: 0.975rem;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a746c;
+    }
+
+    .fee-page .fee-section {
+      padding: 48px 0;
+    }
+
+    .fee-page .fee-section--muted {
+      background: var(--color-surface);
+    }
+
+    /* ── Hero ─────────────────────────────────────────────────────── */
+    .fee-page .fee-hero {
+      padding: 60px 0 40px;
+      background: var(--color-paper);
+    }
+
+    .fee-page .fee-hero__grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: var(--space-6);
+      align-items: center;
+    }
+
+    .fee-page .fee-hero__content {
+      max-width: 62ch;
+    }
+
+    .fee-page .fee-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.65rem, 5vw, 4.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+      max-width: 14ch;
+      margin: 0 0 0.9rem;
+      color: var(--color-brand);
+    }
+
+    .fee-page .fee-hero__subhead {
+      margin: 0 0 1rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+      line-height: 1.2;
+      color: var(--color-brand);
+    }
+
+    .fee-page .fee-hero__lead {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .fee-hero__aside {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 560px;
+      height: 540px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .fee-page .fee-hero__image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* ── Service cards ────────────────────────────────────────────── */
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      user-select: none;
+      padding: 1rem;
+    }
+
+    .service-card:focus {
+      outline: 2px solid var(--color-brand);
+      outline-offset: 2px;
+    }
+
+    .service-card p:not(.eyebrow) {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      font-weight: 400;
+      color: var(--color-ink-700);
+      letter-spacing: 0;
+      margin: 0 0 auto;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 1.6vw, 1.4rem);
+      line-height: 1.2;
+      min-height: 3.36rem;
+      margin: 0.3rem 0 0.5rem;
+      color: var(--color-brand);
+    }
+
+    .service-card .eyebrow {
+      font-size: 0.7rem;
+      margin-bottom: 0;
+    }
+
+    .service-card__link {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-brand);
+      text-decoration: none;
+      border-bottom: none;
+      display: inline-block;
+      margin-top: var(--space-3);
+    }
+
+    .service-card__link:hover { text-decoration: none; }
+
+    /* ── Service section layout ───────────────────────────────────── */
+    .ta-service-intro {
+      margin: 0.75rem 0 0;
+      max-width: 62ch;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+    }
+
+    .ta-service-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 1.5rem;
+      align-items: stretch;
+      margin-top: 2rem;
+    }
+
+    .ta-service-visual {
+      min-height: 0;
+    }
+
+    .ta-service-visual__image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 18px;
+      border: 1px solid rgba(15, 46, 42, 0.1);
+    }
+
+    .ta-service-right {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ta-service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+
+    /* ── Service modals ───────────────────────────────────────────── */
+    .service-modal-scrim {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(18, 43, 45, 0.45);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-out;
+      z-index: 999;
+    }
+
+    .service-modal-scrim.is-open { opacity: 1; pointer-events: auto; }
+
+    .service-modal {
+      position: fixed;
+      top: 50%; left: 50%;
+      width: min(680px, 92vw);
+      max-width: 92vw;
+      z-index: 1000;
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(0.95);
+      transition: all 0.2s ease-out;
+      overflow: auto;
+      max-height: 90vh;
+    }
+
+    .service-modal[aria-hidden="false"] {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .service-modal__content { padding: var(--space-6); position: relative; }
+
+    .service-modal__close {
+      position: absolute;
+      top: var(--space-4); right: var(--space-4);
+      width: 2rem; height: 2rem;
+      display: flex; align-items: center; justify-content: center;
+      background: transparent; border: 0;
+      color: var(--color-ink-500);
+      font-size: 1.5rem;
+      cursor: pointer; padding: 0;
+    }
+
+    .service-modal h3 { margin: 0 0 var(--space-3); color: var(--color-brand); }
+
+    .service-modal__meta {
+      margin: 0 0 var(--space-4);
+      font-size: var(--text-sm);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-ink-500);
+      font-weight: 600;
+    }
+
+    .service-modal__divider { border: 0; border-top: 1px solid var(--color-line); margin: var(--space-4) 0; }
+
+    .service-modal__list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+
+    .service-modal__list li {
+      display: flex; align-items: flex-start;
+      gap: var(--space-2);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-ink-700);
+    }
+
+    .service-modal__list li::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--color-brand);
+      border-radius: 1px;
+      flex-shrink: 0;
+      margin-top: 0.45em;
+    }
+
+    /* ── Intro copy heading spacing ─────────────────────────────── */
+    body.service-page--light .value-opt-intro-copy .display-lg {
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── Transaction types panel ──────────────────────────────────── */
+    .ta-types-panel {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+      gap: 2rem;
+      align-items: start;
+      padding: 2.5rem 0;
+      border: 0;
+      border-top: 1px solid var(--color-line);
+      border-bottom: 1px solid var(--color-line);
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .ta-types-heading {
+      padding-right: 1rem;
+      border-right: 1px solid var(--color-line);
+    }
+
+    .ta-types-heading h2 {
+      margin: 0 0 0.55rem;
+      font-family: var(--font-display);
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 0.95;
+      color: var(--color-brand);
+    }
+
+    .ta-types-heading p {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+    }
+
+    .ta-types-tiles {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .ta-types-tile {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0.25rem 0.5rem 0.25rem 0;
+    }
+
+    .ta-types-tile h3 {
+      margin: 0 0 0.4rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+      line-height: 1.2;
+      color: var(--color-brand);
+    }
+
+    .ta-types-tile p {
+      margin: 0;
+      font-size: 1.0rem;
+      line-height: 1.7;
+      color: var(--color-ink-700);
+    }
+
+    /* ── When to Engage layout ──────────────────────────────────────── */
+    .when-to-engage-header {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+      gap: 2rem;
+      align-items: start;
+      margin-bottom: 2.5rem;
+    }
+
+    .when-to-engage-header__heading {
+      padding-right: 1rem;
+      border-right: 1px solid var(--color-line);
+    }
+
+    .when-to-engage-lead {
+      max-width: 60ch;
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+    }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    /* ── Scenario card media ─────────────────────────────────────────── */
+    .scenario-card__media {
+      position: relative;
+      margin: -1.5rem -1.5rem 1.25rem;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      overflow: hidden;
+    }
+
+    .scenario-card__media img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      object-position: center 20%;
+      transition: transform 400ms ease;
+    }
+
+    .scenario-card:hover .scenario-card__media img,
+    .scenario-card:focus .scenario-card__media img {
+      transform: scale(1.03);
+    }
+
+    .scenario-card__accent {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 26%;
+      height: 26%;
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+    }
+
+    .scenario-card__accent--gold  { background: var(--color-accent); opacity: 0.82; }
+    .scenario-card__accent--brand { background: var(--color-brand);  opacity: 0.72; }
+    .scenario-card__accent--sage  { background: #5a7a6a;             opacity: 0.78; }
+
+    @media (max-width: 900px) {
+      .scenario-grid { grid-template-columns: 1fr; }
+      .scenario-card__media { margin: -1.5rem -1.5rem 1.25rem; }
+    }
+
+    /* ── Scenario cards ───────────────────────────────────────────── */
+    .scenario-card {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .scenario-card:focus { outline: 2px solid var(--color-brand); outline-offset: 2px; }
+
+    .scenario-card p:not(.eyebrow) {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-weight: 400;
+      color: var(--color-ink-700);
+      letter-spacing: 0;
+      margin: 0 0 auto;
+    }
+
+    .scenario-card__link {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-brand);
+      text-decoration: none;
+      border-bottom: none;
+      display: inline-block;
+      margin-top: var(--space-3);
+    }
+
+    .scenario-card__link:hover { text-decoration: none; }
+
+    /* ── Scenario modals ──────────────────────────────────────────── */
+    .scenario-modal-scrim {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(18, 43, 45, 0.45);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-out;
+      z-index: 999;
+    }
+
+    .scenario-modal-scrim.is-open { opacity: 1; pointer-events: auto; }
+
+    .scenario-modal {
+      position: fixed;
+      top: 50%; left: 50%;
+      width: min(680px, 92vw);
+      max-width: 92vw;
+      z-index: 1000;
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(0.95);
+      transition: all 0.2s ease-out;
+      overflow: auto;
+      max-height: 90vh;
+    }
+
+    .scenario-modal[aria-hidden="false"] {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .scenario-modal__content { padding: var(--space-6); position: relative; }
+
+    .scenario-modal__close {
+      position: absolute;
+      top: var(--space-4); right: var(--space-4);
+      width: 2rem; height: 2rem;
+      display: flex; align-items: center; justify-content: center;
+      background: transparent; border: 0;
+      color: var(--color-ink-500);
+      font-size: 1.5rem;
+      cursor: pointer; padding: 0;
+    }
+
+    .scenario-modal h3 { margin: 0 0 var(--space-3); color: var(--color-brand); }
+
+    .scenario-modal__meta {
+      margin: 0 0 var(--space-4);
+      font-size: var(--text-sm);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-ink-500);
+      font-weight: 600;
+    }
+
+    .scenario-modal__divider { border: 0; border-top: 1px solid var(--color-line); margin: var(--space-4) 0; }
+
+    .scenario-modal__list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+
+    .scenario-modal__list li {
+      display: flex; align-items: flex-start;
+      gap: var(--space-2);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-ink-700);
+    }
+
+    .scenario-modal__list li::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--color-brand);
+      border-radius: 1px;
+      flex-shrink: 0;
+      margin-top: 0.45em;
+    }
+
+    /* ── Advantage panel (philosophy) ────────────────────────────── */
+    .advantage-panel {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+      gap: 2rem;
+      align-items: start;
+      padding: 2.5rem 0;
+      border: 0;
+      border-top: 1px solid var(--color-line);
+      border-bottom: 1px solid var(--color-line);
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .advantage-panel__heading {
+      padding-right: 1rem;
+      border-right: 1px solid var(--color-line);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .advantage-panel__image {
+      display: block;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .advantage-panel__image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+    }
+
+    .advantage-panel__eyebrow {
+      display: block;
+      margin: 0 0 0.5rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #7a746c;
+      font-weight: 600;
+    }
+
+    .advantage-panel__heading h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      line-height: 1.1;
+      color: var(--color-brand);
+      max-width: 22ch;
+    }
+
+    .advantage-panel__lead {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+      max-width: 60ch;
+    }
+
+    .advantage-panel__content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .advantage-panel__tiles {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .advantage-panel__tile { padding: 0.25rem 0.5rem 0.25rem 0; }
+
+    .advantage-panel__tile h3 {
+      margin: 0 0 0.55rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 2vw, 1.7rem);
+      line-height: 1.2;
+      min-height: 4.08rem;
+      color: var(--color-brand);
+    }
+
+    .advantage-panel__tile p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+    }
+
+    /* ── Resource / CTA / FAQ layout ─────────────────────────────── */
+    .resource-faq-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(1.6rem, 3vw, 2.8rem);
+      align-items: start;
+    }
+
+    .resource-left-stack {
+      display: grid;
+      gap: 1.5rem;
+      align-content: start;
+    }
+
+    .intake-cta-block {
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+    }
+
+    .faq-section__eyebrow {
+      display: inline-block;
+      margin: 0 0 0.55rem;
+      font-family: var(--font-body);
+      font-size: 0.975rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #7a746c;
+      font-weight: 600;
+    }
+
+    .resource-left-stack .section-heading,
+    .resource-faq-rail .section-heading {
+      display: grid;
+      gap: 0.9rem;
+      align-content: start;
+      margin-bottom: 1rem;
+      max-width: none;
+    }
+
+    .resource-left-stack .section-heading { margin-bottom: 0.65rem; }
+
+    .resource-left-stack .section-heading h2,
+    .resource-faq-rail .section-heading h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.62rem, 1.95vw, 1.95rem);
+      line-height: 1.1;
+      letter-spacing: normal;
+      color: var(--color-brand);
+    }
+
+    .resource-faq-rail .section-heading h2 { white-space: nowrap; }
+
+    .intake-cta-block > p {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-weight: 400;
+      letter-spacing: normal;
+      color: var(--color-ink-700);
+      max-width: 47ch;
+    }
+
+    .intake-cta-actions { margin-top: 0.6rem; }
+
+    .intake-cta-block .btn,
+    .intake-cta-block .btn.btn-primary {
+      min-height: 48px;
+      padding-inline: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 46, 42, 0.34);
+      background: transparent;
+      color: var(--color-brand);
+      box-shadow: none;
+    }
+
+    .intake-cta-block .btn:hover,
+    .intake-cta-block .btn.btn-primary:hover {
+      background: rgba(15, 46, 42, 0.06);
+      color: var(--color-brand);
+    }
+
+    /* ── Disclaimer callout ───────────────────────────────────────── */
+    .ta-disclaimer {
+      margin-top: 0.5rem;
+      padding: 1rem 1.25rem;
+      border-left: 3px solid rgba(188, 150, 86, 0.6);
+      border-radius: 0 10px 10px 0;
+      background: rgba(188, 150, 86, 0.08);
+    }
+
+    .ta-disclaimer p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--color-ink-700);
+    }
+
+    /* ── Whitepaper block ─────────────────────────────────────────── */
+    .value-whitepaper-block {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(180px, 0.65fr);
+      gap: clamp(1rem, 2.2vw, 1.8rem);
+      align-items: start;
+      border-top: 1px solid var(--color-line);
+      padding-top: 1.35rem;
+    }
+
+    .value-whitepaper-block__cover {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 4 / 5;
+      width: min(100%, 300px);
+      padding: 0.55rem;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(188, 150, 86, 0.28);
+      background: var(--color-surface);
+      box-shadow: 0 4px 10px rgba(15, 46, 42, 0.08);
+    }
+
+    .value-whitepaper-block__cover img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 12px;
+    }
+
+    .value-whitepaper-block__copy {
+      display: grid;
+      align-content: start;
+      gap: 0.75rem;
+      max-width: 30ch;
+    }
+
+    .value-whitepaper-block__copy h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.62rem, 1.95vw, 1.95rem);
+      line-height: 1.1;
+      color: var(--color-brand);
+    }
+
+    .value-whitepaper-block__copy .btn {
+      min-height: 48px;
+      padding-inline: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 46, 42, 0.34);
+      background: transparent;
+      color: var(--color-brand);
+      box-shadow: none;
+    }
+
+    .value-whitepaper-block__copy .btn:hover {
+      background: rgba(15, 46, 42, 0.06);
+      color: var(--color-brand);
+    }
+
+    /* ── FAQ accordion ────────────────────────────────────────────── */
+    .resource-faq-rail {
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+    }
+
+    .fee-page .faq-list { border-top: 1px solid var(--color-line); }
+    .fee-page .faq-item { border-bottom: 1px solid var(--color-line); }
+
+    .fee-page .faq-item__question {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+      padding: 1.4rem 0;
+      background: transparent;
+      border: 0;
+      text-align: left;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-weight: 400;
+      letter-spacing: normal;
+      color: var(--color-ink-700);
+      -webkit-appearance: none;
+      appearance: none;
+      font-synthesis: none;
+    }
+
+    .fee-page .faq-item__question:focus-visible {
+      outline: 2px solid var(--color-brand);
+      outline-offset: 4px;
+    }
+
+    .fee-page .faq-item__icon {
+      position: relative;
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-top: 0.35rem;
+      flex-shrink: 0;
+      transition: transform 220ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fee-page .faq-item__icon::before,
+    .fee-page .faq-item__icon::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      background: var(--color-ink-700);
+      transform: translate(-50%, -50%);
+      transition: transform 220ms ease, opacity 220ms ease;
+    }
+
+    .fee-page .faq-item__icon::before { width: 14px; height: 1px; }
+    .fee-page .faq-item__icon::after { width: 1px; height: 14px; }
+    .fee-page .faq-item.is-open .faq-item__icon { transform: rotate(45deg); }
+
+    .fee-page .faq-item__answer {
+      overflow: hidden;
+      height: 0;
+      opacity: 0;
+      transition: height 280ms cubic-bezier(0.4, 0, 0.2, 1), opacity 180ms ease-out 50ms;
+    }
+
+    .fee-page .faq-item.is-open .faq-item__answer { opacity: 1; }
+
+    .fee-page .faq-item__answer-panel { padding: 0 0 1.2rem; }
+
+    .fee-page .faq-item__answer-panel p {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-weight: 400;
+      color: var(--color-ink-500);
+      margin: 0 0 0.9rem;
+      max-width: 62ch;
+    }
+
+    .fee-page .faq-item__answer-panel p:last-child { margin-bottom: 0; }
+
+    /* ── Sources modal ────────────────────────────────────────────── */
+    .fee-page .sources-modal {
+      width: min(780px, calc(100vw - 48px));
+      max-width: 100vw;
+      max-height: min(86vh, 920px);
+      border: 0;
+      padding: 0;
+      background: transparent;
+    }
+
+    .fee-page .sources-modal::backdrop { background: rgba(15, 46, 42, 0.52); }
+
+    .fee-page .sources-modal__panel {
+      position: relative;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 0;
+      overflow: hidden;
+      max-height: min(86vh, 920px);
+      border: 1px solid rgba(15, 46, 42, 0.12);
+      border-radius: 24px;
+      background: var(--color-surface);
+      box-shadow: 0 28px 48px rgba(15, 46, 42, 0.18);
+    }
+
+    .fee-page .sources-modal__header {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.6rem 1.75rem 1.1rem;
+      border-bottom: 1px solid rgba(15, 46, 42, 0.1);
+    }
+
+    .fee-page .sources-modal__header h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.35rem);
+      line-height: 1.05;
+      color: var(--color-brand);
+    }
+
+    .fee-page .sources-modal__close {
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(15, 46, 42, 0.08);
+      color: var(--color-brand);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .fee-page .sources-modal__body { overflow: auto; padding: 1.35rem 1.75rem 1.7rem; }
+
+    .fee-page .sources-modal__list { margin: 0; padding: 0; list-style: none; display: grid; gap: 0; }
+
+    .fee-page .sources-modal__list li {
+      padding: 1rem 0;
+      border-top: 1px solid rgba(15, 46, 42, 0.1);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--color-ink-700);
+    }
+
+    .fee-page .sources-modal__list li:first-child { border-top: 0; padding-top: 0; }
+
+    /* ── Responsive ───────────────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .fee-page .fee-hero__grid { grid-template-columns: 1fr; }
+      .fee-page .fee-hero__aside { margin-top: 1.5rem; height: 400px; max-width: 100%; }
+    }
+
+    @media (max-width: 1023px) {
+      .advantage-panel,
+      .ta-types-panel { grid-template-columns: 1fr; }
+
+      .advantage-panel__heading,
+      .ta-types-heading {
+        border-right: none;
+        padding-right: 0;
+        margin-bottom: 1rem;
+      }
+
+      .advantage-panel__tiles,
+      .ta-types-tiles { grid-template-columns: 1fr 1fr; }
+
+      .resource-faq-layout { grid-template-columns: 1fr; }
+
+      .value-whitepaper-block { grid-template-columns: 1fr; }
+      .value-whitepaper-block__cover { width: min(100%, 320px); }
+
+      .ta-service-layout { grid-template-columns: 1fr; }
+      .ta-service-visual { min-height: 300px; }
+    }
+
+    @media (max-width: 640px) {
+      .advantage-panel__tiles,
+      .ta-types-tiles { grid-template-columns: 1fr; }
+      .ta-service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
 </head>
-<body class="service-page">
+<body class="fee-page service-page service-page--light">
   <header class="site-header">
     <div class="header-inner">
       <a class="site-logo" href="../../index.html"><img src="../../assets/images/favicon.png" alt="RTO" /><span class="site-logo__wordmark">RTO Advisory</span></a>
@@ -26,7 +990,7 @@
           <li><a href="../why-rto.html">Why RTO?</a></li>
           <li class="has-dropdown is-current">
             <button type="button" class="nav-dropdown-toggle" aria-expanded="true" aria-haspopup="true">
-              Services <span class="nav-caret" aria-hidden="true">▾</span>
+              Services <span class="nav-caret" aria-hidden="true">&#9662;</span>
             </button>
             <ul class="nav-dropdown-menu" role="menu">
               <li><a role="menuitem" href="exit-readiness.html">Exit Readiness Assessment</a></li>
@@ -43,22 +1007,499 @@
     </div>
   </header>
 
-  <section class="page-hero">
-    <div class="container-narrow">
-      <p class="eyebrow">Service</p>
-      <h1>Transaction Advisory &amp; Management</h1>
-      <p>Independent execution support from initial offer through close.</p>
-    </div>
-  </section>
-
   <main>
-    <section class="section">
+
+    <!-- ═══ HERO ═══════════════════════════════════════════════════ -->
+    <section class="fee-hero">
       <div class="container">
-        <h2>Transaction support and advisory</h2>
-        <p>Detailed content coming soon.</p>
+        <div class="fee-hero__grid">
+          <div class="fee-hero__content">
+            <p class="section-eyebrow">Transaction Advisory &amp; Management</p>
+            <h1 class="fee-hero__title">Expert Guidance Through Every Stage of Your Transaction</h1>
+            <p class="fee-hero__subhead">From offer evaluation to closing, we&rsquo;re your quarterback.</p>
+            <p class="fee-hero__lead">Whether you&rsquo;ve received an unsolicited offer, identified a potential buyer, or are preparing to engage the market, navigating an M&amp;A transaction requires specialized expertise and disciplined process management. RTO Advisory coordinates all advisors, manages the process, and protects your interests from first offer through close.</p>
+          </div>
+          <div class="fee-hero__aside">
+            <img
+              class="fee-hero__image"
+              src="../../assets/images/transaction-advisory/transaction-advisory_hero.png"
+              alt="Transaction advisory: expert guidance through every stage of your transaction"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- ═══ INTRO ════════════════════════════════════════════════════ -->
+    <section class="fee-section">
+      <div class="container value-opt-intro-grid">
+        <div class="value-opt-intro-visual">
+          <img class="value-opt-intro-visual__image" src="../../assets/images/transaction-advisory/transaction-advisory_The difference between a transaction.png" alt="The difference between a transaction that closes on your terms" loading="lazy" decoding="async" />
+        </div>
+        <div class="value-opt-intro-copy">
+          <p class="section-eyebrow">Transaction Advisory &amp; Management</p>
+          <h2 class="display-lg">The difference between a transaction that closes on your terms and one that doesn&rsquo;t is preparation<br>and process.</h2>
+          <p class="rto_body">RTO Advisory serves as your transaction quarterback, coordinating all advisors, managing the process, protecting your interests, and ensuring you achieve optimal terms while preserving your legacy.</p>
+          <p class="rto_body">We provide advisory and process management from initial evaluation through post-closing transition, giving owners the independent guidance they need at every stage.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SERVICES ════════════════════════════════════════════════ -->
+    <section class="fee-section">
+      <div class="container">
+        <p class="section-eyebrow">Our Advisory Services</p>
+        <h2 class="display-lg">Six Disciplines. One Coordinated Team.</h2>
+        <p class="ta-service-intro">Full-scope transaction support, from independent value assessment through post-close transition. Every service is sequenced to protect your interests and close on your terms.</p>
+
+        <div class="ta-service-layout">
+          <div class="ta-service-visual">
+            <img class="ta-service-visual__image" src="../../assets/images/transaction-advisory/transaction-advisory_Six Disciplines.png" alt="Six disciplines of transaction advisory" loading="lazy" decoding="async" />
+          </div>
+
+          <div class="ta-service-right">
+            <div class="ta-service-grid">
+
+              <article class="service-card card" data-service="1" tabindex="0" role="button" aria-expanded="false" aria-label="Offer Evaluation and Negotiation Strategy">
+                <h3>Offer Evaluation &amp; Negotiation</h3>
+                <p>Independent value assessment, deal structure analysis, and negotiation strategy when an offer arrives.</p>
+                <a href="#" class="service-card__link">Explore Service &#8594;</a>
+              </article>
+
+              <article class="service-card card" data-service="2" tabindex="0" role="button" aria-expanded="false" aria-label="Business Valuation and Positioning">
+                <h3>Business Valuation &amp; Positioning</h3>
+                <p>Enterprise valuation, investment memorandum, management presentation, and competitive positioning.</p>
+                <a href="#" class="service-card__link">Explore Service &#8594;</a>
+              </article>
+
+              <article class="service-card card" data-service="3" tabindex="0" role="button" aria-expanded="false" aria-label="Due Diligence Management">
+                <h3>Due Diligence Management</h3>
+                <p>Data room organization, request list coordination, issue resolution, and confidentiality management.</p>
+                <a href="#" class="service-card__link">Explore Service &#8594;</a>
+              </article>
+
+              <article class="service-card card" data-service="4" tabindex="0" role="button" aria-expanded="false" aria-label="Deal Structure Optimization">
+                <h3>Deal Structure Optimization</h3>
+                <p>Tax-efficient structuring, earnout design, seller financing terms, and risk allocation.</p>
+                <a href="#" class="service-card__link">Explore Service &#8594;</a>
+              </article>
+
+              <article class="service-card card" data-service="5" tabindex="0" role="button" aria-expanded="false" aria-label="Professional Team Coordination">
+                <h3>Professional Team Coordination</h3>
+                <p>Single point of contact managing M&amp;A attorneys, tax advisors, wealth managers, and all specialists.</p>
+                <a href="#" class="service-card__link">Explore Service &#8594;</a>
+              </article>
+
+              <article class="service-card card" data-service="6" tabindex="0" role="button" aria-expanded="false" aria-label="Closing and Transition Support">
+                <h3>Closing &amp; Transition Support</h3>
+                <p>Closing checklist management, document coordination, funds transfer, and post-closing transition planning.</p>
+                <a href="#" class="service-card__link">Explore Service &#8594;</a>
+              </article>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="service-modal-scrim" id="service-modal-scrim"></div>
+
+        <div class="service-modal" data-service="1" role="dialog" aria-hidden="true" aria-labelledby="service-modal-title-1">
+          <div class="service-modal__content">
+            <button class="service-modal__close" aria-label="Close">&times;</button>
+            <h3 id="service-modal-title-1">Offer Evaluation &amp; Negotiation Strategy</h3>
+            <p class="service-modal__meta">Service 01</p>
+            <hr class="service-modal__divider" />
+            <ul class="service-modal__list">
+              <li>Independent indication of value and fairness assessment</li>
+              <li>Deal structure analysis (cash, earnouts, seller notes, equity rollover)</li>
+              <li>Comparable transaction benchmarking</li>
+              <li>Negotiation strategy and leverage point identification</li>
+              <li>Red flag identification and risk assessment</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-modal" data-service="2" role="dialog" aria-hidden="true" aria-labelledby="service-modal-title-2">
+          <div class="service-modal__content">
+            <button class="service-modal__close" aria-label="Close">&times;</button>
+            <h3 id="service-modal-title-2">Business Valuation &amp; Positioning</h3>
+            <p class="service-modal__meta">Service 02</p>
+            <hr class="service-modal__divider" />
+            <ul class="service-modal__list">
+              <li>Comprehensive enterprise valuation (DCF, market multiples, asset-based)</li>
+              <li>Investment memorandum and CIM development</li>
+              <li>Management presentation creation</li>
+              <li>Financial model and projections</li>
+              <li>Industry and competitive analysis</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-modal" data-service="3" role="dialog" aria-hidden="true" aria-labelledby="service-modal-title-3">
+          <div class="service-modal__content">
+            <button class="service-modal__close" aria-label="Close">&times;</button>
+            <h3 id="service-modal-title-3">Due Diligence Management</h3>
+            <p class="service-modal__meta">Service 03</p>
+            <hr class="service-modal__divider" />
+            <ul class="service-modal__list">
+              <li>Due diligence request list preparation</li>
+              <li>Virtual data room organization and management</li>
+              <li>Response coordination across all advisors</li>
+              <li>Issue identification and resolution</li>
+              <li>Confidentiality protocol management</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-modal" data-service="4" role="dialog" aria-hidden="true" aria-labelledby="service-modal-title-4">
+          <div class="service-modal__content">
+            <button class="service-modal__close" aria-label="Close">&times;</button>
+            <h3 id="service-modal-title-4">Deal Structure Optimization</h3>
+            <p class="service-modal__meta">Service 04</p>
+            <hr class="service-modal__divider" />
+            <ul class="service-modal__list">
+              <li>Tax-efficient transaction structuring</li>
+              <li>Earnout and performance milestone design</li>
+              <li>Employment and non-compete agreement terms</li>
+              <li>Seller financing and rollover equity structure</li>
+              <li>Risk allocation and indemnification framework</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-modal" data-service="5" role="dialog" aria-hidden="true" aria-labelledby="service-modal-title-5">
+          <div class="service-modal__content">
+            <button class="service-modal__close" aria-label="Close">&times;</button>
+            <h3 id="service-modal-title-5">Professional Team Coordination</h3>
+            <p class="service-modal__meta">Service 05</p>
+            <hr class="service-modal__divider" />
+            <ul class="service-modal__list">
+              <li>M&amp;A attorneys (purchase agreement, disclosure schedules)</li>
+              <li>Tax advisors (structure optimization and planning)</li>
+              <li>Wealth managers (proceeds deployment planning)</li>
+              <li>Quality of earnings providers</li>
+              <li>Industry consultants and environmental or regulatory specialists</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-modal" data-service="6" role="dialog" aria-hidden="true" aria-labelledby="service-modal-title-6">
+          <div class="service-modal__content">
+            <button class="service-modal__close" aria-label="Close">&times;</button>
+            <h3 id="service-modal-title-6">Closing &amp; Transition Support</h3>
+            <p class="service-modal__meta">Service 06</p>
+            <hr class="service-modal__divider" />
+            <ul class="service-modal__list">
+              <li>Closing checklist and timeline management</li>
+              <li>Document review and execution coordination</li>
+              <li>Funds transfer and escrow management</li>
+              <li>Post-closing transition planning</li>
+              <li>Integration support and knowledge transfer</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ TRANSACTION TYPES ════════════════════════════════════════ -->
+    <section class="fee-section">
+      <div class="container">
+        <div class="ta-types-panel">
+          <div class="ta-types-heading">
+            <p class="section-eyebrow">Transaction Types</p>
+            <h2>Every Path to a Transaction</h2>
+            <p>From strategic corporate acquisitions to family succession and private equity, we guide owners through every transaction structure.</p>
+          </div>
+          <div class="ta-types-tiles">
+            <article class="ta-types-tile">
+              <h3>Strategic Sales</h3>
+              <p>Corporate acquisitions, management buyouts (MBOs), and recapitalizations where a third-party strategic buyer acquires a controlling or complete interest in the business.</p>
+            </article>
+            <article class="ta-types-tile">
+              <h3>Financial Sponsor</h3>
+              <p>Private equity acquisitions, search fund purchases, and family office investments where a financial buyer takes a controlling position with a defined investment horizon.</p>
+            </article>
+            <article class="ta-types-tile">
+              <h3>Succession</h3>
+              <p>Family transfers and gifting strategies, management equity transitions, and partial or staged exits that preserve ownership continuity through a structured internal transfer.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ WHEN TO ENGAGE ═══════════════════════════════════════════ -->
+    <section class="fee-section">
+      <div class="container">
+        <div class="when-to-engage-header">
+          <div class="when-to-engage-header__heading">
+            <p class="section-eyebrow">When to Engage</p>
+            <h2 class="display-lg">Three Scenarios. One Consistent Standard of Guidance.</h2>
+          </div>
+          <p class="when-to-engage-lead">No matter where you are in the process, whether evaluating a first offer, approaching a known buyer, or preparing to go to market, the right time to engage is before the other side is already prepared.</p>
+        </div>
+
+        <div class="scenario-grid">
+
+          <article class="scenario-card card" data-scenario="a" tabindex="0" role="button" aria-expanded="false" aria-label="You've Received an Offer">
+            <figure class="scenario-card__media">
+              <img src="../../assets/images/transaction-advisory/transaction-advisory_When-to-Engage_Received-Offer.png" alt="You've received an offer" loading="lazy" decoding="async" />
+              <span class="scenario-card__accent scenario-card__accent--gold" aria-hidden="true"></span>
+            </figure>
+            <p class="eyebrow">SCENARIO A</p>
+            <h3 class="card-title">You&rsquo;ve Received an Offer</h3>
+            <p>Independent evaluation within 2 weeks. Understand fairness and your leverage before you respond.</p>
+            <a href="#" class="scenario-card__link">Explore Scenario &#8594;</a>
+          </article>
+
+          <article class="scenario-card card" data-scenario="b" tabindex="0" role="button" aria-expanded="false" aria-label="You Have a Buyer in Mind">
+            <figure class="scenario-card__media">
+              <img src="../../assets/images/transaction-advisory/transaction-advisory_When-to-Engage_Buyer-in-Mind.png" alt="You have a buyer in mind" loading="lazy" decoding="async" />
+              <span class="scenario-card__accent scenario-card__accent--brand" aria-hidden="true"></span>
+            </figure>
+            <p class="eyebrow">SCENARIO B</p>
+            <h3 class="card-title">You Have a Buyer in Mind</h3>
+            <p>Structure the engagement, coordinate due diligence, and negotiate terms that protect your interests and legacy.</p>
+            <a href="#" class="scenario-card__link">Explore Scenario &#8594;</a>
+          </article>
+
+          <article class="scenario-card card" data-scenario="c" tabindex="0" role="button" aria-expanded="false" aria-label="You're Preparing to Transact">
+            <figure class="scenario-card__media">
+              <img src="../../assets/images/transaction-advisory/transaction-advisory_When-to-Engage_Preparing-to-Transact.png" alt="You're preparing to transact" loading="lazy" decoding="async" />
+              <span class="scenario-card__accent scenario-card__accent--sage" aria-hidden="true"></span>
+            </figure>
+            <p class="eyebrow">SCENARIO C</p>
+            <h3 class="card-title">You&rsquo;re Preparing to Transact</h3>
+            <p>Develop positioning materials, coordinate all advisors, and manage the entire process through closing.</p>
+            <a href="#" class="scenario-card__link">Explore Scenario &#8594;</a>
+          </article>
+
+        </div>
+
+        <div class="scenario-modal-scrim" id="scenario-modal-scrim"></div>
+
+        <div class="scenario-modal" data-scenario="a" role="dialog" aria-hidden="true" aria-labelledby="scenario-modal-title-a">
+          <div class="scenario-modal__content">
+            <button class="scenario-modal__close" aria-label="Close">&times;</button>
+            <h3 id="scenario-modal-title-a">You&rsquo;ve Received an Offer</h3>
+            <p class="scenario-modal__meta">Scenario A</p>
+            <hr class="scenario-modal__divider" />
+            <ul class="scenario-modal__list">
+              <li>Independent indication of value within 2 weeks</li>
+              <li>Understand deal fairness and your leverage position</li>
+              <li>Evaluate structure: cash, earnout, and equity rollover implications</li>
+              <li>Decide whether to proceed, counter, or walk away with full information</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="scenario-modal" data-scenario="b" role="dialog" aria-hidden="true" aria-labelledby="scenario-modal-title-b">
+          <div class="scenario-modal__content">
+            <button class="scenario-modal__close" aria-label="Close">&times;</button>
+            <h3 id="scenario-modal-title-b">You Have a Buyer in Mind</h3>
+            <p class="scenario-modal__meta">Scenario B</p>
+            <hr class="scenario-modal__divider" />
+            <ul class="scenario-modal__list">
+              <li>Structure the engagement and LOI terms</li>
+              <li>Coordinate and manage the due diligence process</li>
+              <li>Negotiate purchase agreement terms protecting your interests</li>
+              <li>Manage all advisors through to closing and transition</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="scenario-modal" data-scenario="c" role="dialog" aria-hidden="true" aria-labelledby="scenario-modal-title-c">
+          <div class="scenario-modal__content">
+            <button class="scenario-modal__close" aria-label="Close">&times;</button>
+            <h3 id="scenario-modal-title-c">You&rsquo;re Preparing to Transact</h3>
+            <p class="scenario-modal__meta">Scenario C</p>
+            <hr class="scenario-modal__divider" />
+            <ul class="scenario-modal__list">
+              <li>Develop investment memorandum and management presentation</li>
+              <li>Build financial model and positioning narrative</li>
+              <li>Coordinate all advisors from outreach through close</li>
+              <li>Manage entire transaction process with discipline and confidentiality</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ TRANSACTION PHILOSOPHY ══════════════════════════════════ -->
+    <section class="fee-section">
+      <div class="container">
+        <div class="advantage-panel">
+          <div class="advantage-panel__heading">
+            <div>
+              <p class="advantage-panel__eyebrow">Our Transaction Philosophy</p>
+              <h2>Six Principles That Define How We Work</h2>
+            </div>
+            <div class="advantage-panel__image">
+              <img src="../../assets/images/transaction-advisory/transaction-advisory_Our%20Transaction%20Philosophy.png" alt="Our Transaction Philosophy" loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <div class="advantage-panel__content">
+            <p class="advantage-panel__lead">Every engagement is guided by the same operating principles, because how we work is as important as what we deliver.</p>
+            <div class="advantage-panel__tiles">
+              <article class="advantage-panel__tile">
+                <h3>Independence<br>First</h3>
+                <p>Fee-based advice aligned with your interests, not transaction volume or third-party relationships.</p>
+              </article>
+              <article class="advantage-panel__tile">
+                <h3>Legacy<br>Protection</h3>
+                <p>Transaction structures that honor your priorities: employees, community, and post-close commitments.</p>
+              </article>
+              <article class="advantage-panel__tile">
+                <h3>Process<br>Discipline</h3>
+                <p>Rigorous project management and timeline control from first offer through closing.</p>
+              </article>
+              <article class="advantage-panel__tile">
+                <h3>Advisor<br>Coordination</h3>
+                <p>One quarterback managing all specialists so nothing falls through the gaps.</p>
+              </article>
+              <article class="advantage-panel__tile">
+                <h3>Confidentiality<br></h3>
+                <p>Strict protocols that protect business operations, employees, and customer relationships throughout.</p>
+              </article>
+              <article class="advantage-panel__tile">
+                <h3>Strategic<br>Flexibility</h3>
+                <p>Walk-away power preserved through thorough preparation and independent valuation from day one.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA + FAQ ════════════════════════════════════════════════ -->
+    <section class="fee-section">
+      <div class="container">
+        <div class="resource-faq-layout">
+          <div class="resource-left-stack">
+
+            <div class="intake-cta-block">
+              <div class="section-heading section-heading--tight">
+                <p class="faq-section__eyebrow">Next Step</p>
+                <h2>Get Independent Guidance Before the Other Side Is Prepared</h2>
+              </div>
+              <p>Start with a strategic intake. We&rsquo;ll evaluate your situation, frame your options, and tell you exactly where you stand before you respond to any offer or approach.</p>
+              <div class="intake-cta-actions">
+                <a class="btn btn-primary" href="../contact.html">Start Intake</a>
+              </div>
+            </div>
+
+            <div class="value-whitepaper-block">
+              <div class="value-whitepaper-block__copy">
+                <p class="faq-section__eyebrow">Or Read the Research</p>
+                <h2>The Exit Readiness Gap</h2>
+                <div class="intake-cta-actions">
+                  <a class="btn btn-primary" href="../../assets/white-papers/exit-readiness-gap.pdf">Download the White Paper</a>
+                </div>
+              </div>
+              <div class="value-whitepaper-block__cover">
+                <img src="../../assets/images/WHITE%20PAPER%20THUMB%20NAIL.png" alt="The Exit Readiness Gap, white paper cover, RTO Advisory Q2 2026" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <div class="ta-disclaimer">
+              <p><strong>Note:</strong> RTO Advisory provides advisory and process management services. We do not source buyers or operate as broker-dealers. If buyer identification is required, we can recommend appropriate intermediaries and manage that relationship on your behalf.</p>
+            </div>
+
+          </div>
+
+          <aside class="resource-faq-rail">
+            <div class="section-heading section-heading--tight">
+              <p class="faq-section__eyebrow">FAQ</p>
+              <h2>Questions Owners Ask Before Engaging</h2>
+            </div>
+
+            <div class="faq-list">
+              <div class="faq-item">
+                <button class="faq-item__question" type="button" aria-expanded="false">
+                  <span class="faq-item__question-text">Do you source buyers or work as a broker?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__answer">
+                  <div class="faq-item__answer-panel">
+                    <p>No. RTO Advisory provides independent advisory and process management. We do not source buyers or operate as a broker-dealer. If buyer identification is needed, we can recommend appropriate intermediaries and coordinate that relationship on your behalf.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-item__question" type="button" aria-expanded="false">
+                  <span class="faq-item__question-text">When is the right time to engage you?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__answer">
+                  <div class="faq-item__answer-panel">
+                    <p>As early as possible. Whether you&rsquo;ve just received an offer, have a buyer in mind, or are starting to prepare for market, earlier engagement gives you more options, more leverage, and more time to structure the deal on your terms.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-item__question" type="button" aria-expanded="false">
+                  <span class="faq-item__question-text">How quickly can you evaluate an offer I&rsquo;ve received?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__answer">
+                  <div class="faq-item__answer-panel">
+                    <p>For a received offer, we can typically deliver an independent indication of value and preliminary fairness assessment within two weeks of engagement, giving you the information you need before responding.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-item__question" type="button" aria-expanded="false">
+                  <span class="faq-item__question-text">Can you work alongside the attorneys and advisors I already have?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__answer">
+                  <div class="faq-item__answer-panel">
+                    <p>Yes. RTO coordinates with your existing M&amp;A attorney, CPA, wealth manager, and any other advisors. Our role is to serve as quarterback, not to replace your team but to ensure every advisor is aligned and nothing falls through the gaps.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-item__question" type="button" aria-expanded="false">
+                  <span class="faq-item__question-text">How is your fee structured for transaction advisory?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__answer">
+                  <div class="faq-item__answer-panel">
+                    <p>Transaction advisory is fee-based, not commission-based. Our compensation is not tied to whether the deal closes or at what price. Our advice is aligned with your best outcome, not transaction volume. Specifics are available on the <a href="../fee-structure.html">Fee Structure</a> page.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
   </main>
+
+  <dialog class="sources-modal" data-sources-modal aria-labelledby="sources-modal-title">
+    <div class="sources-modal__panel">
+      <div class="sources-modal__header">
+        <h2 id="sources-modal-title">Sources</h2>
+        <button class="sources-modal__close" type="button" data-close-sources aria-label="Close sources">&times;</button>
+      </div>
+      <div class="sources-modal__body">
+        <ul class="sources-modal__list">
+          <li>The Exit Readiness Gap &mdash; <em>RTO Advisory White Paper, Q2 2026</em></li>
+          <li>Versailles Group &mdash; <em>A Guide for Business Owners: How Middle Market Valuation Works</em></li>
+          <li>Windsor Drake &mdash; <em>Lower Middle Market Valuation Multiples 2025</em></li>
+          <li>TobinLeff &mdash; <em>Increase Enterprise Value: Strengthen Value Drivers Before Selling a Business</em></li>
+        </ul>
+      </div>
+    </div>
+  </dialog>
 
   <footer class="fee-footer-dark">
     <div class="container">
@@ -102,7 +1543,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">© 2026 Return To Owner Advisory. All rights reserved.</p>
+        <p class="footer-copy">&copy; 2026 Return To Owner Advisory. All rights reserved.</p>
         <p class="footer-legal">
           <a href="../privacy.html">Privacy Policy</a>
           <a href="../terms.html">Terms of Service</a>
@@ -115,5 +1556,256 @@
 
   <script src="../../assets/js/navigation.js"></script>
   <script src="../../assets/js/main.js"></script>
-</body>
-</html>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const bindCardModals = ({ cardSelector, modalSelector, scrimId, dataKey, linkSelector, closeSelector }) => {
+        const cards = document.querySelectorAll(cardSelector);
+        const modals = document.querySelectorAll(modalSelector);
+        const scrim = document.getElementById(scrimId);
+        let activeModal = null;
+        let activeCard = null;
+
+        const closeModal = () => {
+          if (!activeModal) return;
+          activeModal.setAttribute('aria-hidden', 'true');
+          if (activeCard) {
+            activeCard.setAttribute('aria-expanded', 'false');
+            activeCard.focus();
+          }
+          if (scrim) scrim.classList.remove('is-open');
+          document.body.style.overflow = '';
+          activeModal = null;
+          activeCard = null;
+        };
+
+        const openModal = (card) => {
+          closeModal();
+          const modal = document.querySelector(`${modalSelector}[data-${dataKey}="${card.dataset[dataKey]}"]`);
+          if (!modal) return;
+          activeModal = modal;
+          activeCard = card;
+          modal.setAttribute('aria-hidden', 'false');
+          card.setAttribute('aria-expanded', 'true');
+          if (scrim) scrim.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+          const closeButton = modal.querySelector(closeSelector);
+          if (closeButton) setTimeout(() => closeButton.focus(), 100);
+        };
+
+        cards.forEach((card) => {
+          card.addEventListener('click', (event) => { event.preventDefault(); openModal(card); });
+          card.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openModal(card); }
+          });
+          const cardLink = card.querySelector(linkSelector);
+          if (cardLink) cardLink.addEventListener('click', (event) => { event.preventDefault(); openModal(card); });
+        });
+
+        if (scrim) scrim.addEventListener('click', closeModal);
+        modals.forEach((modal) => {
+          const closeButton = modal.querySelector(closeSelector);
+          if (closeButton) closeButton.addEventListener('click', closeModal);
+        });
+        document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && activeModal) closeModal(); });
+      };
+
+      bindCardModals({
+        cardSelector: '.service-card',
+        modalSelector: '.service-modal',
+        scrimId: 'service-modal-scrim',
+        dataKey: 'service',
+        linkSelector: '.service-card__link',
+        closeSelector: '.service-modal__close'
+      });
+
+      bindCardModals({
+        cardSelector: '.scenario-card',
+        modalSelector: '.scenario-modal',
+        scrimId: 'scenario-modal-scrim',
+        dataKey: 'scenario',
+        linkSelector: '.scenario-card__link',
+        closeSelector: '.scenario-modal__close'
+      });
+
+      // FAQ accordion
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach((item) => {
+        const btn = item.querySelector('.faq-item__question');
+        const answer = item.querySelector('.faq-item__answer');
+        if (!btn || !answer) return;
+        btn.addEventListener('click', () => {
+          const isOpen = item.classList.contains('is-open');
+          faqItems.forEach((i) => {
+            i.classList.remove('is-open');
+            const q = i.querySelector('.faq-item__question');
+            if (q) q.setAttribute('aria-expanded', 'false');
+            const a = i.querySelector('.faq-item__answer');
+            if (a) a.style.height = '0';
+          });
+          if (!isOpen) {
+            item.classList.add('is-open');
+            btn.setAttribute('aria-expanded', 'true');
+            const panel = answer.querySelector('.faq-item__answer-panel');
+            answer.style.height = panel ? panel.scrollHeight + 'px' : 'auto';
+          }
+        });
+      });
+    });
+  </script>
+
+  <!-- PDF Gate Modal -->
+  <div id="pdfGateModal" class="pdf-gate-modal">
+    <div class="pdf-gate-modal__overlay"></div>
+    <div class="pdf-gate-modal__content">
+      <button class="pdf-gate-modal__close" aria-label="Close modal">&times;</button>
+      <h2 class="pdf-gate-modal__title">Get the White Paper</h2>
+      <form id="pdfGateForm" class="pdf-gate-form">
+        <div class="pdf-gate-form__grid">
+          <div>
+            <label for="firstName">First Name</label>
+            <input id="firstName" name="first_name" type="text" required />
+          </div>
+          <div>
+            <label for="lastName">Last Name</label>
+            <input id="lastName" name="last_name" type="text" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div>
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" required />
+          </div>
+          <div>
+            <label for="readerType">Reader Type</label>
+            <select id="readerType" name="reader_type" required>
+              <option value="">Choose</option>
+              <option>Owner</option>
+              <option>Business Executive</option>
+              <option>CPA</option>
+              <option>Attorney</option>
+              <option>Wealth Advisor/Manager</option>
+              <option>Consultant</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div id="otherReaderInput" style="display:none;">
+            <label for="readerTypeOther">Please specify</label>
+            <input id="readerTypeOther" name="reader_type_other" type="text" />
+          </div>
+        </div>
+        <div class="pdf-gate-message" style="display:none;"></div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top: 1.5rem;">Send White Paper to Email</button>
+      </form>
+    </div>
+  </div>
+
+  <style>
+    .pdf-gate-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .pdf-gate-modal__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .pdf-gate-modal__content {
+      position: relative;
+      background: #fff;
+      border-radius: 8px;
+      padding: 2.5rem;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+    .pdf-gate-modal__close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #999;
+      padding: 0;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pdf-gate-modal__close:hover {
+      color: #333;
+    }
+    .pdf-gate-modal__title {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: var(--color-brand);
+    }
+    .pdf-gate-form__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .pdf-gate-form__grid > div:nth-child(3),
+    .pdf-gate-form__grid > div:nth-child(4),
+    .pdf-gate-form__grid > div:nth-child(5),
+    .pdf-gate-form__grid > div:nth-child(6) {
+      grid-column: 1 / -1;
+    }
+    .pdf-gate-form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--color-ink-900);
+    }
+    .pdf-gate-form input,
+    .pdf-gate-form select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--color-line);
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-family: var(--font-body);
+    }
+    .pdf-gate-form input:focus,
+    .pdf-gate-form select:focus {
+      outline: none;
+      border-color: var(--color-brand);
+      box-shadow: 0 0 0 3px rgba(15, 46, 42, 0.1);
+    }
+    .pdf-gate-message {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+    .pdf-gate-message--success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .pdf-gate-message--error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+  </style>
+
+  <script src="../../assets/js/pdf-gate.js"></script>
+

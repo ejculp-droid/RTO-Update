@@ -7,6 +7,9 @@
     "build": "echo 'No build needed for static site'",
     "start": "npx http-server . -p 3000 -c-1"
   },
+  "dependencies": {
+    "nodemailer": "^6.9.13"
+  },
   "devDependencies": {
     "http-server": "^14.1.1"
   },
