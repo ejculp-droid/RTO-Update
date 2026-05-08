@@ -7,6 +7,21 @@ const CLIENT_ID = process.env.AZURE_CLIENT_ID;
 const CLIENT_SECRET = process.env.AZURE_CLIENT_SECRET;
 const SEND_FROM = 'elliott@rtoadvisory.com';
 
+function sanitizeHtml(text) {
+  if (!text) return '';
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;');
+}
+
+function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
 async function getAccessToken() {
   const tokenUrl = `https://login.microsoftonline.com/${TENANT_ID}/oauth2/v2.0/token`;
   const params = new URLSearchParams({
@@ -62,20 +77,28 @@ exports.handler = async (event) => {
 
   try {
     const body = JSON.parse(event.body);
-    const { first_name, last_name, email, company, reader_type, reader_type_other } = body;
+    let { first_name, last_name, email, company, reader_type, reader_type_other } = body;
 
     if (!first_name || !last_name || !email || !company || !reader_type) {
       return { statusCode: 400, body: JSON.stringify({ error: 'Missing required fields' }) };
     }
 
-    // Read PDF
+    if (!validateEmail(email)) {
+      return { statusCode: 400, body: JSON.stringify({ error: 'Invalid email format' }) };
+    }
+
+    first_name = sanitizeHtml(first_name.trim());
+    last_name = sanitizeHtml(last_name.trim());
+    company = sanitizeHtml(company.trim());
+    reader_type = sanitizeHtml(reader_type.trim());
+    reader_type_other = reader_type_other ? sanitizeHtml(reader_type_other.trim()) : null;
+
     const pdfPath = path.join(process.cwd(), 'assets/white-papers/exit-readiness-gap.pdf');
     const pdfBuffer = fs.readFileSync(pdfPath);
 
     const accessToken = await getAccessToken();
     const transporter = await createTransporter(accessToken);
 
-    // Send PDF to requester
     await sendEmail(
       transporter,
       email,
@@ -88,7 +111,6 @@ exports.handler = async (event) => {
       'exit-readiness-gap.pdf'
     );
 
-    // Notify Elliott of new lead
     await sendEmail(
       transporter,
       SEND_FROM,
@@ -109,96 +131,5 @@ exports.handler = async (event) => {
   } catch (error) {
     console.error('send-pdf error:', error.message);
     return { statusCode: 500, body: JSON.stringify({ error: 'Failed to send white paper. Please try again.' }) };
-  }
-};
-
-
-// Create transporter using Office 365
-const transporter = nodemailer.createTransport({
-  host: 'smtp.office365.com',
-  port: 587,
-  secureConnection: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  },
-  tls: {
-    ciphers: 'SSLv3'
-  }
-});
-
-exports.handler = async (event) => {
-  // Only handle POST requests
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' };
-  }
-
-  try {
-    const body = JSON.parse(event.body);
-    const { first_name, last_name, email, company, reader_type, reader_type_other } = body;
-
-    // Validate required fields
-    if (!first_name || !last_name || !email || !company || !reader_type) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: 'Missing required fields' })
-      };
-    }
-
-    // Read the PDF file
-    const pdfPath = path.join(process.cwd(), 'assets/white-papers/exit-readiness-gap.pdf');
-    const pdfBuffer = fs.readFileSync(pdfPath);
-
-    // Prepare email to the requester
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: email,
-      subject: 'Your RTO Advisory White Paper: Exit Readiness Gap Assessment',
-      html: `
-        <p>Hi ${first_name},</p>
-        <p>Thank you for your interest in RTO Advisory's white paper on the Exit Readiness Gap Assessment.</p>
-        <p>Your white paper is attached. We look forward to connecting with you soon.</p>
-        <p>Best regards,<br />RTO Advisory Team</p>
-      `,
-      attachments: [
-        {
-          filename: 'exit-readiness-gap.pdf',
-          content: pdfBuffer
-        }
-      ]
-    };
-
-    // Send email to requester
-    await transporter.sendMail(mailOptions);
-
-    // Also notify Elliott of the new lead
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: 'elliott@rtoadvisory.com',
-      subject: `New White Paper Download: ${first_name} ${last_name}`,
-      html: `
-        <p>A new white paper was requested.</p>
-        <ul>
-          <li><strong>Name:</strong> ${first_name} ${last_name}</li>
-          <li><strong>Email:</strong> ${email}</li>
-          <li><strong>Company:</strong> ${company}</li>
-          <li><strong>Reader Type:</strong> ${reader_type}${reader_type_other ? ` (${reader_type_other})` : ''}</li>
-        </ul>
-      `
-    });
-
-    // Also log to Netlify Forms for your dashboard
-    console.log(`PDF gate submission: ${first_name} ${last_name}, ${email}, ${company}, ${reader_type}`);
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ success: true, message: 'White paper sent to your email' })
-    };
-  } catch (error) {
-    console.error('PDF send error:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to send white paper. Please try again.' })
-    };
   }
 };

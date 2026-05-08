@@ -9,3 +9,9 @@
   for = "/*.html"
   [headers.values]
     Content-Type = "text/html; charset=UTF-8"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://assets.calendly.com; style-src 'self' https://fonts.googleapis.com https://assets.calendly.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://calendly.com https://login.microsoftonline.com; img-src 'self' data: https:; frame-src https://calendly.com; object-src 'none'; base-uri 'self'; form-action 'self'"
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
